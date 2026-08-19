@@ -1,0 +1,2542 @@
+[
+  {
+    "name": "Dome of Darkness",
+    "type": "power",
+    "system": {
+      "description": "The User creates 10\u2019 dome of supernatural darkness. Every target within the dome is considered Blinded while they remain in the dome.\nThe User creates a dome of supernatural darkness. It must be placed on a surface.\nRaise: Double duration of effect OR increase Range",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "short",
+      "target": "",
+      "raises": [
+        "Double duration of effect OR increase Range"
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Darkness",
+        "tier": 1,
+        "duration": "1 Minute",
+        "requires_focus": true,
+        "progression": "Increase the size of the dome by 10' for every Tier past Tier 1."
+      }
+    }
+  },
+  {
+    "name": "Penetrate the Darkness",
+    "type": "power",
+    "system": {
+      "description": "The User's vision in mundane Darkness as if in Dim Light.\nThe User is able to see through mundane darkness as if it were dim light.\nRaise: Doubles duration of the Ability OR Dim Light is a Bright Light.",
+      "attribute": "presence",
+      "apCost": 1,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": [
+        "Doubles duration of the Ability OR Dim Light is a Bright Light."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Darkness",
+        "tier": 1,
+        "duration": "1 Minute",
+        "requires_focus": false,
+        "progression": "At Tier 2 this allows User to see through their own supernatural darkness effects, at Tier 3 and 4 it allows the User to see through supernatural darkness effects of the same Tier or lower created by others."
+      }
+    }
+  },
+  {
+    "name": "Shadowy Cloak",
+    "type": "power",
+    "system": {
+      "description": "The User distorts features requiring others CL+2 on Awareness Rolls to identity user.\nThe User pulls nearby shadows to obscure their features to anyone perceiving or identifying them This effect does not work with electronic surveillance or magical detection.\nRaise: CL+1 Awareness penalty for others OR Double the duration of Ability.",
+      "attribute": "presence",
+      "apCost": 1,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": [
+        "CL+1 Awareness penalty for others OR Double the duration of Ability."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Darkness",
+        "tier": 1,
+        "duration": "10 Minutes",
+        "requires_focus": false,
+        "progression": "At Tier 3 this allows User to use with electronic surveillance and at Tier 4 it allows the User to use with supernatural and magical effects with a contested roll."
+      }
+    }
+  },
+  {
+    "name": "Obscure Item",
+    "type": "power",
+    "system": {
+      "description": "The User makes it so that an object no larger than Size -3 goes unnoticed by mundane or supernatural means.\nThe User can make a small object so that it requires CL+2 penalty on Awareness Rolls to notice it by mundane or supernatural means.\nRaise: Duration doubles per Advance OR Increase Size limit by one.",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "melee",
+      "target": "",
+      "raises": [
+        "Duration doubles per Advance OR Increase Size limit by one."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Darkness",
+        "tier": 2,
+        "duration": "1 Hour",
+        "requires_focus": true,
+        "progression": "At Tier 3 difficulty is CL+1, and at Tier 4 it increases difficult by CL+2. The Range increases at Tier 3 at Short Range, and Mid Range at Tier 4."
+      }
+    }
+  },
+  {
+    "name": "Shadow Projection",
+    "type": "power",
+    "system": {
+      "description": "The User is able to project shadow and see and hear through it.\nThe User projects shadow while they lie still and comatose. User can see and hear through this shadow. The shadow cannot interact with physical objects like door handles, but can make itself thin to be able to slip through small cracks. Any physical damage to the projected shadow ends the Ability.\nRaise: Doubles duration of the Ability.",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": [
+        "Doubles duration of the Ability."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Darkness",
+        "tier": 2,
+        "duration": "1 Minute",
+        "requires_focus": true,
+        "progression": "At Tier 3 the duration is 10 Minutes, and at Tier 4 the duration is 1 Hour."
+      }
+    }
+  },
+  {
+    "name": "Shifting Shadows",
+    "type": "power",
+    "system": {
+      "description": "The User shifts places with one\u2019s shadow. Move within 5\u2019 of current location.\nThe User switches places with their shadow to reposition or to avoid an attack.",
+      "attribute": "presence",
+      "apCost": 1,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": []
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Darkness",
+        "tier": 2,
+        "duration": "Instantaneous",
+        "requires_focus": false,
+        "progression": "At Tier 3 this lasts for an additional attack without using Ability again, and at Tier 4 it lasts for two additional attacks."
+      }
+    }
+  },
+  {
+    "name": "Summon Shadows",
+    "type": "power",
+    "system": {
+      "description": "The User creates a living shadow that can be used to attack or threaten other creatures. For the shadow to act requires 1 AP and they can deal melee necrotic damage equal to the User's Tier + Generation.\nFor combat they are considered to have the same stats as the User, except their HP equals their Tier, and they are considered unarmed and cannot use any of the User's Abilities.\nRaise: Create 1 additional shadow.",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "short",
+      "target": "",
+      "raises": [
+        "Create 1 additional shadow."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Darkness",
+        "tier": 3,
+        "duration": "1 Minute",
+        "requires_focus": false,
+        "progression": "Create one additional shadow at Tier 4. Damage scales with Tier."
+      }
+    }
+  },
+  {
+    "name": "Umbral Tendrils",
+    "type": "power",
+    "system": {
+      "description": "User creates shadowy tendrils of darkness equal to Tier to grasp targets within range. The target must make a Strength roll to avoid being Immobilized by the tendrils equal to User's Tier. On a failure, the target is Immobilized and takes damage equal to the User's Tier at the beginning of their turn.\nThe target at the beginning of their turn can make a Strength roll to break free of the effect before they take damage. It cost 1 AP to take this Action.\nRaise: 1 additional necrotic damage OR create an additional shadowy tendril.",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "medium",
+      "target": "",
+      "raises": [
+        "1 additional necrotic damage OR create an additional shadowy tendril."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Darkness",
+        "tier": 3,
+        "duration": "1 Minute",
+        "requires_focus": false,
+        "progression": "Damage and number of tendrils scales with Tier."
+      }
+    }
+  },
+  {
+    "name": "Wall of Shadows",
+    "type": "power",
+    "system": {
+      "description": "The User creates a wall of darkness up to 40 ft long, 20 feet high and 3 feet thick or create a ringed wall that can cover a Short Range in diameter. When the wall is created any creatures within its area must make a Fortitude roll equal to the Tier of the User or take necrotic damage equal to User's Tier + Generation, which is halved if succeeds. Any person that begins their turn or crosses the area of the Ability must make the same Fortitude roll taking damage equal to Tier on a failure or half on a success.\nThe wall obscures vision and cannot be seen through.\nRaise: 1 additional Necrotic damage",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "medium",
+      "target": "",
+      "raises": [
+        "1 additional Necrotic damage"
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Darkness",
+        "tier": 3,
+        "duration": "1 Minute",
+        "requires_focus": true,
+        "progression": "Damage scales with Tier. Increase length of effect by 30 feet or create a wall that is Mid Range in diameter at Tier 4."
+      }
+    }
+  },
+  {
+    "name": "Shadow Form",
+    "type": "power",
+    "system": {
+      "description": "The User becomes a being of darkness and shadow. They are resistant to all damage except radiant damage. Gains a movement speed equal to Conviction and can fly. Can use Tier 1 Darkness abilities at will without spending Gloriae. Base melee damage is Tier + Generation necrotic damage.\nRaise: 1 additional necrotic damage OR lasts for 10 Minutes.",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": [
+        "1 additional necrotic damage OR lasts for 10 Minutes."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Darkness",
+        "tier": 4,
+        "duration": "1 Minute",
+        "requires_focus": false,
+        "progression": "N/A"
+      }
+    }
+  },
+  {
+    "name": "Shadow Walk",
+    "type": "power",
+    "system": {
+      "description": "The User can step into an area of dim light or darkness and the User and creatures up to User's Tier can travel through the shortcuts of travelling through the realm of shadows emerge from another point of dim light or darkness within miles equal to Tier + Generation.\nThe User is aware if the targeted location has areas of dim light/darkness or what the next closest area would be.\nRaise: Can bring one additional creature.",
+      "attribute": "presence",
+      "apCost": 3,
+      "glorieaCost": 0,
+      "range": "melee",
+      "target": "",
+      "raises": [
+        "Can bring one additional creature."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Darkness",
+        "tier": 4,
+        "duration": "Instantaneous",
+        "requires_focus": false,
+        "progression": "N/A"
+      }
+    }
+  },
+  {
+    "name": "Fire Bolt",
+    "type": "power",
+    "system": {
+      "description": "The User creates bolt of Fire damage equal to Tier level to single target.\nThe User makes ranged fire attack. May set flammable objects on fire.\nRaise: 1 additional Fire damage OR increase Range by one.",
+      "attribute": "presence",
+      "apCost": 1,
+      "glorieaCost": 0,
+      "range": "short",
+      "target": "",
+      "raises": [
+        "1 additional Fire damage OR increase Range by one."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Fire",
+        "tier": 1,
+        "duration": "Instantaneous",
+        "requires_focus": false,
+        "progression": "At Tier 2 the range increased to Mid Range, at Tier 3 it becomes Long Range, and at Tier 4 it is Distant Range."
+      }
+    }
+  },
+  {
+    "name": "Fists of Fire",
+    "type": "power",
+    "system": {
+      "description": "The User deals Fire Damage equal to Tier Level at melee range.\nThe User can ignite hands on fire or weapon with raise.\nRaise: 1 additional point of Fire damage OR place effect on weapon.",
+      "attribute": "presence",
+      "apCost": 1,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": [
+        "1 additional point of Fire damage OR place effect on weapon."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Fire",
+        "tier": 1,
+        "duration": "10 Minutes",
+        "requires_focus": false,
+        "progression": "Damage scales with Tier level."
+      }
+    }
+  },
+  {
+    "name": "Flame Ward",
+    "type": "power",
+    "system": {
+      "description": "The User gains Damage Reduction from Fire by 2.\nThe User gains some resistance to damage caused by fire.\nRaise: 1 additional Fire Damage Reduction OR Double Duration",
+      "attribute": "presence",
+      "apCost": 1,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": [
+        "1 additional Fire Damage Reduction OR Double Duration"
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Fire",
+        "tier": 1,
+        "duration": "10 Minutes",
+        "requires_focus": false,
+        "progression": "Duration lasts 30 minutes at Tier 2, 1 Hour at Tier 3, and 4 Hours at Tier 4 ."
+      }
+    }
+  },
+  {
+    "name": "Cone of Flames",
+    "type": "power",
+    "system": {
+      "description": "The User Deals Fire damage equal to Tier Level.\nThe User causes Fire damage to all targets within cone of effect. May set flammable objects on fire.\nRaise: 1 additional Fire damage and target must make Fortitude roll to avoid the Burning state.",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "15 ft cone",
+      "target": "",
+      "raises": [
+        "1 additional Fire damage and target must make Fortitude roll to avoid the Burning state."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Fire",
+        "tier": 2,
+        "duration": "Instantaneous",
+        "requires_focus": false,
+        "progression": "Difficulty of target Fortitude roll increases with Tier Level, damage scales with Tier level."
+      }
+    }
+  },
+  {
+    "name": "Fireball",
+    "type": "power",
+    "system": {
+      "description": "The User deals Fire damage equal to Tier Level within a 10\u2019 sphere\nThe User creates a ball of fire that hits every target within the range of the blast. Objects that are flammable and creatures that fail an Evasion roll are subject to the Burning state. Creatures that succeed an Evasion roll, are not Burning and take half damage.\nRaise: Additional 1 Fire damage OR additional 10\u2019 radius sphere OR increase  the range by one.",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "medium",
+      "target": "",
+      "raises": [
+        "Additional 1 Fire damage OR additional 10\u2019 radius sphere OR increase  the range by one."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Fire",
+        "tier": 2,
+        "duration": "Instantaneous",
+        "requires_focus": false,
+        "progression": "Additional 10' radius sphere for every Tier above 2, at Tier 3 Range is Long, and Tier 4 the range is Distant."
+      }
+    }
+  },
+  {
+    "name": "Pillar of Fire",
+    "type": "power",
+    "system": {
+      "description": "The User creates a pillar of flames that can be moved into an area dealing Fire damage equal to Tier to those it comes in contact with.\nMay set flammable objects on fire.\nRaise: 1 additional fire damage",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "5\u2019 cylinder that is 10\u2019 high",
+      "target": "",
+      "raises": [
+        "1 additional fire damage"
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Fire",
+        "tier": 2,
+        "duration": "1 Minute",
+        "requires_focus": true,
+        "progression": "Fire damage scales with Tier, can move an additional 10'/action for every Tier above 1."
+      }
+    }
+  },
+  {
+    "name": "Flame Cloak",
+    "type": "power",
+    "system": {
+      "description": "The User is sheathed in flames granting fire resistance and dealing fire damage to anyone who attack user.\nFlames encircle the User dealing damage equal to Tier to any target that deals damage to user by a melee attack. The User also gains Fire Resistance during this time.\nRaise: Double duration OR 1 Additional Fire damage",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": [
+        "Double duration OR 1 Additional Fire damage"
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Fire",
+        "tier": 3,
+        "duration": "1 Minute",
+        "requires_focus": false,
+        "progression": "Fire damage progresses with Tier, and at Tier 4 the User adds Generation score to damage and Fire Damage Reduction."
+      }
+    }
+  },
+  {
+    "name": "Incinerate",
+    "type": "power",
+    "system": {
+      "description": "The User uses heat to  reduce Damage Reduction of Armor, destroy objects, and deals double Tier damage to other lower Tier effects.\nThe User can super-heat their fire to incinerate objects within melee range. Objects without Damage Reduction are instantly destroyed and turned to dust or melted. Any damage done beyond an object which has Damage Reduction reduces Damage Reduction by 1 if damage is twice the value of the Damage Reduction (after it is applied). While This Ability  is active it can be used for lower Tier Abilities and doubles the damage done and apply the destructive properties of super-heated Incinerate to those abilities.\nRaise: Increase range by one Range OR Increase duration by one Round.",
+      "attribute": "presence",
+      "apCost": 1,
+      "glorieaCost": 0,
+      "range": "melee",
+      "target": "",
+      "raises": [
+        "Increase range by one Range OR Increase duration by one Round."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Fire",
+        "tier": 3,
+        "duration": "1 Round",
+        "requires_focus": false,
+        "progression": "At Tier 4 the Range is increased to Short Range."
+      }
+    }
+  },
+  {
+    "name": "Wall of Fire",
+    "type": "power",
+    "system": {
+      "description": "The User creates a wall of flames up to 40 ft long, 20 feet high and 3 feet thick or create a ringed wall that can cover a Short Range in diameter. When the wall is created any creatures within its area must make a Fortitude roll equal to the Tier of the User or take damage equal to User's Tier + Generation, which is halved if succeeds. Any person that begins their turn or crosses the area of the Ability must make the same Fortitude roll taking damage equal to Tier on a failure or half on a success.\nThe wall obscures vision and cannot be seen through.\nRaise: 1 additional fire damage",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "medium",
+      "target": "",
+      "raises": [
+        "1 additional fire damage"
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Fire",
+        "tier": 3,
+        "duration": "1 Minute",
+        "requires_focus": false,
+        "progression": "Damage scales with Tier. Increase length of effect by 30 feet or create a wall that is Mid Range in diameter at Tier 4."
+      }
+    }
+  },
+  {
+    "name": "Fire Storm",
+    "type": "power",
+    "system": {
+      "description": "The User creates 5 blasts of flames that are that are circular in a Short Range circle that deal damage equal to Conviction score.\nUser creates a wave of flames that deal fire damage. This requires a Fortitude roll from all targets in range. If succeeds the Fortitude roll, the target takes half of the damage and isn\u2019t Burning, on a failure the target takes full damage and gains the Burning state. A Raise can increase the range to half of the range of User's Mantle, and two Raises can increase this range to the range of Mantle.\nRaise: 1 additional blast of fire OR increase range (see Notes).",
+      "attribute": "presence",
+      "apCost": 3,
+      "glorieaCost": 0,
+      "range": "mantle",
+      "target": "",
+      "raises": [
+        "1 additional blast of fire OR increase range (see Notes)."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Fire",
+        "tier": 4,
+        "duration": "Instantaneous",
+        "requires_focus": false,
+        "progression": "N/A"
+      }
+    }
+  },
+  {
+    "name": "Pyroclastic Wave",
+    "type": "power",
+    "system": {
+      "description": "A wave of fire emits from user in a direction of user\u2019s choice making a Mid Sized cube dealing fire damage equal to Conviction.\nThe User creates a wave of flames that deal fire damage. This requires a Fortitude roll from all targets in range. If succeeds the Fortitude roll, the target takes half of the damage and isn\u2019t Burning, on a failure the target takes full damage and gains the Burning state.\nRaise: 1 additional Fire damage OR increasing the effect by 5 ft in any dimension chosen.",
+      "attribute": "presence",
+      "apCost": 3,
+      "glorieaCost": 0,
+      "range": "medium",
+      "target": "",
+      "raises": [
+        "1 additional Fire damage OR increasing the effect by 5 ft in any dimension chosen."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Fire",
+        "tier": 4,
+        "duration": "Instantaneous",
+        "requires_focus": false,
+        "progression": "N/A"
+      }
+    }
+  },
+  {
+    "name": "Healing Touch",
+    "type": "power",
+    "system": {
+      "description": "The User can heal a number of HP equal to User\u2019s Tier Level to a single target.\nThe User can heal others. The ability doesn\u2019t work if they are Dead.\nRaise: 1 additional HP per Advance.",
+      "attribute": "presence",
+      "apCost": 1,
+      "glorieaCost": 0,
+      "range": "melee",
+      "target": "",
+      "raises": [
+        "1 additional HP per Advance."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Healing",
+        "tier": 1,
+        "duration": "Instantaneous",
+        "requires_focus": false,
+        "progression": "Scales with Tier."
+      }
+    }
+  },
+  {
+    "name": "Neutralize Poison/Disease",
+    "type": "power",
+    "system": {
+      "description": "The User can neutralize a mundane source of poison or disease from one subject such as the common cold or rat poison from a person\u2019s system.\nMore complex toxins/afflictions, especially those supernatural in nature, might not be affected by this.\nRaise: Neutralize one additional subject per Raise",
+      "attribute": "presence",
+      "apCost": 3,
+      "glorieaCost": 0,
+      "range": "melee",
+      "target": "",
+      "raises": [
+        "Neutralize one additional subject per Raise"
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Healing",
+        "tier": 1,
+        "duration": "1 Minute",
+        "requires_focus": false,
+        "progression": "Can deal with more complex or supernatural toxins as determined by Gamemaster."
+      }
+    }
+  },
+  {
+    "name": "Self Healing",
+    "type": "power",
+    "system": {
+      "description": "The User can use any other healing power on self and receive the benefit.\nThe User must have already learned a Healing ability before can be used on self.\nRaise: Same as Healing Ability used.",
+      "attribute": "presence",
+      "apCost": 0,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": [
+        "Same as Healing Ability used."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Healing",
+        "tier": 1,
+        "duration": "1 Minute",
+        "requires_focus": false,
+        "progression": "Same as Healing Ability used."
+      }
+    }
+  },
+  {
+    "name": "Gentle Repose",
+    "type": "power",
+    "system": {
+      "description": "The User is able to prevent decay. It can be used on the remains on a human or animal corpse. This can also prevent decay in food or drink.\nThe User can prevent or slow decay. Each use delays a day\u2019s worth of decay.\nRaise: Prevents an additional day's worth of decay.",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "melee",
+      "target": "",
+      "raises": [
+        "Prevents an additional day's worth of decay."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Healing",
+        "tier": 2,
+        "duration": "Instantaneous",
+        "requires_focus": false,
+        "progression": "At Tier 3 the Range is increased to Short Range, and at Tier 4 the Range is increased to Mid Range."
+      }
+    }
+  },
+  {
+    "name": "Spare the Dying",
+    "type": "power",
+    "system": {
+      "description": "The User ends the Gravely Wounded State.\nUser can prevent a character from bleeding out with a touch. They are stable but keep remaining wounds. Can be used on a target that has just deceased (has the Dead state) within the last minute. Ability requires an additional advance for each Round they are Dead.\nRaise: Regain 1 HP OR remove one Fatigue for each additional Raise.",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "melee",
+      "target": "",
+      "raises": [
+        "Regain 1 HP OR remove one Fatigue for each additional Raise."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Healing",
+        "tier": 2,
+        "duration": "Instantaneous",
+        "requires_focus": false,
+        "progression": "N/A"
+      }
+    }
+  },
+  {
+    "name": "Speedy Recovery",
+    "type": "power",
+    "system": {
+      "description": "The User is able to heal lingering injuries more quickly. Ability counts as one day\u2019s recovery for a lingering injury like a broken bone.\nSo an injury that requires a month to recover from would be one day less for each use of the power.\nRaise: Each additional advance adds one less day of recovery.",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "melee",
+      "target": "",
+      "raises": [
+        "Each additional advance adds one less day of recovery."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Healing",
+        "tier": 2,
+        "duration": "1 Minute",
+        "requires_focus": false,
+        "progression": "Range is increased to Short Range at Tier 3, and Mid Range at Tier 4."
+      }
+    }
+  },
+  {
+    "name": "Aura of Fortitude",
+    "type": "power",
+    "system": {
+      "description": "The User generates an aura that creates a circle around the User in a Close Range. Allies within the aura boost their Fortitude by User's Tier and gain temporary HP equal to User's Tier + Generation. The temporary HP disappears after the Ability wears off.\nThis ability doesn't affect User unless they have Self Healing ability.\nRaise: Increase target's Fortitude by 1 OR increase temporary HP by 1.",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "short",
+      "target": "",
+      "raises": [
+        "Increase target's Fortitude by 1 OR increase temporary HP by 1."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Healing",
+        "tier": 3,
+        "duration": "10 Minutes",
+        "requires_focus": true,
+        "progression": "Ability scales with Tier. At Tier 4 the aura extends to a Short Range."
+      }
+    }
+  },
+  {
+    "name": "Mass Healing",
+    "type": "power",
+    "system": {
+      "description": "User heals targets equal to Tier + Generation for HP equal to User's Tier.\nThe target has to be within sight of the User.\nRaise: 1 additional HP of healing OR 1 additional target",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "medium",
+      "target": "",
+      "raises": [
+        "1 additional HP of healing OR 1 additional target"
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Healing",
+        "tier": 3,
+        "duration": "Instantaneous",
+        "requires_focus": false,
+        "progression": "Healing scales with Tier. At Tier 4 the range extends to Long Distance."
+      }
+    }
+  },
+  {
+    "name": "Restoring Touch",
+    "type": "power",
+    "system": {
+      "description": "User removes stress or fatigue equal to User's Tier + Generation to targets within Melee Range. This can instead be used to remove one of the following States: Blinded/Deafened (if the cause is temporary or from an ability), Stunned, Clouded, or Charmed from one target.\nThe affected targets have to be within range of the User to touch them.\nRaise: Remove an additional level of stress/fatigue OR remove one of the above States from an additional target.",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "melee",
+      "target": "",
+      "raises": [
+        "Remove an additional level of stress/fatigue OR remove one of the above States from an additional target."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Healing",
+        "tier": 3,
+        "duration": "Instantaneous",
+        "requires_focus": false,
+        "progression": "Ability scales with Tier."
+      }
+    }
+  },
+  {
+    "name": "Regeneration",
+    "type": "power",
+    "system": {
+      "description": "The User chooses a creature and they gain HP equal to the User's Tier+ Generation at the beginning of their turn while the effect is active. Alternatively, the User can regenerate a non-fatal injury or loss of limb/organ, which takes the duration of the ability to take in effect.\nThis ability can be used in connection with Resurrection for injuries like being beheaded.\nRaise: Target receives an additional HP at the beginning of their turn.",
+      "attribute": "presence",
+      "apCost": 3,
+      "glorieaCost": 0,
+      "range": "melee",
+      "target": "",
+      "raises": [
+        "Target receives an additional HP at the beginning of their turn."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Healing",
+        "tier": 4,
+        "duration": "1 Miniute",
+        "requires_focus": false,
+        "progression": "N/A"
+      }
+    }
+  },
+  {
+    "name": "Resurrection",
+    "type": "power",
+    "system": {
+      "description": "The User chooses a creature who is Dead and has been in this state for less than 1 day and restores them to life. This ability will restore them to half of the HP and heal any superficial wounds and mundane diseases but will not restore missing limbs/organs.\nThis ability can be used in connection with Regeneration for injuries like being beheaded.\nRaise: Target receives an additional HP in the process of being brought back to life OR it can add a day to the Ability's impact to revive the creature.",
+      "attribute": "presence",
+      "apCost": 3,
+      "glorieaCost": 0,
+      "range": "melee",
+      "target": "",
+      "raises": [
+        "Target receives an additional HP in the process of being brought back to life OR it can add a day to the Ability's impact to revive the creature."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Healing",
+        "tier": 4,
+        "duration": "1 Minute",
+        "requires_focus": true,
+        "progression": "N/A"
+      }
+    }
+  },
+  {
+    "name": "Heightened Hearing",
+    "type": "power",
+    "system": {
+      "description": "The User has a bonus for Awareness rolls using Hearing by CL-1.\nThe User can hear much more clearly and their Awareness using Hearing is improved.\nRaise: 1 Advance on Awareness rolls OR double the duration.",
+      "attribute": "presence",
+      "apCost": 1,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": [
+        "1 Advance on Awareness rolls OR double the duration."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Heightened Senses",
+        "tier": 1,
+        "duration": "10 Minutes",
+        "requires_focus": false,
+        "progression": "Duration is increased by 10 Minutes for each Tier above 1."
+      }
+    }
+  },
+  {
+    "name": "Heightened Scent",
+    "type": "power",
+    "system": {
+      "description": "The User has a bonus for Awareness rolls using Scent by CL-1.\nThe User can smell much more clearly and their Awareness using smelling is improved.\nRaise: 1 Advance on Awareness rolls OR double the duration.",
+      "attribute": "presence",
+      "apCost": 1,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": [
+        "1 Advance on Awareness rolls OR double the duration."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Heightened Senses",
+        "tier": 1,
+        "duration": "10 Minutes",
+        "requires_focus": false,
+        "progression": "Duration is increased by 10 Minutes for each Tier above 1."
+      }
+    }
+  },
+  {
+    "name": "Low-Light Vision",
+    "type": "power",
+    "system": {
+      "description": "The User is able to see in Dim Light appears as Bright Light.\nThe User can see in low light environments as if it were Bright Light.\nRaise: Double the duration",
+      "attribute": "presence",
+      "apCost": 1,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": [
+        "Double the duration"
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Heightened Senses",
+        "tier": 1,
+        "duration": "10 Minutes",
+        "requires_focus": false,
+        "progression": "At Tier 2 and higher add Tier to Awareness rolls when in Dim Light."
+      }
+    }
+  },
+  {
+    "name": "Darkvision",
+    "type": "power",
+    "system": {
+      "description": "The User can see in Darkness as Bright Light\nUser can see in mundane darkness as if it were Bright Light.\nRaise: Can see through supernatural darkness OR double the duration.",
+      "attribute": "presence",
+      "apCost": 1,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": [
+        "Can see through supernatural darkness OR double the duration."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Heightened Senses",
+        "tier": 2,
+        "duration": "10 Minutes",
+        "requires_focus": false,
+        "progression": "N/A"
+      }
+    }
+  },
+  {
+    "name": "Enhanced Hearing",
+    "type": "power",
+    "system": {
+      "description": "The User when making Awareness rolls using Hearing, is improved by 1 die + Tier.\nThe User can hear much more clearly and their Awareness using Hearing is improved. User can hear things not normally detectable by normal hearing like heartbeats and breathing from, even ones they are unaware of by other senses.\nRaise: 1 Advance OR double the duration.",
+      "attribute": "presence",
+      "apCost": 1,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": [
+        "1 Advance OR double the duration."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Heightened Senses",
+        "tier": 2,
+        "duration": "10 Minutes",
+        "requires_focus": false,
+        "progression": "Every Tier above Tier 2 provides 1 automatic Advance"
+      }
+    }
+  },
+  {
+    "name": "Enhanced Scent",
+    "type": "power",
+    "system": {
+      "description": "The User when making Awareness rolls using Scent, is improved by 1 die + Tier.\nThe User can smell much more clearly and their Awareness using Scent is improved. User can smell things not normally detectable by normal scent like discerning mortals and certain supernatural beings from their smell, even ones they are unaware of by other senses.\nRaise: 1 Advance OR double the duration.",
+      "attribute": "presence",
+      "apCost": 1,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": [
+        "1 Advance OR double the duration."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Heightened Senses",
+        "tier": 2,
+        "duration": "10 Minutes",
+        "requires_focus": false,
+        "progression": "Every Tier above Tier 2 provides 1 automatic Advance"
+      }
+    }
+  },
+  {
+    "name": "Echolocation",
+    "type": "power",
+    "system": {
+      "description": "User is able to use sounds and emit high pitch sounds (that regular mortals cannot hear) to visualize the area around them. This Ability works with within Distant Range. Unless a character makes no sound, all characters within range are unable to be Concealed from the User.\nThis ability will not work in area where noise is suppressed either by mundane or supernatural means.\nRaise: Duration is doubled.",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "distant",
+      "target": "",
+      "raises": [
+        "Duration is doubled."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Heightened Senses",
+        "tier": 3,
+        "duration": "10 Minutes",
+        "requires_focus": false,
+        "progression": "At Tier 4, this works in the range of the User's Mantle."
+      }
+    }
+  },
+  {
+    "name": "Infravision",
+    "type": "power",
+    "system": {
+      "description": "The User can  see heat signatures as a spectrum. This allows the User to see creatures and sources of heat or cold. This Ability works with within mid-range. Unless a character is the same temperature as their environment , all characters within range cannot be Concealed from the User, creatures that are the same general temperature would be Invisible to the User.\nWater blocks this vision, so something that is under a foot of water or ice cannot be seen with this Ability. Water based fog also will cause this Ability to not work.\nRaise: Duration is doubled.",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "medium",
+      "target": "",
+      "raises": [
+        "Duration is doubled."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Heightened Senses",
+        "tier": 3,
+        "duration": "10 Minutes",
+        "requires_focus": false,
+        "progression": "At Tier 4, this ability's range is extended to Distant Range."
+      }
+    }
+  },
+  {
+    "name": "X-Ray Vision",
+    "type": "power",
+    "system": {
+      "description": "The User can  see through objects, structures, and creatures selectively. This Ability works with within mid range. All characters within range cannot be Concealed from the User.\nLead blocks this vision as well as silver.\nRaise: Duration is doubled.",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "medium",
+      "target": "",
+      "raises": [
+        "Duration is doubled."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Heightened Senses",
+        "tier": 3,
+        "duration": "10 Minutes",
+        "requires_focus": false,
+        "progression": "At Tier 4, this ability's range is extended to Distant Range."
+      }
+    }
+  },
+  {
+    "name": "Being of Awareness",
+    "type": "power",
+    "system": {
+      "description": "The User is is able to hone a mastery of their senses and selects an ability for Tier 1, one from Tier 2, and one from Tier 3 and is able to maintain the effects of these with needing to be Focused or spend additional Gloriae on each of those effects. The User can also choose to add Generation to their Awareness rolls while this Ability is active.\nFor effects that have duration, the duration is now the length of this ability. For abilities that are instantaneous, the User can use the effect  once per turn for the duration of this ability.\nRaise: Double the duration OR apply a Raise for one of the individual effects activated.",
+      "attribute": "presence",
+      "apCost": 3,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": [
+        "Double the duration OR apply a Raise for one of the individual effects activated."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Heightened Senses",
+        "tier": 4,
+        "duration": "10 Minutes",
+        "requires_focus": false,
+        "progression": "N/A"
+      }
+    }
+  },
+  {
+    "name": "Sense Deprivation",
+    "type": "power",
+    "system": {
+      "description": "The User is is able remove one or more senses from a target, such as making them blind or deaf, or taking away all of their senses. If all of the creature's senses are removed they will fall Prone, their Speed and Evasion is reduced to 0 and they gain a level of Stress for each Round that they are under this effect. Each target must make a Willpower roll against the Tier of the User. If the target fails, they can make a new Willpower roll at the beginning of their turn, to remove the effects of this Ability. The User can affect creature with this Ability equal to their Generation score.\nRaise: Double the duration OR choose one additional target.",
+      "attribute": "presence",
+      "apCost": 3,
+      "glorieaCost": 0,
+      "range": "long",
+      "target": "",
+      "raises": [
+        "Double the duration OR choose one additional target."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Heightened Senses",
+        "tier": 4,
+        "duration": "1 Minute",
+        "requires_focus": true,
+        "progression": "N/A"
+      }
+    }
+  },
+  {
+    "name": "Illusory Self",
+    "type": "power",
+    "system": {
+      "description": "The User creates an Illusory disguise of a figure known or fictional.\nThe User creates an Illusory disguise that makes user including clothing appear different. The illusion doesn\u2019t hold up to physical contact, so a tall person trying to pass off as a short person would disrupt the illusion if another person attempted to pat their head for example.\nRaise: Double the duration",
+      "attribute": "presence",
+      "apCost": 1,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": [
+        "Double the duration"
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Illusion",
+        "tier": 1,
+        "duration": "10 Minutes",
+        "requires_focus": true,
+        "progression": "N/A"
+      }
+    }
+  },
+  {
+    "name": "Mirror Image",
+    "type": "power",
+    "system": {
+      "description": "The User creates an Illusory double that adds 1 point to Evasion score.\nThe User creates an illusory double that will make attacking the user more challenging. If attacker attains the base Evasion score but not the modified one, the attacker hits the Illusory double instead and it disappears.\nRaise: 1 additional illusory double.",
+      "attribute": "presence",
+      "apCost": 1,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": [
+        "1 additional illusory double."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Illusion",
+        "tier": 1,
+        "duration": "1 Minute",
+        "requires_focus": false,
+        "progression": "For every Tier above Tier 1 an additional Illusory double is created when the Ability is used."
+      }
+    }
+  },
+  {
+    "name": "Object of Illusion",
+    "type": "power",
+    "system": {
+      "description": "The User creates a stationary illusion no larger than a Size -3 object.\nThe User creates a basic stationary image that has the Illusory state.\nRaise: 1 Advance to a contested pool OR illusion 1 Size larger.",
+      "attribute": "presence",
+      "apCost": 1,
+      "glorieaCost": 0,
+      "range": "short",
+      "target": "",
+      "raises": [
+        "1 Advance to a contested pool OR illusion 1 Size larger."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Illusion",
+        "tier": 1,
+        "duration": "10 Minutes",
+        "requires_focus": true,
+        "progression": "Object can be 1 Size larger for each Tier above Tier 1"
+      }
+    }
+  },
+  {
+    "name": "Minor Illusion",
+    "type": "power",
+    "system": {
+      "description": "The User creates a dynamic Illusion no larger than a Size -1 object or creature.\nUser creates a dynamic image that is Illusory. The user can make the illusion have slight changes such as appearing to walk, and move the illusion at 30 ft in a Round. The illusion disappears if it goes out of Distant range of User.\nRaise: CL+1 to a contested pool OR illusion 1 Size larger.",
+      "attribute": "presence",
+      "apCost": 1,
+      "glorieaCost": 0,
+      "range": "medium",
+      "target": "",
+      "raises": [
+        "CL+1 to a contested pool OR illusion 1 Size larger."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Illusion",
+        "tier": 2,
+        "duration": "1 Minute",
+        "requires_focus": true,
+        "progression": "The duration is increased to 10 Minutes at Tier 3, and 1 hour at Tier 4. The Size limit is increased to Size 0 for Tier 3 and Size 1 for Tier 4."
+      }
+    }
+  },
+  {
+    "name": "Programmed Illusion",
+    "type": "power",
+    "system": {
+      "description": "The User creates a set illusion that has a specified set of movements or actions. It follows the general rules of Minor Illusions in terms of size and effect.\nThe User creates a dynamic Illusory image that follows a set program of steps or action. For example, an illusory guard dog that patrols up a hallway 50 ft, stops and sniffs, and patrols back, and repeats action every 2 minutes. It will not disappear if the User leaves range, it will remain until the time expires or user ends the effect.\nRaise: Doubles length of illusion duration.",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "medium",
+      "target": "",
+      "raises": [
+        "Doubles length of illusion duration."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Illusion",
+        "tier": 2,
+        "duration": "1 Hour",
+        "requires_focus": false,
+        "progression": "Duration is increased to 4 Hours at Tier 3 and 12 Hours at Tier 4."
+      }
+    }
+  },
+  {
+    "name": "Project Sounds",
+    "type": "power",
+    "system": {
+      "description": "The User creates Illusory sounds by themselves, like footsteps, or adds sound to established illusions.\nRaise: 1 additional projected sound OR double the duration",
+      "attribute": "presence",
+      "apCost": 1,
+      "glorieaCost": 0,
+      "range": "medium",
+      "target": "",
+      "raises": [
+        "1 additional projected sound OR double the duration"
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Illusion",
+        "tier": 2,
+        "duration": "10 Minutes",
+        "requires_focus": false,
+        "progression": "The Range is increased to Long Range for Tier 3, and Distant Range for Tier 4."
+      }
+    }
+  },
+  {
+    "name": "Major Illusion",
+    "type": "power",
+    "system": {
+      "description": "The User can create a Dynamic Illusion no larger than a Size 3 object or creature.\nThe User creates a dynamic image that is Illusory. The user can make the illusion have slight changes such as appearing to walk, and move the illusion at 30 ft in a Round. The illusion disappears if it goes out of Distant range of User.\nRaise: CL+1 to a contested pool OR illusion 1 Size larger.",
+      "attribute": "presence",
+      "apCost": 1,
+      "glorieaCost": 0,
+      "range": "long",
+      "target": "",
+      "raises": [
+        "CL+1 to a contested pool OR illusion 1 Size larger."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Illusion",
+        "tier": 3,
+        "duration": "10 Minutes",
+        "requires_focus": true,
+        "progression": "The duration is increased to 1 Hour at Tier 4. The Size limit is increased to Size 4 for Tier 4."
+      }
+    }
+  },
+  {
+    "name": "Phantasmal Terror",
+    "type": "power",
+    "system": {
+      "description": "The User creates an illusion of something that terrifies the target. The target must make a Composure roll or they are Frightened by the illusory figure.The target must make a Willpower roll against the Tier of the User. If the target fails, it takes 1 point of Stress and remains Frightened.\nThe illusion manifests as the worst of the target's fears. The illusion is only visible to the target.\nRaise: Create an additional Illusory figure to affect another target.",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "medium",
+      "target": "",
+      "raises": [
+        "Create an additional Illusory figure to affect another target."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Illusion",
+        "tier": 3,
+        "duration": "1 Minute",
+        "requires_focus": true,
+        "progression": ""
+      }
+    }
+  },
+  {
+    "name": "Seeming",
+    "type": "power",
+    "system": {
+      "description": "The User creates  Illusory disguises for targets up to Tier + Generation and can include the User as one of those targets.\nThe ability allows disguises for the illusions to affect physical appearance as well as accesories such as clothing and weapons. A target can appear to seem slightly shorter or taller or appear more thin or fat.\nRaise: CL+1 to a contested pool OR select one additional target",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "short",
+      "target": "",
+      "raises": [
+        "CL+1 to a contested pool OR select one additional target"
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Illusion",
+        "tier": 3,
+        "duration": "10 Minutes",
+        "requires_focus": true,
+        "progression": "The duration is increased to 1 Hour at Tier 4."
+      }
+    }
+  },
+  {
+    "name": "Mirage Realm",
+    "type": "power",
+    "system": {
+      "description": "The User creates an Illusory landscape within 100 ft x Tier + Generation. The terrain looks, sounds, feels, and and even smells like the terrain chosen. It is possible to alter or create buildings. Creatures that move in this area interact with the terrain as if it is real. A bridge created with this Ability will allow creatures to actually cross an otherwise impassable chasm.\nCreatures that can see through illusions can be aware of the nature of the illusion but can still interact with the physical features of the illusion.\nRaise: The range of the effect is doubled OR it lasts for an additional day.",
+      "attribute": "presence",
+      "apCost": 3,
+      "glorieaCost": 0,
+      "range": "distant",
+      "target": "",
+      "raises": [
+        "The range of the effect is doubled OR it lasts for an additional day."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Illusion",
+        "tier": 4,
+        "duration": "1 Day",
+        "requires_focus": false,
+        "progression": "N/A"
+      }
+    }
+  },
+  {
+    "name": "Project Self",
+    "type": "power",
+    "system": {
+      "description": "The User creates an Illusory version of themselves. They can project this illusion in any location they have seen within miles equal to User's Tier + Generation. The User can move, see through , and speak through the illusion as if they were there. If the illusion is interacted with in a physical manner it will reveal it is an illusion. If the illusion takes any damage, it requires an Conviction roll equal to the Ability Tier to maintain the illusion or it will dissipate.\nThe User can only use through their senses or the illusion's at one time. It requires 1 AP to switch between the User and the illusory self.\nRaise: The range increases by a mile.",
+      "attribute": "presence",
+      "apCost": 3,
+      "glorieaCost": 0,
+      "range": "distant",
+      "target": "",
+      "raises": [
+        "The range increases by a mile."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Illusion",
+        "tier": 4,
+        "duration": "1 Day",
+        "requires_focus": true,
+        "progression": "N/A"
+      }
+    }
+  },
+  {
+    "name": "Camouflage",
+    "type": "power",
+    "system": {
+      "description": "The User looks like their surroundings, increasing the difficulty for Awareness rolls using Sight by Tier level.\nThe User becomes camouflaged with surroundings so they are more difficult to be seen.\nRaise: Increase Duration by 10 minutes OR CL+1 of Ability.",
+      "attribute": "presence",
+      "apCost": 1,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": [
+        "Increase Duration by 10 minutes OR CL+1 of Ability."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Invisibility",
+        "tier": 1,
+        "duration": "1 Minute",
+        "requires_focus": false,
+        "progression": "Ability scales with Tier, and Duration is Doubled with each additional Tier."
+      }
+    }
+  },
+  {
+    "name": "Flicker",
+    "type": "power",
+    "system": {
+      "description": "The User can flicker in and out of Invisibility, increases Evasion by Tier level for 1 Attack.\nThe User turns Invisible for a moment making it more difficult for enemies to hit them effectively.\nRaise: Extend for 1 additional Attack for each additional Advance",
+      "attribute": "presence",
+      "apCost": 1,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": [
+        "Extend for 1 additional Attack for each additional Advance"
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Invisibility",
+        "tier": 1,
+        "duration": "1 Attack",
+        "requires_focus": false,
+        "progression": "Ability scales with Tier."
+      }
+    }
+  },
+  {
+    "name": "Friends with the Shadows",
+    "type": "power",
+    "system": {
+      "description": "The User is Invisible by sight as long as remained still and Focused with dim light/darkness.\nWhile the User remains nearly perfectly still they can step into an area that is dimly lit or in the shadows and remain undetected for as long as they can maintain Focused.\nRaise: CL+1 to be detected while remained Invisible for other senses besides sight.",
+      "attribute": "presence",
+      "apCost": 1,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": [
+        "CL+1 to be detected while remained Invisible for other senses besides sight."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Invisibility",
+        "tier": 1,
+        "duration": "10 Minutes",
+        "requires_focus": true,
+        "progression": "At Tier 2 this also muffles slight sounds and odors produced, at Tier 3 this will work against electronic surveillance. And at Tier 4 this will prevent magical and supernatural detection."
+      }
+    }
+  },
+  {
+    "name": "Basic Invisibility",
+    "type": "power",
+    "system": {
+      "description": "The User becomes Invisible and gains the Concealed State.\nUser disappears from view. This occurs while they remain Focused. if they interact with anything, make any attack or use another ability the invisibility fades.\nRaise: Doubles length of Ability.",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": [
+        "Doubles length of Ability."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Invisibility",
+        "tier": 2,
+        "duration": "1 Minute",
+        "requires_focus": true,
+        "progression": "At Tier 3 the User can make 1 Attack/Action while remaining Invisible, and at Tier 4 they can make 2 Attacks/Actions before the Invisibility fades."
+      }
+    }
+  },
+  {
+    "name": "Hiding in Plain Sight",
+    "type": "power",
+    "system": {
+      "description": "The User blends into the environment and is considered Concealed against targets actively seeking them.\nThe User blends into a group or crowd and makes it so that others overlook them. It requires an Awareness action to detect them. It automatically fails if the User\u2019s Tier is above the Awareness level of the seeker. Any person searching for user is at a CL+Tier Penalty.\nRaise: Doubles length of Ability or increases the difficulty to be detected by CL+1.",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": [
+        "Doubles length of Ability or increases the difficulty to be detected by CL+1."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Invisibility",
+        "tier": 2,
+        "duration": "10 Minutes",
+        "requires_focus": true,
+        "progression": "Ability scales with Tier"
+      }
+    }
+  },
+  {
+    "name": "Mantle Suppression",
+    "type": "power",
+    "system": {
+      "description": "The User can make their  Mantle undetectable by other Elysians.\nThe User can hide their Mantle so that they cannot be sensed by other Elysians while they remain Focused. If other Elysians are actively using features or Abilities to locate User it requires additional Advances equal to Tier.\nRaise: CL+1 to contested rolls to be detected.",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": [
+        "CL+1 to contested rolls to be detected."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Invisibility",
+        "tier": 2,
+        "duration": "While Focused",
+        "requires_focus": true,
+        "progression": "Ability scales with Tier"
+      }
+    }
+  },
+  {
+    "name": "Aura of Invisibility",
+    "type": "power",
+    "system": {
+      "description": "The User can make themselves and anyone they choose within an aura of Close Range to be Invisible and gain the Concealed State.\nCreatures affected by the ability disappear from view. If they interact with anything, make any attack or use another ability the invisibility fades. If any of the affected creatures move away from the User further than Mid Range they lose the effect of the ability.\nRaise: Doubles length of Ability.",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "short",
+      "target": "",
+      "raises": [
+        "Doubles length of Ability."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Invisibility",
+        "tier": 3,
+        "duration": "10 Minutes",
+        "requires_focus": true,
+        "progression": "At Tier 4 the User can extend the Aura to Short Range and the creatures can wander to within Long Range before they loose the benefits of the ability."
+      }
+    }
+  },
+  {
+    "name": "Greater Invisibility",
+    "type": "power",
+    "system": {
+      "description": "The User becomes Invisible and gains the Concealed State.\nThe User disappears from view. This occurs while they remain Focused. The User can make attacks and use Abilities while remaining Invisible.\nRaise: Doubles length of Ability.",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": [
+        "Doubles length of Ability."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Invisibility",
+        "tier": 3,
+        "duration": "1 Minute",
+        "requires_focus": true,
+        "progression": "At Tier 4, the User can conceal themselves from technological device like security camera and x-ray machines."
+      }
+    }
+  },
+  {
+    "name": "Phasing",
+    "type": "power",
+    "system": {
+      "description": "The User becomes Invisible and Ethereal during their Turn. They can pass through solid objects and creatures. At the end of their turn, they must make a Conviction roll equal to Tier of Ability to maintain the ability. On a success, the User may choose to remain ethereal. If the User fails they become visible and corporeal.",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": []
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Invisibility",
+        "tier": 3,
+        "duration": "1 Minute",
+        "requires_focus": true,
+        "progression": ""
+      }
+    }
+  },
+  {
+    "name": "Being Not Beholden",
+    "type": "power",
+    "system": {
+      "description": "The User is is able to hone a mastery of being not seen and selects an ability for Tier 1, one from Tier 2, and one from Tier 3 and is able to maintain the effects of these with needing to be Focused or spend additional Gloriae on each of those effects.\nFor effects that have duration, the duration is now the length of this ability. For abilities that are instantaneous, the User can use the effect  once per turn for the duration of this ability.\nRaise: Double the duration OR apply a Raise for one of the individual effects activated.",
+      "attribute": "presence",
+      "apCost": 3,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": [
+        "Double the duration OR apply a Raise for one of the individual effects activated."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Invisibility",
+        "tier": 4,
+        "duration": "10 Minutes",
+        "requires_focus": false,
+        "progression": "N/A"
+      }
+    }
+  },
+  {
+    "name": "Ethereal Form",
+    "type": "power",
+    "system": {
+      "description": "The User becomes Invisible and Ethereal during their Turn. They can pass through solid objects and creatures. The User can switch from being visible and invisible by spending 1 AP.\nWhile in an ethereal form the User can see Mid Range. Only objects and creatures that are incorporeal can interacted with, corporeal objects cannot be affected. So the User can pass through a door but would be unable to open the door.\nRaise: Doubles length of Ability.",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": [
+        "Doubles length of Ability."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Invisibility",
+        "tier": 4,
+        "duration": "10 Minutes",
+        "requires_focus": true,
+        "progression": "N/A"
+      }
+    }
+  },
+  {
+    "name": "Blinding Spray",
+    "type": "power",
+    "system": {
+      "description": "The User imposes the Blinded state to any that fail a Fortitude roll equal to Tier of User.\nThe User creates cone of light that blinds targets within range. Any target Blinded automatically makes a Fortitude Roll as a free action at the end of their following turns to shake off effect.\nRaise: CL+1 Fortitude penalty",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "15 ft cone",
+      "target": "",
+      "raises": [
+        "CL+1 Fortitude penalty"
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Light",
+        "tier": 1,
+        "duration": "Instantaneous",
+        "requires_focus": false,
+        "progression": "At Tier 2 and each Tier above Tier 1 a free Advance is granted to Ability."
+      }
+    }
+  },
+  {
+    "name": "Illumination",
+    "type": "power",
+    "system": {
+      "description": "The User projects illuminating light on an object touched that lights an area up to a 10\u2019 sphere.\nThe User causes an object to glow with light. User can may the light dimmer than range if they choose. This light will not penetrate supernatural darkness or other magical effects such as illusions.\nRaise: Double the duration OR apply a Raise for one of the individual effects activated.",
+      "attribute": "presence",
+      "apCost": 1,
+      "glorieaCost": 0,
+      "range": "melee",
+      "target": "",
+      "raises": [
+        "Double the duration OR apply a Raise for one of the individual effects activated."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Light",
+        "tier": 1,
+        "duration": "10 Minutes",
+        "requires_focus": false,
+        "progression": "At Tier 2 it no longer requires touch and can illuminate an object within Short Range, at Tier 3 the Range increases to Mid Range and the sphere is increased by 10', and at Tier 4 the Range is increased to Long Range and the sphere is increased by another 10'."
+      }
+    }
+  },
+  {
+    "name": "Light Blast",
+    "type": "power",
+    "system": {
+      "description": "The User attacks with a bolt of Radiant damage equal to Tier level to single target.\nThe User channels light in concentrated ray to deal damage to a single target.\nRaise: 1 additional Radiant damage",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "short",
+      "target": "",
+      "raises": [
+        "1 additional Radiant damage"
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Light",
+        "tier": 1,
+        "duration": "Instantaneous",
+        "requires_focus": false,
+        "progression": "At Tier 2 the range increased to Mid Range, at Tier 3 it becomes Long Range, and at Tier 4 it is Distant Range."
+      }
+    }
+  },
+  {
+    "name": "Aura of Light",
+    "type": "power",
+    "system": {
+      "description": "The User creates a sphere of light surrounds them in a 10 ft sphere. Any target that looks at User within Short Range must make a Fortitude Roll equal to Tier of User or be Blinded. Any creature within the aura of Ability is not affected.\nThe User creates a sphere of light surrounds them in a 10 ft sphere. Any target that looks at User within Short Range must make a Fortitude Roll equal to Tier of User or be Blinded. Any creature within the aura of Ability is not affected.\nRaise: Doubles duration of Ability",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": [
+        "Doubles duration of Ability"
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Light",
+        "tier": 2,
+        "duration": "1 Minute",
+        "requires_focus": true,
+        "progression": "Increase the Sphere by 10' for every Tier above Tier 2 and Range is increased by 1 Range for each Tier above Tier 2."
+      }
+    }
+  },
+  {
+    "name": "Light Walk",
+    "type": "power",
+    "system": {
+      "description": "The User can step into an area of bright light and the User and creatures up to User's Tier can emerge from from another point of bright light within Distant Range.\nThe User is aware if the targeted location has areas of bright light or what the next closest area would be.\nRaise: Can bring one additional creature.",
+      "attribute": "presence",
+      "apCost": 3,
+      "glorieaCost": 0,
+      "range": "melee",
+      "target": "",
+      "raises": [
+        "Can bring one additional creature."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Light",
+        "tier": 3,
+        "duration": "Instantaneous",
+        "requires_focus": false,
+        "progression": "Range is extended to Mantle range."
+      }
+    }
+  },
+  {
+    "name": "Wall of Light",
+    "type": "power",
+    "system": {
+      "description": "The User creates a wall of light up to 40 ft long, 20 feet high and 3 feet thick or create a ringed wall that can cover a Short Range in diameter. When the wall is created any creatures within its area must make a Fortitude roll equal to the Tier of the User or take radiant damage equal to User's Tier + Generation, which is halved if succeeds. Any creature that begins their turn or crosses the area of the Ability must make the same Fortitude roll taking damage equal to Tier on a failure or half on a success. If the creature fails the Fortitude roll, they are also Blinded until the end of their next turn.\nThe wall obscures vision and cannot be seen through\nRaise: 1 additional radiant damage",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "medium",
+      "target": "",
+      "raises": [
+        "1 additional radiant damage"
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Light",
+        "tier": 3,
+        "duration": "1 Minute",
+        "requires_focus": true,
+        "progression": "Damage scales with Tier. Increase length of effect by 30 feet or create a wall that is Mid Range in diameter at Tier 4."
+      }
+    }
+  },
+  {
+    "name": "Avatar of Light",
+    "type": "power",
+    "system": {
+      "description": "The User becomes a being of light and radiance. They are resistant to all damage except necrotic damage. Gains a movement speed equal to Conviction and can fly. Can use Tier 1 Light abilities at will without spending Gloriae. Base melee damage is Tier + Generation radiant damage.\nRaise: 1 additional radiant damage OR lasts for 10 Minutes.",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": [
+        "1 additional radiant damage OR lasts for 10 Minutes."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Light",
+        "tier": 4,
+        "duration": "1 Minute",
+        "requires_focus": false,
+        "progression": "N/A"
+      }
+    }
+  },
+  {
+    "name": "Electrical Ward",
+    "type": "power",
+    "system": {
+      "description": "The User gains Damage Reduction to Electricity equal to Tier level.\nGives the User some resistance to damage caused by electricity.\nRaise: 1 additional Electric Damage Reduction.",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": [
+        "1 additional Electric Damage Reduction."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Lightning",
+        "tier": 1,
+        "duration": "10 Minutes",
+        "requires_focus": false,
+        "progression": "Ability scales with Tier."
+      }
+    }
+  },
+  {
+    "name": "Lightning Attack",
+    "type": "power",
+    "system": {
+      "description": "The User deals Electrical damage equal to Tier Level to single target.\nThe User creates a basic surge of electricity that can damage a single target.\nRaise: 1 additional Electrical damage",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "short",
+      "target": "",
+      "raises": [
+        "1 additional Electrical damage"
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Lightning",
+        "tier": 1,
+        "duration": "Instantaneous",
+        "requires_focus": false,
+        "progression": "At Tier 2 the range increased to Mid Range, at Tier 3 it becomes Long Range, and at Tier 4 it is Distant Range."
+      }
+    }
+  },
+  {
+    "name": "Shocking Grasp",
+    "type": "power",
+    "system": {
+      "description": "The User deals Electrical Damage equal to Tier Level as part of a melee attack.\nThe User electrifies hands or weapons for short duration. Can short out simple electronics.\nRaise: 1 additional point of Electrical damage OR place effect on weapon",
+      "attribute": "presence",
+      "apCost": 1,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": [
+        "1 additional point of Electrical damage OR place effect on weapon"
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Lightning",
+        "tier": 1,
+        "duration": "1 Minute",
+        "requires_focus": false,
+        "progression": "Ability scales with Tier."
+      }
+    }
+  },
+  {
+    "name": "Electrical Detection",
+    "type": "power",
+    "system": {
+      "description": "The User can sense electricity within range.\nThe User can detect all forms of electricity within a certain range.\nRaise: Double the duration.",
+      "attribute": "presence",
+      "apCost": 1,
+      "glorieaCost": 0,
+      "range": "medium",
+      "target": "",
+      "raises": [
+        "Double the duration."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Lightning",
+        "tier": 2,
+        "duration": "10 Minutes",
+        "requires_focus": false,
+        "progression": "When used at Tier 3 the range is increased to Long Range and at Tier the range is increased to Distant Range."
+      }
+    }
+  },
+  {
+    "name": "Lightning Bolt",
+    "type": "power",
+    "system": {
+      "description": "The User creates a 5\u2019 bolt that creates a line that does Electrical damage equal to Tier level and targets that fail Fortitude are Stunned.\nThe User creates a concentrated bolt of electricity that does damage and stuns targets.\nRaise: 1 additional Electrical damage.",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "medium",
+      "target": "",
+      "raises": [
+        "1 additional Electrical damage."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Lightning",
+        "tier": 2,
+        "duration": "Instantaneous",
+        "requires_focus": false,
+        "progression": "Range is increased to Long Range at Tier 3, and Distant Range at Tier 4. The CL of the Fortitude roll of target scales with Tier."
+      }
+    }
+  },
+  {
+    "name": "Protective Electrical Aura",
+    "type": "power",
+    "system": {
+      "description": "The User creates a barrier of electricity that surrounds user and deals Electrical damage equal to the Tier of the User.\nThe User encompass themselves in a barrier of electricity. Any target that touches or makes a melee attack is hit with an electric jolt. Target must make a Fortitude Roll or be Stunned.\nRaise: 1 additional Electrical damage.",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": [
+        "1 additional Electrical damage."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Lightning",
+        "tier": 2,
+        "duration": "1 Minute",
+        "requires_focus": true,
+        "progression": "Ability scales with Tier."
+      }
+    }
+  },
+  {
+    "name": "Call Lightning",
+    "type": "power",
+    "system": {
+      "description": "The User summons a storm cloud that over the area of the ability. The User can spend 2 AP to call down a lightning strike on a point in the range, and all creatures within that point must make an Evasion roll to avoid the attack. If the creatures fails it takes Electrical damage equal to the User's Tier + Generation, and half the damage on a success.\nThe creature must make the Evasion roll against the User's Tier.\nRaise: Increase the Range by one range level.",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "medium",
+      "target": "",
+      "raises": [
+        "Increase the Range by one range level."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Lightning",
+        "tier": 3,
+        "duration": "1 Minute",
+        "requires_focus": true,
+        "progression": "At Tier 4, the User can make two lightning strike attacks per turn instead of one."
+      }
+    }
+  },
+  {
+    "name": "Electric Shield",
+    "type": "power",
+    "system": {
+      "description": "The User creates an aura of electricity that surrounds the User and can affect any creatures selected by the User in range. Those protected by the Aura if they are hit with a melee attack, it deals electrical damage to that adversary equal to the Tier of the User. Any melee attacks made by a creature benefiting from the aura deal electrical damage equal to the Tier of the User in addition to regular damage from the melee attack.\nAny creature that leaves the aura loses the benefits of the aura.\nRaise: 1 additional electrical damage when being hit OR 1 additional electrical damage when attacking.",
+      "attribute": "presence",
+      "apCost": 3,
+      "glorieaCost": 0,
+      "range": "short",
+      "target": "",
+      "raises": [
+        "1 additional electrical damage when being hit OR 1 additional electrical damage when attacking."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Lightning",
+        "tier": 3,
+        "duration": "1 Minute",
+        "requires_focus": true,
+        "progression": "At Tier 4 the range of the aura increases to Short Range."
+      }
+    }
+  },
+  {
+    "name": "Wall of Lightning",
+    "type": "power",
+    "system": {
+      "description": "The User creates a wall of lightning up to 40 ft long, 20 feet high and 3 feet thick or create a ringed wall that can cover a Short Range in diameter. When the wall is created any creatures within its area must make a Fortitude roll equal to the Tier of the User or take electric damage equal to User's Tier + Generation, which is halved if succeeds. Any creature that begins their turn or crosses the area of the Ability must make the same Fortitude roll taking damage equal to Tier on a failure or half on a success. If the creature fails the Fortitude roll, they are also Stunned until the end of their next turn.\nThe wall obscures vision and cannot be seen through.\nRaise: 1 additional electrical damage when being hit OR 1 additional electrical damage when attacking.",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "medium",
+      "target": "",
+      "raises": [
+        "1 additional electrical damage when being hit OR 1 additional electrical damage when attacking."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Lightning",
+        "tier": 3,
+        "duration": "1 Minute",
+        "requires_focus": true,
+        "progression": "Damage scales with Tier. Increase length of effect by 30 feet or create a wall that is Mid Range in diameter at Tier 4."
+      }
+    }
+  },
+  {
+    "name": "Living Lightning",
+    "type": "power",
+    "system": {
+      "description": "The User is is able to hone a mastery of electrical capabilities and selects an ability for Tier 1, one from Tier 2, and one from Tier 3 and is able to maintain the effects of these with needing to be Focused or spend additional Gloriae on each of those effects.\nFor effects that have duration, the duration is now the length of this ability. For abilities that are instantaneous, the User can use the effect  once per turn for the duration of this ability.\nRaise: Double the duration OR apply a Raise for one of the individual effects activated.",
+      "attribute": "presence",
+      "apCost": 3,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": [
+        "Double the duration OR apply a Raise for one of the individual effects activated."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Lightning",
+        "tier": 4,
+        "duration": "10 Minutes",
+        "requires_focus": false,
+        "progression": "N/A"
+      }
+    }
+  },
+  {
+    "name": "Storm's Wrath",
+    "type": "power",
+    "system": {
+      "description": "The User chooses a point that is within Distant Range where a massive storm cloud forms in a range equal to the User's Mantle. The User can send down lightning strikes that hit a space and everything within close range of that spot, dealing damage equal to User's Tier + Generation. The User can spend 1 AP for each lightning strike.\nRaise: Can make one additional lightning strike per round.",
+      "attribute": "presence",
+      "apCost": 3,
+      "glorieaCost": 0,
+      "range": "mantle",
+      "target": "",
+      "raises": [
+        "Can make one additional lightning strike per round."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Lightning",
+        "tier": 4,
+        "duration": "10 Minutes",
+        "requires_focus": false,
+        "progression": "N/A"
+      }
+    }
+  },
+  {
+    "name": "Detect Metals",
+    "type": "power",
+    "system": {
+      "description": "The User can detect metals that have the capability to be attracted to a magnetic field.\nThe User knows the location, size, and nature of any such objects. This ability works through walls, other barriers, and even solid earth.\nRaise: Double the duration OR Increase Range by one Range Level.",
+      "attribute": "presence",
+      "apCost": 1,
+      "glorieaCost": 0,
+      "range": "medium",
+      "target": "",
+      "raises": [
+        "Double the duration OR Increase Range by one Range Level."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Magnetism",
+        "tier": 1,
+        "duration": "1 Minute",
+        "requires_focus": false,
+        "progression": "At Tier 2 the range increased to Long Range, at Tier 3 it becomes Distant Range, and at Tier 4 it is half of the Range of the User's Mantle."
+      }
+    }
+  },
+  {
+    "name": "Magnetize",
+    "type": "power",
+    "system": {
+      "description": "The User can magnetize a paramagentic metal object such as aluminum, gold, and copper. This requires touching the material. At that point it acts as a regular ferromagnetic material for 1 minute.\nThe User can magnetize certain metals that have the potential to become magnetic. This ability also can disrupt/damage electronics.\nRaise: Duration is increased by 10 minutes OR one additional object.",
+      "attribute": "presence",
+      "apCost": 1,
+      "glorieaCost": 0,
+      "range": "melee",
+      "target": "",
+      "raises": [
+        "Duration is increased by 10 minutes OR one additional object."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Magnetism",
+        "tier": 1,
+        "duration": "1 Minute",
+        "requires_focus": false,
+        "progression": "At Tier 2, the range can be extended to Short range, lasts 1 hour and can be done with 2 objects at a time, at Tier 3 the range is increased to Mid Range,duration is increased to 4 hours and can be done with 3 objects, and at Tier 4 the range extends to Long Range, and the duration can be made permanent, and can work on up to 10 objects."
+      }
+    }
+  },
+  {
+    "name": "Push/Pull",
+    "type": "power",
+    "system": {
+      "description": "The User can pull or push magnetic objects that weighs less then 10 lbs.\nThe User can move a magnetic object as a pull or a push. If secured or controlled by a creature or object, roll against Strength for a creature or Size of object (Minimum 1). Can be used as an Attack with a single object, that deals Tier damage.\nRaise: CL-1 bonus on contested roll OR double the weight of objects manipulated OR control one additional object",
+      "attribute": "presence",
+      "apCost": 1,
+      "glorieaCost": 0,
+      "range": "short",
+      "target": "",
+      "raises": [
+        "CL-1 bonus on contested roll OR double the weight of objects manipulated OR control one additional object"
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Magnetism",
+        "tier": 1,
+        "duration": "1 Minute",
+        "requires_focus": true,
+        "progression": "At Tier 2, the weight limit increases to 20 lbs and Range is increased to Mid Range; at Tier 3, the weight is increased to 50 lbs and Range is increased to Long Range, and at Tier 4 the weight increases to 100 lbs and the Range is increased to Distant."
+      }
+    }
+  },
+  {
+    "name": "Magnetic Attack",
+    "type": "power",
+    "system": {
+      "description": "The User makes an attack that deals Piercing damage equal to User\u2019s Tier within cone.\nUser Can take a number of small magnetic objects (such as a pile of nails or a handful of knives) and magnetically shove them to deal damage equal to User\u2019s Tier.\nRaise: 1 additional point of Piercing damage.",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "15 ft cone",
+      "target": "",
+      "raises": [
+        "1 additional point of Piercing damage."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Magnetism",
+        "tier": 2,
+        "duration": "Instantaneous",
+        "requires_focus": false,
+        "progression": "Ability scales with Tier."
+      }
+    }
+  },
+  {
+    "name": "Magnetic Shield",
+    "type": "power",
+    "system": {
+      "description": "The User is able to deflect attacks gaining Damage Reduction equal to Tier\nThe deflection can come from using repelling magnetic energy or by summoning metal objects to stand between the User and the attacker\nRaise: Double duration OR increase DR by 1",
+      "attribute": "presence",
+      "apCost": 1,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": [
+        "Double duration OR increase DR by 1"
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Magnetism",
+        "tier": 2,
+        "duration": "1 Round",
+        "requires_focus": false,
+        "progression": "Ability scales with Tier"
+      }
+    }
+  },
+  {
+    "name": "Nullify Magnetic Fields",
+    "type": "power",
+    "system": {
+      "description": "The User can negate the magnetic fields in metallic objects for 1 Minute\nThe User can turn magnetic fields off in objects within range.\nRaise: Increase duration for 1 minute.",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "medium",
+      "target": "",
+      "raises": [
+        "Increase duration for 1 minute."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Magnetism",
+        "tier": 2,
+        "duration": "1 Minute",
+        "requires_focus": false,
+        "progression": "At Tier 3 the Range increases to Long Range and at Tier 4 the Range increases to Distant Range. At Tier 3 and 4 the User can also reverse the magnetic pull of objects instead."
+      }
+    }
+  },
+  {
+    "name": "Levitation",
+    "type": "power",
+    "system": {
+      "description": "The User can make themselves float off the ground, they can move vertically or horizontally at half of their movement speed using a Move Action.\nRaise: The duration is doubled OR their movement speed increases by 10 ft per Move Action.",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": [
+        "The duration is doubled OR their movement speed increases by 10 ft per Move Action."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Magnetism",
+        "tier": 3,
+        "duration": "10 Minutes",
+        "requires_focus": true,
+        "progression": "At Tier 4, the User can move at regular movement speed using a Move Action."
+      }
+    }
+  },
+  {
+    "name": "Magnetic Well",
+    "type": "power",
+    "system": {
+      "description": "The User chooses a point that is within Mid Range which acts as a strong magnet. It will pull all loose magnetic objects within Short Range towards that point. Objects that are worn or are carried, require a Strength roll against the Tier of the User, and on a failure that object is pulled out of the creature's control toward the magnetic well.\nRaise: Increase the range by 1 OR double the duratio",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "short",
+      "target": "",
+      "raises": [
+        "Increase the range by 1 OR double the duratio"
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Magnetism",
+        "tier": 3,
+        "duration": "1 Minute",
+        "requires_focus": true,
+        "progression": "At Tier 4, the User can increase the Range of the effect to Mid Range."
+      }
+    }
+  },
+  {
+    "name": "Metal Warp",
+    "type": "power",
+    "system": {
+      "description": "The User can shape a metallic object into another object such as taking a piece of scrap metal and turning it into a key or crowbar. The size of the object that can be warped is Size -2 + Generation.\nThe new object has to use the same or less amount of metal as the old object. The User doesn't have to utilize the entirety of the old object.\nRaise: Increase the size by one level.",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "short",
+      "target": "",
+      "raises": [
+        "Increase the size by one level."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Magnetism",
+        "tier": 3,
+        "duration": "Instantaneous",
+        "requires_focus": false,
+        "progression": "At Tier 4, the User can increase the Range to Mid Range."
+      }
+    }
+  },
+  {
+    "name": "EMP",
+    "type": "power",
+    "system": {
+      "description": "The User chooses a point that is within Distant Range where a pulse of electromagnetic energy radiates in a range equal to the User's Mantle . It will permanently fry basic electronics and more advanced electronics that have safeguards will take minutes or hours to recover.\nRaise: Duration of disabling advanced electronics is doubled.",
+      "attribute": "presence",
+      "apCost": 3,
+      "glorieaCost": 0,
+      "range": "mantle",
+      "target": "",
+      "raises": [
+        "Duration of disabling advanced electronics is doubled."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Magnetism",
+        "tier": 4,
+        "duration": "Instantaneous",
+        "requires_focus": false,
+        "progression": "N/A"
+      }
+    }
+  },
+  {
+    "name": "Master of Magnetism",
+    "type": "power",
+    "system": {
+      "description": "The User is is able to hone a mastery of magnetic capabilities and selects an ability for Tier 1, one from Tier 2, and one from Tier 3 and is able to maintain the effects of these with needing to be Focused or spend additional Gloriae on each of those effects.\nFor effects that have duration, the duration is now the length of this ability. For abilities that are instantaneous, the User can use the effect  once per turn for the duration of this ability.\nRaise: Double the duration OR apply a Raise for one of the individual effects activated.",
+      "attribute": "presence",
+      "apCost": 3,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": [
+        "Double the duration OR apply a Raise for one of the individual effects activated."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Magnetism",
+        "tier": 4,
+        "duration": "10 Minutes",
+        "requires_focus": false,
+        "progression": "N/A"
+      }
+    }
+  },
+  {
+    "name": "Reinforced Body",
+    "type": "power",
+    "system": {
+      "description": "The User gains a Fortitude bonus equal to Tier + Generation, Falls and hard hits have no effect up to Tier, and anything beyond is halved damage.\nThe User\u2019s enhanced strength extends to their bones and organs and not just their muscles. This allows the user to fall from greater heights equal to their movement or hit hard substances like stone or metal without the fear of fractures.\nRaise: 1 Additional point of Fortitude per Advance.",
+      "attribute": "presence",
+      "apCost": 1,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": [
+        "1 Additional point of Fortitude per Advance."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Supernatural Strength",
+        "tier": 1,
+        "duration": "10 Minutes",
+        "requires_focus": false,
+        "progression": "Ability scales with Tier."
+      }
+    }
+  },
+  {
+    "name": "Strength Boost",
+    "type": "power",
+    "system": {
+      "description": "The User has a 5 in Strength and counts as one Size larger for Encumbrance.\nThe User attains the strength of peak olympian or bodybuilder (Strength 5). This can be used for any physical tasks like Athletics, Brawling, or Melee Actions.\nRaise: Additional Advances allows the effect to increase for 1 Hour.",
+      "attribute": "presence",
+      "apCost": 1,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": [
+        "Additional Advances allows the effect to increase for 1 Hour."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Supernatural Strength",
+        "tier": 1,
+        "duration": "1 Hour",
+        "requires_focus": false,
+        "progression": "At Tier 2 and above the default Duration lasts a number of hours equal to Tier level."
+      }
+    }
+  },
+  {
+    "name": "Supernatural Leap",
+    "type": "power",
+    "system": {
+      "description": "The User Increases Leap/Jump capabilities equal to the Range listed below.\nThe User has the ability to leap up to their movement speed, this is calculated as part of their Move Action. User can jump vertically up to half of their movement speed.\nRaise: One additional Leap/Jump performed within 1 minute of activation.",
+      "attribute": "presence",
+      "apCost": 1,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": [
+        "One additional Leap/Jump performed within 1 minute of activation."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Supernatural Strength",
+        "tier": 1,
+        "duration": "1 Round",
+        "requires_focus": false,
+        "progression": "At Tier 2 the range Double movement speed for leap and jump at Movement speed, at Tier 3 it becomes triple movement speed and double jump, and at Tier 4 it is 4 times movement speed for leap and triple jump movement."
+      }
+    }
+  },
+  {
+    "name": "Ground Slam",
+    "type": "power",
+    "system": {
+      "description": "The User can slam ground for range and all creatures may be knocked prone and take Concussive damage equal to Tier.\nThe User can deliver a blow that can knock creatures prone and cause damage.\nRaise: Increase Fortitude roll by CL+1 OR increase damage by 1 .",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "short",
+      "target": "",
+      "raises": [
+        "Increase Fortitude roll by CL+1 OR increase damage by 1 ."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Supernatural Strength",
+        "tier": 2,
+        "duration": "Instantaneous",
+        "requires_focus": false,
+        "progression": "At Tier 3 the range is increased to Mid Range, at Tier 4 the range is increased to Long Range."
+      }
+    }
+  },
+  {
+    "name": "Inhuman Strength",
+    "type": "power",
+    "system": {
+      "description": "The User gains the benefits of Strength Boost plus adding Generation + Tier to Strength based Dice Pool.\nPrerequisite Strength Boost. The User can add their Generation + Tier in additional dice relating to things that a STR-based including combat, such as Brawling, Melee fighting, and Athletics. User is able to lift 250 lbs x total number of Strength dice that are active when using this power. So with one success, with the 5 from Strength Boost, and adding 1 for Generation, and 2 for Tier that would give a total of 8 die Strength pool which would be enough to lift 2000 lbs.\nRaise: Additional Advance grants one additional Strength die to pool.",
+      "attribute": "presence",
+      "apCost": 1,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": [
+        "Additional Advance grants one additional Strength die to pool."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Supernatural Strength",
+        "tier": 2,
+        "duration": "1 Hour",
+        "requires_focus": false,
+        "progression": "Ability scales with Tier (and Generation). The Duration is increased by 1 Hour for every Tier over Tier 2."
+      }
+    }
+  },
+  {
+    "name": "Strengthen Object",
+    "type": "power",
+    "system": {
+      "description": "The User reinforces an object so that it has enhanced durability ensuring it will not break under mundane or supernatural means.\nThe User extends their strength to physical items such as weapons so that user\u2019s own enhanced strength will not break them and put them through more punishment than what is possible by mundane means. Adds Tier bonus to Bashing damage value of object.\nRaise: Doubles the duration of the Ability.",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "melee",
+      "target": "",
+      "raises": [
+        "Doubles the duration of the Ability."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Supernatural Strength",
+        "tier": 2,
+        "duration": "10 Minutes",
+        "requires_focus": false,
+        "progression": "Ability progresses with Tier. The Ability will prevent destruction of affected object by supernatural means of any Ability of less than the Tier of User. For Abilities equal or higher it requires a contested Ability roll."
+      }
+    }
+  },
+  {
+    "name": "Crushing Blow",
+    "type": "power",
+    "system": {
+      "description": "The User can deal massive damage to structures and physical objects causing Conviction + Generation damage.\nUsing this ability requires attacking unarmed or with an object that can withstand the amount of force inflicted, such as an item with Strengthen Object.\nRaise: Damage is increased by 2.",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "melee",
+      "target": "",
+      "raises": [
+        "Damage is increased by 2."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Supernatural Strength",
+        "tier": 3,
+        "duration": "1 Minute",
+        "requires_focus": false,
+        "progression": "At Tier 4, the damage caused is  the calculated amount doubled."
+      }
+    }
+  },
+  {
+    "name": "Impart Strength",
+    "type": "power",
+    "system": {
+      "description": "The User imparts the benefits of one of the Tier 1 abilities of this Powerset to an ally that the User possesses.\nThe duration is 10 minutes regardless of the duration for the ability for one's self.\nRaise: Duration is doubled OR can choose an additional ally.",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "melee",
+      "target": "",
+      "raises": [
+        "Duration is doubled OR can choose an additional ally."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Supernatural Strength",
+        "tier": 3,
+        "duration": "10 Minutes",
+        "requires_focus": false,
+        "progression": "At Tier 4, the User can impart the benefits of a Tier 2 ability to another ally. They can only impart one ability to a creature regardless of Tier."
+      }
+    }
+  },
+  {
+    "name": "Unnatural Grip",
+    "type": "power",
+    "system": {
+      "description": "The User can use their strength to grasp on most surfaces, allowing them to climb or support themselves without restriction. The user's movement speed while climbing is the same as walking. They can also support their body weight with one limb for a period of time, allowing them to more easily utilize the other limb.\nUsing this ability on many surfaces will leave marks or damage, such as putting holes in stone or warping metal.\nRaise: Duration is doubled.",
+      "attribute": "presence",
+      "apCost": 2,
+      "glorieaCost": 0,
+      "range": "melee",
+      "target": "",
+      "raises": [
+        "Duration is doubled."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Supernatural Strength",
+        "tier": 3,
+        "duration": "1 Minute",
+        "requires_focus": false,
+        "progression": "At Tier 4, while this ability is active most mundane feats of strength and athleticism may use Conviction instead of Strength."
+      }
+    }
+  },
+  {
+    "name": "Avatar of Power",
+    "type": "power",
+    "system": {
+      "description": "The User is is able to hone a mastery of strength capabilities and selects an ability for Tier 1, one from Tier 2, and one from Tier 3 and is able to maintain the effects of these with needing to be Focused or spend additional Gloriae on each of those effects.\nFor effects that have duration, the duration is now the length of this ability. For abilities that are instantaneous, the User can use the effect  once per turn for the duration of this ability.\nRaise: Double the duration OR apply a Raise for one of the individual effects activated.",
+      "attribute": "presence",
+      "apCost": 3,
+      "glorieaCost": 0,
+      "range": "self",
+      "target": "",
+      "raises": [
+        "Double the duration OR apply a Raise for one of the individual effects activated."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Supernatural Strength",
+        "tier": 4,
+        "duration": "10 Minutes",
+        "requires_focus": false,
+        "progression": "N/A"
+      }
+    }
+  },
+  {
+    "name": "Earthquake",
+    "type": "power",
+    "system": {
+      "description": "The User hits the ground with an unarmed attack causing a localized earthquake the range of the User's Mantle. Creatures in range should make an Evasion roll to avoid damage from falling objects and the brunt of the damage. The damage equals Conviction + Generation as a baseline for creatures failing the roll, and structures may experience double that damage.\nThe Gamemaster may decide on some of the narrative effects of an earthquake like this, and rolling for every creature and building in range is not possible so some creative license may be taken, especially not not narratively critical characters and locations.\nRaise: Damage is increased by 5 bashing damage.",
+      "attribute": "presence",
+      "apCost": 3,
+      "glorieaCost": 0,
+      "range": "mantle",
+      "target": "",
+      "raises": [
+        "Damage is increased by 5 bashing damage."
+      ]
+    },
+    "flags": {
+      "godcomplex": {
+        "powerset": "Supernatural Strength",
+        "tier": 4,
+        "duration": "Instantaneous",
+        "requires_focus": false,
+        "progression": "N/A"
+      }
+    }
+  }
+]

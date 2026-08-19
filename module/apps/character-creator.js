@@ -1,6 +1,6 @@
 /**
  * God Complex Character Creator
- * A guided wizard for creating new characters
+ * A guided wizard for creating new characters using actual game data
  */
 
 export class GodComplexCharacterCreator extends Application {
@@ -8,6 +8,12 @@ export class GodComplexCharacterCreator extends Application {
     super(options);
     
     this.currentStep = 0;
+    this.catalogData = {
+      backgrounds: [],
+      equipment: [],
+      powers: []
+    };
+    
     this.characterData = {
       name: "",
       type: "character",
@@ -34,17 +40,10 @@ export class GodComplexCharacterCreator extends Application {
       },
       skills: [],
       powers: [],
-      equipment: []
+      equipment: [],
+      selectedSpecialties: [],
+      selectedProficiencies: []
     };
-    
-    this.backgrounds = [
-      { id: "street", name: "Street Rat", description: "Grew up on the streets, learned to survive by your wits.", attribute: "dexterity", bonus: 1 },
-      { id: "scholar", name: "Scholar", description: "Spent years in study and research, gaining knowledge.", attribute: "intelligence", bonus: 1 },
-      { id: "socialite", name: "Socialite", description: "Moved in high society, mastering the art of persuasion.", attribute: "presence", bonus: 1 },
-      { id: "athlete", name: "Athlete", description: "Trained your body to peak performance.", attribute: "strength", bonus: 1 },
-      { id: "watchful", name: "Watchful", description: "Always observant, missing nothing around you.", attribute: "awareness", bonus: 1 },
-      { id: "stoic", name: "Stoic", description: "Endured hardship with unshakeable composure.", attribute: "composure", bonus: 1 }
-    ];
     
     this.steps = [
       "basic-info",
@@ -56,6 +55,8 @@ export class GodComplexCharacterCreator extends Application {
       "equipment",
       "review"
     ];
+    
+    this._loadCatalogData();
   }
 
   static get defaultOptions() {
@@ -64,13 +65,57 @@ export class GodComplexCharacterCreator extends Application {
       title: "Character Creator",
       template: "systems/godcomplex/templates/apps/character-creator.hbs",
       classes: ["godcomplex", "character-creator"],
-      width: 800,
-      height: 700,
+      width: 850,
+      height: 750,
       resizable: true
     });
   }
 
+  async _loadCatalogData() {
+    try {
+      const [bgRes, eqRes, pwRes] = await Promise.all([
+        fetch("systems/godcomplex/data/backgrounds.json"),
+        fetch("systems/godcomplex/data/equipment-catalogue.json"),
+        fetch("systems/godcomplex/data/powerset-abilities.json")
+      ]);
+      
+      this.catalogData.backgrounds = await bgRes.json();
+      this.catalogData.equipment = await eqRes.json();
+      this.catalogData.powers = await pwRes.json();
+      
+      console.log("God Complex | Catalog data loaded");
+    } catch (error) {
+      console.error("God Complex | Failed to load catalog data:", error);
+      ui.notifications.error("Failed to load character creation data.");
+    }
+  }
+
   getData() {
+    const tier = this.characterData.system.core.tier.value;
+    
+    // Group equipment by type
+    const equipmentByType = {
+      armor: this.catalogData.equipment.filter(e => e.system.equipmentType === "armor"),
+      weapon: this.catalogData.equipment.filter(e => e.system.equipmentType === "weapon"),
+      gear: this.catalogData.equipment.filter(e => e.system.equipmentType === "gear")
+    };
+    
+    // Group powers by powerset, filtered by tier
+    const powersByPowerset = {};
+    const powers = this.catalogData.powers;
+    for (const power of powers) {
+      const powerset = power.flags?.godcomplex?.powerset || "Unknown";
+      const powerTier = power.flags?.godcomplex?.tier || 1;
+      if (powerTier <= tier) {
+        if (!powersByPowerset[powerset]) powersByPowerset[powerset] = [];
+        powersByPowerset[powerset].push(power);
+      }
+    }
+    
+    const selectedBackground = this.catalogData.backgrounds.find(
+      b => b.id === this.characterData.system.background
+    );
+    
     return {
       step: this.currentStep,
       stepName: this.steps[this.currentStep],
@@ -79,24 +124,29 @@ export class GodComplexCharacterCreator extends Application {
       isFirstStep: this.currentStep === 0,
       isLastStep: this.currentStep === this.steps.length - 1,
       attributePoints: this._calculateAttributePoints(),
+      backgrounds: this.catalogData.backgrounds,
+      selectedBackground: selectedBackground,
+      equipmentByType: equipmentByType,
+      powersByPowerset: powersByPowerset,
+      powersetNames: Object.keys(powersByPowerset).sort(),
       skillsList: [...this.characterData.skills],
       powersList: [...this.characterData.powers],
       equipmentList: [...this.characterData.equipment],
-      backgrounds: this.backgrounds,
-      selectedBackground: this.backgrounds.find(b => b.id === this.characterData.system.background)
+      selectedSpecialties: [...this.characterData.selectedSpecialties],
+      selectedProficiencies: [...this.characterData.selectedProficiencies]
     };
   }
 
   activateListeners(html) {
     super.activateListeners(html);
 
-    // Navigation buttons - use event delegation
+    // Navigation
     html.on("click", ".creator-next", this._onNext.bind(this));
     html.on("click", ".creator-prev", this._onPrevious.bind(this));
     html.on("click", ".creator-finish", this._onFinish.bind(this));
     html.on("click", ".creator-cancel", this._onCancel.bind(this));
 
-    // Input changes - use event delegation
+    // Input changes
     html.on("change", ".creator-input", this._onInputChange.bind(this));
     html.on("input", ".creator-input", this._onInputField.bind(this));
     
@@ -107,20 +157,32 @@ export class GodComplexCharacterCreator extends Application {
     // Background selection
     html.on("click", ".background-option", this._onBackgroundSelect.bind(this));
 
+    // Specialty/Proficiency selection
+    html.on("click", ".specialty-choice", this._onSpecialtyToggle.bind(this));
+    html.on("click", ".proficiency-choice", this._onProficiencyToggle.bind(this));
+
     // Skill management
     html.on("click", ".add-skill", this._onAddSkill.bind(this));
     html.on("click", ".remove-skill", this._onRemoveSkill.bind(this));
 
-    // Power management
+    // Power selection from catalog
     html.on("click", ".add-power", this._onAddPower.bind(this));
     html.on("click", ".remove-power", this._onRemovePower.bind(this));
+    html.on("click", ".power-catalog-item", this._onPowerCatalogSelect.bind(this));
 
-    // Equipment management
+    // Equipment selection from catalog
     html.on("click", ".add-equipment", this._onAddEquipment.bind(this));
     html.on("click", ".remove-equipment", this._onRemoveEquipment.bind(this));
+    html.on("click", ".equipment-catalog-item", this._onEquipmentCatalogSelect.bind(this));
 
     // Portrait upload
     html.on("click", ".portrait-upload", this._onPortraitUpload.bind(this));
+    
+    // Equipment tab switching
+    html.on("click", ".equip-tab", this._onEquipmentTabSwitch.bind(this));
+    
+    // Powerset tab switching
+    html.on("click", ".powerset-tab", this._onPowersetTabSwitch.bind(this));
   }
 
   _calculateAttributePoints() {
@@ -133,8 +195,20 @@ export class GodComplexCharacterCreator extends Application {
   }
 
   _getBackgroundBonus() {
-    const background = this.backgrounds.find(b => b.id === this.characterData.system.background);
-    return background ? background.bonus : 0;
+    const bg = this.catalogData.backgrounds.find(b => b.id === this.characterData.system.background);
+    return bg ? 1 : 0;
+  }
+
+  _getAttributeKey(attributeName) {
+    const map = {
+      "Strength": "strength",
+      "Dexterity": "dexterity",
+      "Awareness": "awareness",
+      "Composure": "composure",
+      "Presence": "presence",
+      "Intelligence": "intelligence"
+    };
+    return map[attributeName] || attributeName.toLowerCase();
   }
 
   _onInputField(event) {
@@ -148,7 +222,6 @@ export class GodComplexCharacterCreator extends Application {
     
     for (let i = 0; i < keys.length - 1; i++) {
       const key = keys[i];
-      // Handle array indices
       if (Array.isArray(target)) {
         const index = parseInt(key);
         if (isNaN(index) || index >= target.length) return;
@@ -160,38 +233,24 @@ export class GodComplexCharacterCreator extends Application {
     }
     
     const lastKey = keys[keys.length - 1];
-    // Handle array final key
     if (Array.isArray(target)) {
       const index = parseInt(lastKey);
       if (!isNaN(index)) {
-        if (input.type === "number") {
-          target[index] = parseInt(value) || 0;
-        } else {
-          target[index] = value;
-        }
+        target[index] = input.type === "number" ? (parseInt(value) || 0) : value;
       }
     } else {
-      if (input.type === "number") {
-        target[lastKey] = parseInt(value) || 0;
-      } else {
-        target[lastKey] = value;
-      }
+      target[lastKey] = input.type === "number" ? (parseInt(value) || 0) : value;
     }
   }
 
   _onInputChange(event) {
-    const input = event.currentTarget;
-    const field = input.dataset.field;
-    if (!field) return;
-    
     this._onInputField(event);
     this.render(false);
   }
 
   _onAttributeIncrease(event) {
     event.preventDefault();
-    const button = event.currentTarget;
-    const attribute = button.dataset.attribute;
+    const attribute = event.currentTarget.dataset.attribute;
     
     if (this._calculateAttributePoints() <= 0) {
       ui.notifications.warn("No attribute points remaining!");
@@ -206,11 +265,9 @@ export class GodComplexCharacterCreator extends Application {
 
   _onAttributeDecrease(event) {
     event.preventDefault();
-    const button = event.currentTarget;
-    const attribute = button.dataset.attribute;
+    const attribute = event.currentTarget.dataset.attribute;
     
-    const minValue = 1;
-    if (this.characterData.system.attributes[attribute].value > minValue) {
+    if (this.characterData.system.attributes[attribute].value > 1) {
       this.characterData.system.attributes[attribute].value--;
       this.render(false);
     }
@@ -218,23 +275,91 @@ export class GodComplexCharacterCreator extends Application {
 
   _onBackgroundSelect(event) {
     event.preventDefault();
-    const button = event.currentTarget;
-    const backgroundId = button.dataset.background;
+    const backgroundId = event.currentTarget.dataset.background;
     
     // Remove old background bonus
-    const oldBackground = this.backgrounds.find(b => b.id === this.characterData.system.background);
-    if (oldBackground) {
-      const attr = this.characterData.system.attributes[oldBackground.attribute];
-      attr.value = Math.max(1, attr.value - oldBackground.bonus);
+    const oldBg = this.catalogData.backgrounds.find(b => b.id === this.characterData.system.background);
+    if (oldBg) {
+      const attrKey = this._getAttributeKey(oldBg.attribute_bonus);
+      const attr = this.characterData.system.attributes[attrKey];
+      attr.value = Math.max(1, attr.value - 1);
     }
     
     // Set new background
     this.characterData.system.background = backgroundId;
     
+    // Reset specialty/proficiency selections
+    this.characterData.selectedSpecialties = [];
+    this.characterData.selectedProficiencies = [];
+    
     // Apply new background bonus
-    const newBackground = this.backgrounds.find(b => b.id === backgroundId);
-    if (newBackground) {
-      this.characterData.system.attributes[newBackground.attribute].value += newBackground.bonus;
+    const newBg = this.catalogData.backgrounds.find(b => b.id === backgroundId);
+    if (newBg) {
+      const attrKey = this._getAttributeKey(newBg.attribute_bonus);
+      this.characterData.system.attributes[attrKey].value += 1;
+      
+      // Auto-add free specialty
+      if (newBg.free_specialty) {
+        this.characterData.selectedSpecialties.push(newBg.free_specialty);
+      }
+      
+      // Auto-add free proficiency
+      if (newBg.free_proficiency) {
+        this.characterData.selectedProficiencies.push(newBg.free_proficiency);
+      }
+    }
+    
+    this.render(false);
+  }
+
+  _onSpecialtyToggle(event) {
+    event.preventDefault();
+    const specialty = event.currentTarget.dataset.specialty;
+    const bg = this.catalogData.backgrounds.find(b => b.id === this.characterData.system.background);
+    if (!bg) return;
+    
+    const maxSpecialties = bg.num_specialties;
+    const idx = this.characterData.selectedSpecialties.indexOf(specialty);
+    
+    if (idx >= 0) {
+      // Don't allow removing free specialty
+      if (specialty === bg.free_specialty) {
+        ui.notifications.warn("This is a free specialty from your background!");
+        return;
+      }
+      this.characterData.selectedSpecialties.splice(idx, 1);
+    } else {
+      if (this.characterData.selectedSpecialties.length >= maxSpecialties) {
+        ui.notifications.warn(`You can only select ${maxSpecialties} specialties!`);
+        return;
+      }
+      this.characterData.selectedSpecialties.push(specialty);
+    }
+    
+    this.render(false);
+  }
+
+  _onProficiencyToggle(event) {
+    event.preventDefault();
+    const proficiency = event.currentTarget.dataset.proficiency;
+    const bg = this.catalogData.backgrounds.find(b => b.id === this.characterData.system.background);
+    if (!bg) return;
+    
+    const maxProficiencies = bg.num_proficiencies;
+    const idx = this.characterData.selectedProficiencies.indexOf(proficiency);
+    
+    if (idx >= 0) {
+      if (proficiency === bg.free_proficiency) {
+        ui.notifications.warn("This is a free proficiency from your background!");
+        return;
+      }
+      this.characterData.selectedProficiencies.splice(idx, 1);
+    } else {
+      if (this.characterData.selectedProficiencies.length >= maxProficiencies) {
+        ui.notifications.warn(`You can only select ${maxProficiencies} proficiencies!`);
+        return;
+      }
+      this.characterData.selectedProficiencies.push(proficiency);
     }
     
     this.render(false);
@@ -243,72 +368,113 @@ export class GodComplexCharacterCreator extends Application {
   _onAddSkill(event) {
     event.preventDefault();
     event.stopPropagation();
-    console.log("Adding skill...");
-    console.log("Current skills:", this.characterData.skills);
-    
     this.characterData.skills.push({
       name: "",
       attribute: "strength",
       bonus: 0,
       specialty: ""
     });
-    
-    console.log("Skills after add:", this.characterData.skills);
     this.render(false);
   }
 
   _onRemoveSkill(event) {
     event.preventDefault();
     event.stopPropagation();
-    const button = event.currentTarget;
-    const index = parseInt(button.dataset.index);
+    const index = parseInt(event.currentTarget.dataset.index);
     this.characterData.skills.splice(index, 1);
     this.render(false);
   }
 
-  _onAddPower(event) {
+  _onPowerCatalogSelect(event) {
     event.preventDefault();
     event.stopPropagation();
+    const powerName = event.currentTarget.dataset.power;
+    const power = this.catalogData.powers.find(p => p.name === powerName);
+    if (!power) return;
+    
+    // Check if already added
+    if (this.characterData.powers.some(p => p.name === powerName)) {
+      ui.notifications.warn("You already have this power!");
+      return;
+    }
+    
     this.characterData.powers.push({
-      name: "",
-      attribute: "presence",
-      apCost: 1,
-      glorieaCost: 0,
-      range: "self",
-      description: ""
+      name: power.name,
+      type: "power",
+      system: foundry.utils.deepClone(power.system),
+      flags: power.flags ? foundry.utils.deepClone(power.flags) : {}
     });
+    
     this.render(false);
   }
 
   _onRemovePower(event) {
     event.preventDefault();
     event.stopPropagation();
-    const button = event.currentTarget;
-    const index = parseInt(button.dataset.index);
+    const index = parseInt(event.currentTarget.dataset.index);
     this.characterData.powers.splice(index, 1);
     this.render(false);
   }
 
-  _onAddEquipment(event) {
+  _onAddPower(event) {
+    event.preventDefault();
+    // This is now handled by catalog selection
+  }
+
+  _onEquipmentCatalogSelect(event) {
     event.preventDefault();
     event.stopPropagation();
+    const itemName = event.currentTarget.dataset.item;
+    const item = this.catalogData.equipment.find(e => e.name === itemName);
+    if (!item) return;
+    
+    // Check if already added
+    if (this.characterData.equipment.some(e => e.name === itemName)) {
+      ui.notifications.warn("You already have this item!");
+      return;
+    }
+    
     this.characterData.equipment.push({
-      name: "",
-      equipmentType: "gear",
-      bonus: "",
-      armor: 0,
-      equipped: false
+      name: item.name,
+      type: "equipment",
+      system: foundry.utils.deepClone(item.system),
+      flags: item.flags ? foundry.utils.deepClone(item.flags) : {}
     });
+    
     this.render(false);
   }
 
   _onRemoveEquipment(event) {
     event.preventDefault();
     event.stopPropagation();
-    const button = event.currentTarget;
-    const index = parseInt(button.dataset.index);
+    const index = parseInt(event.currentTarget.dataset.index);
     this.characterData.equipment.splice(index, 1);
     this.render(false);
+  }
+
+  _onAddEquipment(event) {
+    event.preventDefault();
+    // This is now handled by catalog selection
+  }
+
+  _onEquipmentTabSwitch(event) {
+    event.preventDefault();
+    const tab = event.currentTarget.dataset.tab;
+    const html = $(event.currentTarget).closest(".character-creator");
+    html.find(".equip-tab").removeClass("active");
+    html.find(".equipment-catalog-panel").removeClass("active");
+    event.currentTarget.classList.add("active");
+    html.find(`.equipment-catalog-panel[data-tab="${tab}"]`).addClass("active");
+  }
+
+  _onPowersetTabSwitch(event) {
+    event.preventDefault();
+    const tab = event.currentTarget.dataset.tab;
+    const html = $(event.currentTarget).closest(".character-creator");
+    html.find(".powerset-tab").removeClass("active");
+    html.find(".powerset-catalog-panel").removeClass("active");
+    event.currentTarget.classList.add("active");
+    html.find(`.powerset-catalog-panel[data-tab="${tab}"]`).addClass("active");
   }
 
   _onPortraitUpload(event) {
@@ -326,9 +492,7 @@ export class GodComplexCharacterCreator extends Application {
   async _onNext(event) {
     event.preventDefault();
     
-    if (!this._validateStep()) {
-      return;
-    }
+    if (!this._validateStep()) return;
     
     if (this.currentStep < this.steps.length - 1) {
       this.currentStep++;
@@ -347,9 +511,7 @@ export class GodComplexCharacterCreator extends Application {
   async _onFinish(event) {
     event.preventDefault();
     
-    if (!this._validateStep()) {
-      return;
-    }
+    if (!this._validateStep()) return;
     
     try {
       const actorData = {
@@ -361,6 +523,20 @@ export class GodComplexCharacterCreator extends Application {
       
       const actor = await Actor.create(actorData);
       
+      // Create skills from specialties
+      for (const specialty of this.characterData.selectedSpecialties) {
+        await actor.createEmbeddedDocuments("Item", [{
+          name: specialty,
+          type: "skill",
+          system: {
+            attribute: "strength",
+            bonus: 0,
+            specialty: specialty
+          }
+        }]);
+      }
+      
+      // Create additional custom skills
       for (const skill of this.characterData.skills) {
         if (skill.name) {
           await actor.createEmbeddedDocuments("Item", [{
@@ -375,35 +551,24 @@ export class GodComplexCharacterCreator extends Application {
         }
       }
       
+      // Create powers
       for (const power of this.characterData.powers) {
-        if (power.name) {
-          await actor.createEmbeddedDocuments("Item", [{
-            name: power.name,
-            type: "power",
-            system: {
-              attribute: power.attribute,
-              apCost: power.apCost,
-              glorieaCost: power.glorieaCost,
-              range: power.range,
-              description: power.description
-            }
-          }]);
-        }
+        await actor.createEmbeddedDocuments("Item", [{
+          name: power.name,
+          type: "power",
+          system: power.system,
+          flags: power.flags
+        }]);
       }
       
+      // Create equipment
       for (const equipment of this.characterData.equipment) {
-        if (equipment.name) {
-          await actor.createEmbeddedDocuments("Item", [{
-            name: equipment.name,
-            type: "equipment",
-            system: {
-              equipmentType: equipment.equipmentType,
-              bonus: equipment.bonus,
-              armor: equipment.armor,
-              equipped: equipment.equipped
-            }
-          }]);
-        }
+        await actor.createEmbeddedDocuments("Item", [{
+          name: equipment.name,
+          type: "equipment",
+          system: equipment.system,
+          flags: equipment.flags
+        }]);
       }
       
       ui.notifications.info(`Character ${actor.name} created successfully!`);

@@ -1,0 +1,1294 @@
+[
+  {
+    "name": "Firefighter Gear",
+    "type": "equipment",
+    "system": {
+      "description": "+2 Armor; halves poison damage with mask; reduces Cutting/Piercing/Bashing/Fire damage",
+      "equipmentType": "armor",
+      "bonus": 2,
+      "damage": "",
+      "armor": 2,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "armor_type": "Heavy",
+        "item_value": "Valuable Gear",
+        "slot_value": 2
+      }
+    }
+  },
+  {
+    "name": "Kevlar Vest",
+    "type": "equipment",
+    "system": {
+      "description": "+2 Armor; +2 vs Rifles/Pistols/Shotguns",
+      "equipmentType": "armor",
+      "bonus": 2,
+      "damage": "",
+      "armor": 2,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "armor_type": "Medium",
+        "item_value": "Valuable Gear",
+        "slot_value": 2
+      }
+    }
+  },
+  {
+    "name": "Tactical Armor",
+    "type": "equipment",
+    "system": {
+      "description": "+3 Armor; +2 vs Rifles/Pistols/Shotguns",
+      "equipmentType": "armor",
+      "bonus": 3,
+      "damage": "",
+      "armor": 3,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "armor_type": "Heavy",
+        "item_value": "Key Asset",
+        "slot_value": 3
+      }
+    }
+  },
+  {
+    "name": "Reinforced Tactical Vest",
+    "type": "equipment",
+    "system": {
+      "description": "+2 Armor; +1 vs Rifles/Pistols/Shotguns",
+      "equipmentType": "armor",
+      "bonus": 2,
+      "damage": "",
+      "armor": 2,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "armor_type": "Medium",
+        "item_value": "Valuable Gear",
+        "slot_value": 2
+      }
+    }
+  },
+  {
+    "name": "Riding Leathers",
+    "type": "equipment",
+    "system": {
+      "description": "+1 Armor",
+      "equipmentType": "armor",
+      "bonus": 1,
+      "damage": "",
+      "armor": 1,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "armor_type": "Light",
+        "item_value": "Essential Goods",
+        "slot_value": 1
+      }
+    }
+  },
+  {
+    "name": "Sports Gear",
+    "type": "equipment",
+    "system": {
+      "description": "+2 Armor",
+      "equipmentType": "armor",
+      "bonus": 2,
+      "damage": "",
+      "armor": 2,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "armor_type": "Light",
+        "item_value": "Essential Goods",
+        "slot_value": 1
+      }
+    }
+  },
+  {
+    "name": "Tactical Vest",
+    "type": "equipment",
+    "system": {
+      "description": "+1 Armor",
+      "equipmentType": "armor",
+      "bonus": 1,
+      "damage": "",
+      "armor": 1,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "armor_type": "Light",
+        "item_value": "Essential Goods",
+        "slot_value": 1
+      }
+    }
+  },
+  {
+    "name": "9mm Pistol",
+    "type": "equipment",
+    "system": {
+      "description": "",
+      "equipmentType": "weapon",
+      "bonus": 4,
+      "damage": "2",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "weapon_tag": "Handguns",
+        "weapon_range": "short",
+        "damage_type": "Piercing",
+        "attribute": "Composure",
+        "item_value": "Valuable Gear",
+        "slot_value": 1
+      }
+    }
+  },
+  {
+    "name": "12 Gauge Shotgun",
+    "type": "equipment",
+    "system": {
+      "description": "Cone range; damage varies by distance",
+      "equipmentType": "weapon",
+      "bonus": 6,
+      "damage": "3",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "weapon_tag": "Shotguns",
+        "weapon_range": "short",
+        "damage_type": "Piercing",
+        "attribute": "Composure",
+        "item_value": "Valuable Gear",
+        "slot_value": 2
+      }
+    }
+  },
+  {
+    "name": ".22 Rifle",
+    "type": "equipment",
+    "system": {
+      "description": "",
+      "equipmentType": "weapon",
+      "bonus": 5,
+      "damage": "2",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "weapon_tag": "Rifles",
+        "weapon_range": "mid",
+        "damage_type": "Piercing",
+        "attribute": "Composure",
+        "item_value": "Essential Goods",
+        "slot_value": 2
+      }
+    }
+  },
+  {
+    "name": "Semi Auto Rifle",
+    "type": "equipment",
+    "system": {
+      "description": "",
+      "equipmentType": "weapon",
+      "bonus": 5,
+      "damage": "3",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "weapon_tag": "Rifles",
+        "weapon_range": "mid",
+        "damage_type": "Piercing",
+        "attribute": "Composure",
+        "item_value": "Valuable Gear",
+        "slot_value": 2
+      }
+    }
+  },
+  {
+    "name": "Sniper Rifle",
+    "type": "equipment",
+    "system": {
+      "description": "",
+      "equipmentType": "weapon",
+      "bonus": 8,
+      "damage": "7",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "weapon_tag": "Rifles",
+        "weapon_range": "distant",
+        "damage_type": "Piercing",
+        "attribute": "Composure",
+        "item_value": "Key Asset",
+        "slot_value": 3
+      }
+    }
+  },
+  {
+    "name": "Longbow",
+    "type": "equipment",
+    "system": {
+      "description": "",
+      "equipmentType": "weapon",
+      "bonus": 3,
+      "damage": "2",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "weapon_tag": "Bows",
+        "weapon_range": "long",
+        "damage_type": "Piercing",
+        "attribute": "Dexterity",
+        "item_value": "Valuable Gear",
+        "slot_value": 2
+      }
+    }
+  },
+  {
+    "name": "Short Bow",
+    "type": "equipment",
+    "system": {
+      "description": "",
+      "equipmentType": "weapon",
+      "bonus": 2,
+      "damage": "1",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "weapon_tag": "Bows",
+        "weapon_range": "short",
+        "damage_type": "Piercing",
+        "attribute": "Dexterity",
+        "item_value": "Essential Goods",
+        "slot_value": 2
+      }
+    }
+  },
+  {
+    "name": "Throwing Axe",
+    "type": "equipment",
+    "system": {
+      "description": "",
+      "equipmentType": "weapon",
+      "bonus": 2,
+      "damage": "2",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "weapon_tag": "Axes",
+        "weapon_range": "close",
+        "damage_type": "Cutting",
+        "attribute": "Dexterity",
+        "item_value": "Essential Goods",
+        "slot_value": 1
+      }
+    }
+  },
+  {
+    "name": "Taser, Ranged",
+    "type": "equipment",
+    "system": {
+      "description": "",
+      "equipmentType": "weapon",
+      "bonus": 2,
+      "damage": "1",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "weapon_tag": "Special",
+        "weapon_range": "close",
+        "damage_type": "Electrical",
+        "attribute": "Dexterity",
+        "item_value": "Essential Goods",
+        "slot_value": 1
+      }
+    }
+  },
+  {
+    "name": "Crossbow",
+    "type": "equipment",
+    "system": {
+      "description": "",
+      "equipmentType": "weapon",
+      "bonus": 2,
+      "damage": "1",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "weapon_tag": "Bows",
+        "weapon_range": "short",
+        "damage_type": "Piercing",
+        "attribute": "Dexterity",
+        "item_value": "Valuable Gear",
+        "slot_value": 2
+      }
+    }
+  },
+  {
+    "name": "Baseball Bat / Hockey Stick",
+    "type": "equipment",
+    "system": {
+      "description": "",
+      "equipmentType": "weapon",
+      "bonus": 4,
+      "damage": "2",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "weapon_tag": "Impact",
+        "weapon_range": "melee",
+        "damage_type": "Bashing",
+        "attribute": "Strength",
+        "item_value": "Valuable Gear",
+        "slot_value": 2
+      }
+    }
+  },
+  {
+    "name": "Baton",
+    "type": "equipment",
+    "system": {
+      "description": "",
+      "equipmentType": "weapon",
+      "bonus": 6,
+      "damage": "3",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "weapon_tag": "Impact",
+        "weapon_range": "melee",
+        "damage_type": "Bashing",
+        "attribute": "Strength",
+        "item_value": "Valuable Gear",
+        "slot_value": 1
+      }
+    }
+  },
+  {
+    "name": "Brass Knuckles",
+    "type": "equipment",
+    "system": {
+      "description": "",
+      "equipmentType": "weapon",
+      "bonus": 1,
+      "damage": "2",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "weapon_tag": "Unarmed",
+        "weapon_range": "melee",
+        "damage_type": "Bashing",
+        "attribute": "Dexterity",
+        "item_value": "Essential Goods",
+        "slot_value": 0
+      }
+    }
+  },
+  {
+    "name": "Hand Axe / Hatchet",
+    "type": "equipment",
+    "system": {
+      "description": "",
+      "equipmentType": "weapon",
+      "bonus": 5,
+      "damage": "3",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "weapon_tag": "Axes",
+        "weapon_range": "melee",
+        "damage_type": "Cutting",
+        "attribute": "Strength",
+        "item_value": "Valuable Gear",
+        "slot_value": 1
+      }
+    }
+  },
+  {
+    "name": "Knife",
+    "type": "equipment",
+    "system": {
+      "description": "",
+      "equipmentType": "weapon",
+      "bonus": 1,
+      "damage": "2",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "weapon_tag": "Knives",
+        "weapon_range": "melee",
+        "damage_type": "Cutting / Piercing",
+        "attribute": "Dexterity",
+        "item_value": "Essential Goods",
+        "slot_value": 0
+      }
+    }
+  },
+  {
+    "name": "Fire Axe",
+    "type": "equipment",
+    "system": {
+      "description": "",
+      "equipmentType": "weapon",
+      "bonus": 3,
+      "damage": "1",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "weapon_tag": "Axes",
+        "weapon_range": "melee",
+        "damage_type": "Cutting",
+        "attribute": "Strength",
+        "item_value": "Valuable Gear",
+        "slot_value": 2
+      }
+    }
+  },
+  {
+    "name": "Long Sword",
+    "type": "equipment",
+    "system": {
+      "description": "",
+      "equipmentType": "weapon",
+      "bonus": 3,
+      "damage": "1",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "weapon_tag": "Swords",
+        "weapon_range": "melee",
+        "damage_type": "Cutting / Piercing",
+        "attribute": "Dexterity",
+        "item_value": "Valuable Gear",
+        "slot_value": 2
+      }
+    }
+  },
+  {
+    "name": "Pepper Spray",
+    "type": "equipment",
+    "system": {
+      "description": "Imposes Blinded state",
+      "equipmentType": "weapon",
+      "bonus": 1,
+      "damage": "0",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "weapon_tag": "Special",
+        "weapon_range": "melee",
+        "damage_type": "N/A",
+        "attribute": "Dexterity",
+        "item_value": "Essential Goods",
+        "slot_value": 0
+      }
+    }
+  },
+  {
+    "name": "Short Sword",
+    "type": "equipment",
+    "system": {
+      "description": "",
+      "equipmentType": "weapon",
+      "bonus": 2,
+      "damage": "1",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "weapon_tag": "Swords",
+        "weapon_range": "melee",
+        "damage_type": "Cutting / Piercing",
+        "attribute": "Dexterity",
+        "item_value": "Essential Goods",
+        "slot_value": 1
+      }
+    }
+  },
+  {
+    "name": "Sledgehammer",
+    "type": "equipment",
+    "system": {
+      "description": "",
+      "equipmentType": "weapon",
+      "bonus": 3,
+      "damage": "1",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "weapon_tag": "Impact",
+        "weapon_range": "melee",
+        "damage_type": "Bashing",
+        "attribute": "Strength",
+        "item_value": "Essential Goods",
+        "slot_value": 2
+      }
+    }
+  },
+  {
+    "name": "Spear",
+    "type": "equipment",
+    "system": {
+      "description": "",
+      "equipmentType": "weapon",
+      "bonus": 2,
+      "damage": "1",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "weapon_tag": "Polearms",
+        "weapon_range": "close",
+        "damage_type": "Piercing",
+        "attribute": "Strength",
+        "item_value": "Essential Goods",
+        "slot_value": 2
+      }
+    }
+  },
+  {
+    "name": "Taser, Handheld",
+    "type": "equipment",
+    "system": {
+      "description": "",
+      "equipmentType": "weapon",
+      "bonus": 2,
+      "damage": "1",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "weapon_tag": "Special",
+        "weapon_range": "melee",
+        "damage_type": "Electrical",
+        "attribute": "Dexterity",
+        "item_value": "Essential Goods",
+        "slot_value": 0
+      }
+    }
+  },
+  {
+    "name": "Standard Flashlight",
+    "type": "equipment",
+    "system": {
+      "description": "Handheld flashlight; illuminates a cone out to Long Range",
+      "equipmentType": "gear",
+      "bonus": 0,
+      "damage": "",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "item_value": "Essential Goods",
+        "slot_value": 0
+      }
+    }
+  },
+  {
+    "name": "Standard Watch",
+    "type": "equipment",
+    "system": {
+      "description": "Practical portable timepiece (non-smart, non-luxury)",
+      "equipmentType": "gear",
+      "bonus": 0,
+      "damage": "",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "item_value": "Essential Goods",
+        "slot_value": 0
+      }
+    }
+  },
+  {
+    "name": "Smartphone",
+    "type": "equipment",
+    "system": {
+      "description": "Calls, texts, apps, internet, flash light at Close range. Basic Cell Phone is free if this isn't taken.",
+      "equipmentType": "gear",
+      "bonus": 0,
+      "damage": "",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "item_value": "Essential Goods",
+        "slot_value": 0
+      }
+    }
+  },
+  {
+    "name": "Basic Sunglasses",
+    "type": "equipment",
+    "system": {
+      "description": "CL\u22121 vs Blinded state when worn",
+      "equipmentType": "gear",
+      "bonus": 0,
+      "damage": "",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "item_value": "Essential Goods",
+        "slot_value": 0
+      }
+    }
+  },
+  {
+    "name": "First Aid Kit",
+    "type": "equipment",
+    "system": {
+      "description": "Bandaids, gauze, scissors, gloves, antiseptic. CL\u22121 to Medicine rolls",
+      "equipmentType": "gear",
+      "bonus": 0,
+      "damage": "",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "item_value": "Essential Goods",
+        "slot_value": 1
+      }
+    }
+  },
+  {
+    "name": "Fishing Gear",
+    "type": "equipment",
+    "system": {
+      "description": "Tacklebox, line, hooks, bait, and a pole",
+      "equipmentType": "gear",
+      "bonus": 0,
+      "damage": "",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "item_value": "Essential Goods",
+        "slot_value": 2
+      }
+    }
+  },
+  {
+    "name": "Lighter or Matches",
+    "type": "equipment",
+    "system": {
+      "description": "Light flammable objects on fire",
+      "equipmentType": "gear",
+      "bonus": 0,
+      "damage": "",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "item_value": "Essential Goods",
+        "slot_value": 0
+      }
+    }
+  },
+  {
+    "name": "Multi-tool",
+    "type": "equipment",
+    "system": {
+      "description": "Blade, screwdriver, pliers, can/bottle opener, file",
+      "equipmentType": "gear",
+      "bonus": 0,
+      "damage": "",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "item_value": "Essential Goods",
+        "slot_value": 0
+      }
+    }
+  },
+  {
+    "name": "Notebook with Pens/Pencils",
+    "type": "equipment",
+    "system": {
+      "description": "Simple notebook or journal",
+      "equipmentType": "gear",
+      "bonus": 0,
+      "damage": "",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "item_value": "Essential Goods",
+        "slot_value": 0
+      }
+    }
+  },
+  {
+    "name": "Simple Backpack",
+    "type": "equipment",
+    "system": {
+      "description": "Provides +3 slot capacity. Items in backpack cost 1 AP to retrieve.",
+      "equipmentType": "gear",
+      "bonus": 0,
+      "damage": "",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "item_value": "Essential Goods",
+        "slot_value": 1
+      }
+    }
+  },
+  {
+    "name": "Water Bottle",
+    "type": "equipment",
+    "system": {
+      "description": "Plastic or metal, holds up to 1 L",
+      "equipmentType": "gear",
+      "bonus": 0,
+      "damage": "",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "item_value": "Essential Goods",
+        "slot_value": 0
+      }
+    }
+  },
+  {
+    "name": "Winter Wear or Rain Coat",
+    "type": "equipment",
+    "system": {
+      "description": "Prevents cold damage for 1 hour in extreme cold; halves Fortitude cold rolls after",
+      "equipmentType": "gear",
+      "bonus": 0,
+      "damage": "",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "item_value": "Essential Goods",
+        "slot_value": 1
+      }
+    }
+  },
+  {
+    "name": "Handcuffs",
+    "type": "equipment",
+    "system": {
+      "description": "STR 4 roll to break",
+      "equipmentType": "gear",
+      "bonus": 0,
+      "damage": "",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "item_value": "Essential Goods",
+        "slot_value": 0
+      }
+    }
+  },
+  {
+    "name": "Specialized Climbing Gear",
+    "type": "equipment",
+    "system": {
+      "description": "Rope, anchors, harness, counterweight. +2 dice to climbing tasks",
+      "equipmentType": "gear",
+      "bonus": 0,
+      "damage": "",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "item_value": "Valuable Gear",
+        "slot_value": 2
+      }
+    }
+  },
+  {
+    "name": "Advanced Lock-picking Set",
+    "type": "equipment",
+    "system": {
+      "description": "CL\u22122 to Larceny rolls",
+      "equipmentType": "gear",
+      "bonus": 0,
+      "damage": "",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "item_value": "Valuable Gear",
+        "slot_value": 0
+      }
+    }
+  },
+  {
+    "name": "Compact Binoculars",
+    "type": "equipment",
+    "system": {
+      "description": "Night vision: Darkness\u2192Dim Light, Dim\u2192Bright. CL\u22122 Awareness at Distant Range+",
+      "equipmentType": "gear",
+      "bonus": 0,
+      "damage": "",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "item_value": "Valuable Gear",
+        "slot_value": 1
+      }
+    }
+  },
+  {
+    "name": "Digital SLR Camera",
+    "type": "equipment",
+    "system": {
+      "description": "High-quality photographs; supports multiple lenses",
+      "equipmentType": "gear",
+      "bonus": 0,
+      "damage": "",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "item_value": "Valuable Gear",
+        "slot_value": 1
+      }
+    }
+  },
+  {
+    "name": "Drone with Camera",
+    "type": "equipment",
+    "system": {
+      "description": "Remote/app controlled; Speed 80 ft with Move action. Needs Smartphone for app control.",
+      "equipmentType": "gear",
+      "bonus": 0,
+      "damage": "",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "item_value": "Valuable Gear",
+        "slot_value": 2
+      }
+    }
+  },
+  {
+    "name": "High-Power Telescope",
+    "type": "equipment",
+    "system": {
+      "description": "CL\u22123 Awareness at Distant Range+ within visual range",
+      "equipmentType": "gear",
+      "bonus": 0,
+      "damage": "",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "item_value": "Valuable Gear",
+        "slot_value": 2
+      }
+    }
+  },
+  {
+    "name": "Luxury Watch",
+    "type": "equipment",
+    "system": {
+      "description": "Status symbol. +1 die to Presence once per session",
+      "equipmentType": "gear",
+      "bonus": 0,
+      "damage": "",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "item_value": "Valuable Gear",
+        "slot_value": 0
+      }
+    }
+  },
+  {
+    "name": "Photo/Video Kit",
+    "type": "equipment",
+    "system": {
+      "description": "Tripod, portable lights, green screen mat",
+      "equipmentType": "gear",
+      "bonus": 0,
+      "damage": "",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "item_value": "Valuable Gear",
+        "slot_value": 2
+      }
+    }
+  },
+  {
+    "name": "Portable Encrypted Hard Drive",
+    "type": "equipment",
+    "system": {
+      "description": "Durable; built-in basic encryption",
+      "equipmentType": "gear",
+      "bonus": 0,
+      "damage": "",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "item_value": "Valuable Gear",
+        "slot_value": 0
+      }
+    }
+  },
+  {
+    "name": "Portable Generator",
+    "type": "equipment",
+    "system": {
+      "description": "Powers appliances/devices",
+      "equipmentType": "gear",
+      "bonus": 0,
+      "damage": "",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "item_value": "Valuable Gear",
+        "slot_value": 3
+      }
+    }
+  },
+  {
+    "name": "Scuba Gear",
+    "type": "equipment",
+    "system": {
+      "description": "Basic scuba kit",
+      "equipmentType": "gear",
+      "bonus": 0,
+      "damage": "",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "item_value": "Valuable Gear",
+        "slot_value": 3
+      }
+    }
+  },
+  {
+    "name": "Smart Watch",
+    "type": "equipment",
+    "system": {
+      "description": "Pairs with smartphone; vitals tracking; notifications",
+      "equipmentType": "gear",
+      "bonus": 0,
+      "damage": "",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "item_value": "Valuable Gear",
+        "slot_value": 0
+      }
+    }
+  },
+  {
+    "name": "Tactical Flashlight",
+    "type": "equipment",
+    "system": {
+      "description": "Bright light cone to Distant Range; UV mode; +1 Bashing Impact weapon",
+      "equipmentType": "gear",
+      "bonus": 0,
+      "damage": "",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "item_value": "Valuable Gear",
+        "slot_value": 0
+      }
+    }
+  },
+  {
+    "name": "Quality Laptop",
+    "type": "equipment",
+    "system": {
+      "description": "Handles everyday computing",
+      "equipmentType": "gear",
+      "bonus": 0,
+      "damage": "",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "item_value": "Valuable Gear",
+        "slot_value": 1
+      }
+    }
+  },
+  {
+    "name": "Chains",
+    "type": "equipment",
+    "system": {
+      "description": "20 ft of strong reinforced chain",
+      "equipmentType": "gear",
+      "bonus": 0,
+      "damage": "",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "item_value": "Valuable Gear",
+        "slot_value": 2
+      }
+    }
+  },
+  {
+    "name": "Listening Device / Bug",
+    "type": "equipment",
+    "system": {
+      "description": "Set of 5; memory chip or smart-device transmission",
+      "equipmentType": "gear",
+      "bonus": 0,
+      "damage": "",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "item_value": "Valuable Gear",
+        "slot_value": 0
+      }
+    }
+  },
+  {
+    "name": "Hidden Cameras",
+    "type": "equipment",
+    "system": {
+      "description": "Set of 5 miniature cameras; memory chip or transmit",
+      "equipmentType": "gear",
+      "bonus": 0,
+      "damage": "",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "item_value": "Valuable Gear",
+        "slot_value": 1
+      }
+    }
+  },
+  {
+    "name": "Wireless Earpiece Set",
+    "type": "equipment",
+    "system": {
+      "description": "Set of 5 earpieces + mics for group comms",
+      "equipmentType": "gear",
+      "bonus": 0,
+      "damage": "",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "item_value": "Valuable Gear",
+        "slot_value": 0
+      }
+    }
+  },
+  {
+    "name": "GPS Trackers / Tags / Beacons",
+    "type": "equipment",
+    "system": {
+      "description": "Set of 5; transmit to smart device",
+      "equipmentType": "gear",
+      "bonus": 0,
+      "damage": "",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "item_value": "Valuable Gear",
+        "slot_value": 0
+      }
+    }
+  },
+  {
+    "name": "Portable Wi-Fi Hotspot",
+    "type": "equipment",
+    "system": {
+      "description": "Internet where none is available",
+      "equipmentType": "gear",
+      "bonus": 0,
+      "damage": "",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "item_value": "Valuable Gear",
+        "slot_value": 0
+      }
+    }
+  },
+  {
+    "name": "Designer Sunglasses",
+    "type": "equipment",
+    "system": {
+      "description": "CL\u22121 vs Blinded; once/session \u2212CL\u22121 Presence OR +CL+1 to be read by others",
+      "equipmentType": "gear",
+      "bonus": 0,
+      "damage": "",
+      "armor": 0,
+      "quantity": 1,
+      "equipped": false
+    },
+    "flags": {
+      "godcomplex": {
+        "item_value": "Valuable Gear",
+        "slot_value": 0
+      }
+    }
+  }
+]

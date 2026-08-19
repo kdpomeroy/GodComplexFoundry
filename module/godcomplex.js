@@ -87,6 +87,21 @@ Hooks.once("init", async function() {
   Handlebars.registerHelper("gte", function(a, b) {
     return a >= b;
   });
+
+  Handlebars.registerHelper("includes", function(value, array) {
+    if (!Array.isArray(array)) return false;
+    return array.includes(value);
+  });
+
+  Handlebars.registerHelper("map", function(array, prop) {
+    if (!Array.isArray(array)) return [];
+    return array.map(item => {
+      if (typeof item === "object" && item !== null) {
+        return prop.split(".").reduce((obj, key) => obj?.[key], item);
+      }
+      return item;
+    });
+  });
 });
 
 /* -------------------------------------------- */

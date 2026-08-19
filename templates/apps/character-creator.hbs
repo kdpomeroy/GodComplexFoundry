@@ -43,13 +43,43 @@
     {{#if (eq stepName "background")}}
     <div class="creator-step">
       <h3>Background</h3>
-      <p class="step-description">Choose a background for your character. Each background provides +1 to a specific attribute and informs your character's history.</p>
+      <p class="step-description">Choose a background for your character. Each background provides an attribute bonus, a free specialty, a free proficiency, and additional choices.</p>
 
       {{#if selectedBackground}}
       <div class="selected-background">
-        <h4>Selected: {{selectedBackground.name}}</h4>
-        <p>{{selectedBackground.description}}</p>
-        <p class="background-bonus">Bonus: +1 {{selectedBackground.attribute}}</p>
+        <h4>{{selectedBackground.name}}</h4>
+        <p class="bg-attribute"><strong>Attribute Bonus:</strong> +1 {{selectedBackground.attribute_bonus}}</p>
+        <p class="bg-free"><strong>Free Specialty:</strong> {{selectedBackground.free_specialty}}</p>
+        <p class="bg-free"><strong>Free Proficiency:</strong> {{selectedBackground.free_proficiency}}</p>
+        <p class="bg-feature"><strong>Feature:</strong> {{selectedBackground.feature}}</p>
+        <p class="bg-ability"><strong>Ability:</strong> {{selectedBackground.ability}}</p>
+        <p class="bg-allies"><strong>Allies:</strong> {{selectedBackground.allies}}</p>
+        <p class="bg-rivals"><strong>Rivals:</strong> {{selectedBackground.rivals}}</p>
+        <p class="bg-wealth"><strong>Wealth Level:</strong> {{selectedBackground.wealth_level}}</p>
+      </div>
+
+      {{!-- Specialty Selection --}}
+      <div class="selection-section">
+        <h4>Specialties ({{selectedSpecialties.length}}/{{selectedBackground.num_specialties}} selected)</h4>
+        <div class="choices-grid">
+          {{#each selectedBackground.specialty_choices as |specialty|}}
+          <button type="button" class="specialty-choice {{#if (includes specialty ../selectedSpecialties)}}selected{{/if}}" data-specialty="{{specialty}}">
+            {{specialty}}
+          </button>
+          {{/each}}
+        </div>
+      </div>
+
+      {{!-- Proficiency Selection --}}
+      <div class="selection-section">
+        <h4>Proficiencies ({{selectedProficiencies.length}}/{{selectedBackground.num_proficiencies}} selected)</h4>
+        <div class="choices-grid">
+          {{#each selectedBackground.proficiency_choices as |proficiency|}}
+          <button type="button" class="proficiency-choice {{#if (includes proficiency ../selectedProficiencies)}}selected{{/if}}" data-proficiency="{{proficiency}}">
+            {{proficiency}}
+          </button>
+          {{/each}}
+        </div>
       </div>
       {{/if}}
 
@@ -57,8 +87,9 @@
         {{#each backgrounds as |bg|}}
         <div class="background-option {{#if (eq bg.id ../character.system.background)}}selected{{/if}}" data-background="{{bg.id}}">
           <h4>{{bg.name}}</h4>
-          <p>{{bg.description}}</p>
-          <span class="background-bonus">+1 {{bg.attribute}}</span>
+          <p class="bg-attr-bonus">+1 {{bg.attribute_bonus}}</p>
+          <p class="bg-free-spec">Free: {{bg.free_specialty}}</p>
+          <p class="bg-free-prof">Free: {{bg.free_proficiency}}</p>
         </div>
         {{/each}}
       </div>
@@ -139,35 +170,60 @@
     {{#if (eq stepName "skills")}}
     <div class="creator-step">
       <h3>Skills</h3>
-      <p class="step-description">Add skills that represent your character's training and expertise. You can add as many as you like.</p>
+      <p class="step-description">Your background has granted you specialties and proficiencies. You can add additional custom skills below.</p>
 
-      <div class="skills-list">
-        {{#each skillsList as |skill index|}}
-        <div class="skill-entry">
-          <div class="skill-fields">
-            <input type="text" class="creator-input" data-field="skills.{{index}}.name" value="{{skill.name}}" placeholder="Skill name" />
-            <select class="creator-input" data-field="skills.{{index}}.attribute">
-              {{#select skill.attribute}}
-              <option value="strength">Strength</option>
-              <option value="dexterity">Dexterity</option>
-              <option value="awareness">Awareness</option>
-              <option value="composure">Composure</option>
-              <option value="presence">Presence</option>
-              <option value="intelligence">Intelligence</option>
-              {{/select}}
-            </select>
-            <input type="number" class="creator-input" data-field="skills.{{index}}.bonus" value="{{skill.bonus}}" placeholder="Bonus" />
-          </div>
-          <button type="button" class="remove-skill" data-index="{{index}}">
-            <i class="fas fa-trash"></i>
-          </button>
+      {{#if selectedSpecialties.length}}
+      <div class="selection-section">
+        <h4>Your Specialties</h4>
+        <div class="tag-list">
+          {{#each selectedSpecialties as |specialty|}}
+          <span class="tag">{{specialty}}</span>
+          {{/each}}
         </div>
-        {{/each}}
       </div>
+      {{/if}}
 
-      <button type="button" class="add-skill">
-        <i class="fas fa-plus"></i> Add Skill
-      </button>
+      {{#if selectedProficiencies.length}}
+      <div class="selection-section">
+        <h4>Your Proficiencies</h4>
+        <div class="tag-list">
+          {{#each selectedProficiencies as |proficiency|}}
+          <span class="tag">{{proficiency}}</span>
+          {{/each}}
+        </div>
+      </div>
+      {{/if}}
+
+      <div class="selection-section">
+        <h4>Additional Custom Skills</h4>
+        <div class="skills-list">
+          {{#each skillsList as |skill index|}}
+          <div class="skill-entry">
+            <div class="skill-fields">
+              <input type="text" class="creator-input" data-field="skills.{{index}}.name" value="{{skill.name}}" placeholder="Skill name" />
+              <select class="creator-input" data-field="skills.{{index}}.attribute">
+                {{#select skill.attribute}}
+                <option value="strength">Strength</option>
+                <option value="dexterity">Dexterity</option>
+                <option value="awareness">Awareness</option>
+                <option value="composure">Composure</option>
+                <option value="presence">Presence</option>
+                <option value="intelligence">Intelligence</option>
+                {{/select}}
+              </select>
+              <input type="number" class="creator-input" data-field="skills.{{index}}.bonus" value="{{skill.bonus}}" placeholder="Bonus" />
+            </div>
+            <button type="button" class="remove-skill" data-index="{{index}}">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+          {{/each}}
+        </div>
+
+        <button type="button" class="add-skill">
+          <i class="fas fa-plus"></i> Add Custom Skill
+        </button>
+      </div>
     </div>
     {{/if}}
 
@@ -175,37 +231,60 @@
     {{#if (eq stepName "powers")}}
     <div class="creator-step">
       <h3>Powers</h3>
-      <p class="step-description">Add supernatural powers and abilities. These cost Gloriae to use.</p>
+      <p class="step-description">Select powers from the catalog. Available powers are based on your Tier ({{character.system.core.tier.value}}).</p>
 
-      <div class="powers-list">
-        {{#each powersList as |power index|}}
-        <div class="power-entry">
-          <div class="power-fields">
-            <input type="text" class="creator-input" data-field="powers.{{index}}.name" value="{{power.name}}" placeholder="Power name" />
-            <select class="creator-input" data-field="powers.{{index}}.attribute">
-              {{#select power.attribute}}
-              <option value="strength">Strength</option>
-              <option value="dexterity">Dexterity</option>
-              <option value="awareness">Awareness</option>
-              <option value="composure">Composure</option>
-              <option value="presence">Presence</option>
-              <option value="intelligence">Intelligence</option>
-              {{/select}}
-            </select>
-            <input type="number" class="creator-input" data-field="powers.{{index}}.apCost" value="{{power.apCost}}" placeholder="AP" />
-            <input type="number" class="creator-input" data-field="powers.{{index}}.glorieaCost" value="{{power.glorieaCost}}" placeholder="Gloriae" />
+      {{#if powersList.length}}
+      <div class="selection-section">
+        <h4>Selected Powers ({{powersList.length}})</h4>
+        <div class="selected-items-list">
+          {{#each powersList as |power index|}}
+          <div class="selected-item-entry">
+            <div class="selected-item-info">
+              <strong>{{power.name}}</strong>
+              <span class="item-meta">{{power.system.apCost}} AP | {{power.system.glorieaCost}} Gloriae | {{power.system.range}}</span>
+            </div>
+            <button type="button" class="remove-power" data-index="{{index}}">
+              <i class="fas fa-trash"></i>
+            </button>
           </div>
-          <textarea class="creator-input" data-field="powers.{{index}}.description" placeholder="Description">{{power.description}}</textarea>
-          <button type="button" class="remove-power" data-index="{{index}}">
-            <i class="fas fa-trash"></i>
-          </button>
+          {{/each}}
         </div>
-        {{/each}}
       </div>
+      {{/if}}
 
-      <button type="button" class="add-power">
-        <i class="fas fa-plus"></i> Add Power
-      </button>
+      <div class="selection-section">
+        <h4>Power Catalog</h4>
+        {{#if powersetNames.length}}
+        <div class="catalog-tabs">
+          {{#each powersetNames as |name index|}}
+          <button type="button" class="powerset-tab {{#if (eq index 0)}}active{{/if}}" data-tab="{{name}}">
+            {{name}}
+          </button>
+          {{/each}}
+        </div>
+        
+        <div class="catalog-panels">
+          {{#each powersetNames as |name index|}}
+          <div class="powerset-catalog-panel catalog-panel {{#if (eq index 0)}}active{{/if}}" data-tab="{{name}}">
+            {{#each (lookup ../powersByPowerset name) as |power|}}
+            <div class="power-catalog-item {{#if (includes power.name (map ../powersList "name"))}}already-selected{{/if}}" data-power="{{power.name}}">
+              <div class="catalog-item-header">
+                <strong>{{power.name}}</strong>
+                <span class="catalog-item-tier">Tier {{power.flags.godcomplex.tier}}</span>
+              </div>
+              <div class="catalog-item-meta">
+                {{power.system.apCost}} AP | {{power.system.glorieaCost}} Gloriae | {{power.system.range}} | {{power.flags.godcomplex.duration}}
+              </div>
+              <div class="catalog-item-desc">{{power.system.description}}</div>
+            </div>
+            {{/each}}
+          </div>
+          {{/each}}
+        </div>
+        {{else}}
+        <p class="no-data">No powers available at your current Tier. Increase your Tier to unlock more powers.</p>
+        {{/if}}
+      </div>
     </div>
     {{/if}}
 
@@ -213,32 +292,59 @@
     {{#if (eq stepName "equipment")}}
     <div class="creator-step">
       <h3>Equipment</h3>
-      <p class="step-description">Add starting equipment, weapons, and armor.</p>
+      <p class="step-description">Select equipment from the catalog based on your background's wealth level ({{selectedBackground.wealth_level}}).</p>
 
-      <div class="equipment-list">
-        {{#each equipmentList as |item index|}}
-        <div class="equipment-entry">
-          <div class="equipment-fields">
-            <input type="text" class="creator-input" data-field="equipment.{{index}}.name" value="{{item.name}}" placeholder="Item name" />
-            <select class="creator-input" data-field="equipment.{{index}}.equipmentType">
-              {{#select item.equipmentType}}
-              <option value="weapon">Weapon</option>
-              <option value="armor">Armor</option>
-              <option value="gear">Gear</option>
-              {{/select}}
-            </select>
-            <input type="text" class="creator-input" data-field="equipment.{{index}}.bonus" value="{{item.bonus}}" placeholder="Bonus" />
+      {{#if equipmentList.length}}
+      <div class="selection-section">
+        <h4>Selected Equipment ({{equipmentList.length}})</h4>
+        <div class="selected-items-list">
+          {{#each equipmentList as |item index|}}
+          <div class="selected-item-entry">
+            <div class="selected-item-info">
+              <strong>{{item.name}}</strong>
+              <span class="item-meta">{{item.system.equipmentType}}{{#if item.system.armor}} | Armor: +{{item.system.armor}}{{/if}}{{#if item.system.damage}} | Damage: {{item.system.damage}}{{/if}}</span>
+            </div>
+            <button type="button" class="remove-equipment" data-index="{{index}}">
+              <i class="fas fa-trash"></i>
+            </button>
           </div>
-          <button type="button" class="remove-equipment" data-index="{{index}}">
-            <i class="fas fa-trash"></i>
-          </button>
+          {{/each}}
         </div>
-        {{/each}}
       </div>
+      {{/if}}
 
-      <button type="button" class="add-equipment">
-        <i class="fas fa-plus"></i> Add Equipment
-      </button>
+      <div class="selection-section">
+        <h4>Equipment Catalog</h4>
+        <div class="catalog-tabs">
+          <button type="button" class="equip-tab active" data-tab="armor">Armor</button>
+          <button type="button" class="equip-tab" data-tab="weapon">Weapons</button>
+          <button type="button" class="equip-tab" data-tab="gear">Gear</button>
+        </div>
+        
+        <div class="catalog-panels">
+          {{#each equipmentByType as |items type|}}
+          <div class="equipment-catalog-panel catalog-panel {{#if (eq type "armor")}}active{{/if}}" data-tab="{{type}}">
+            {{#each items as |item|}}
+            <div class="equipment-catalog-item {{#if (includes item.name (map ../equipmentList "name"))}}already-selected{{/if}}" data-item="{{item.name}}">
+              <div class="catalog-item-header">
+                <strong>{{item.name}}</strong>
+                {{#if item.flags.godcomplex.armor_type}}<span class="catalog-item-type">{{item.flags.godcomplex.armor_type}}</span>{{/if}}
+                {{#if item.flags.godcomplex.weapon_tag}}<span class="catalog-item-type">{{item.flags.godcomplex.weapon_tag}}</span>{{/if}}
+              </div>
+              <div class="catalog-item-meta">
+                {{#if item.system.armor}}Armor: +{{item.system.armor}}{{/if}}
+                {{#if item.system.damage}}Damage: {{item.system.damage}}{{/if}}
+                {{#if item.system.bonus}}Bonus: +{{item.system.bonus}}{{/if}}
+                {{#if item.flags.godcomplex.weapon_range}} | Range: {{item.flags.godcomplex.weapon_range}}{{/if}}
+                {{#if item.flags.godcomplex.item_value}} | Value: {{item.flags.godcomplex.item_value}}{{/if}}
+              </div>
+              {{#if item.system.description}}<div class="catalog-item-desc">{{item.system.description}}</div>{{/if}}
+            </div>
+            {{/each}}
+          </div>
+          {{/each}}
+        </div>
+      </div>
     </div>
     {{/if}}
 
@@ -300,14 +406,25 @@
         </div>
       </div>
 
-      {{#if skillsList.length}}
+      {{#if selectedSpecialties.length}}
       <div class="review-section">
-        <h4>Skills ({{skillsList.length}})</h4>
-        <ul class="review-list">
-          {{#each skillsList as |skill|}}
-          <li>{{skill.name}} ({{skill.attribute}}{{#if skill.bonus}} +{{skill.bonus}}{{/if}})</li>
+        <h4>Specialties ({{selectedSpecialties.length}})</h4>
+        <div class="tag-list">
+          {{#each selectedSpecialties as |specialty|}}
+          <span class="tag">{{specialty}}</span>
           {{/each}}
-        </ul>
+        </div>
+      </div>
+      {{/if}}
+
+      {{#if selectedProficiencies.length}}
+      <div class="review-section">
+        <h4>Proficiencies ({{selectedProficiencies.length}})</h4>
+        <div class="tag-list">
+          {{#each selectedProficiencies as |proficiency|}}
+          <span class="tag">{{proficiency}}</span>
+          {{/each}}
+        </div>
       </div>
       {{/if}}
 
@@ -316,7 +433,7 @@
         <h4>Powers ({{powersList.length}})</h4>
         <ul class="review-list">
           {{#each powersList as |power|}}
-          <li>{{power.name}} ({{power.apCost}} AP, {{power.glorieaCost}} Gloriae)</li>
+          <li><strong>{{power.name}}</strong> ({{power.system.apCost}} AP, {{power.system.glorieaCost}} Gloriae)</li>
           {{/each}}
         </ul>
       </div>
@@ -327,7 +444,7 @@
         <h4>Equipment ({{equipmentList.length}})</h4>
         <ul class="review-list">
           {{#each equipmentList as |item|}}
-          <li>{{item.name}} ({{item.equipmentType}})</li>
+          <li>{{item.name}} ({{item.system.equipmentType}})</li>
           {{/each}}
         </ul>
       </div>

@@ -1191,3 +1191,282 @@
   font-size: 12px;
   font-weight: 600;
 }
+
+/* -------------------------------------------- */
+/*  Background Detail Fields                    */
+/* -------------------------------------------- */
+
+.godcomplex.character-creator .selected-background .bg-attribute,
+.godcomplex.character-creator .selected-background .bg-free,
+.godcomplex.character-creator .selected-background .bg-feature,
+.godcomplex.character-creator .selected-background .bg-ability,
+.godcomplex.character-creator .selected-background .bg-allies,
+.godcomplex.character-creator .selected-background .bg-rivals,
+.godcomplex.character-creator .selected-background .bg-wealth {
+  margin: 6px 0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.godcomplex.character-creator .backgrounds-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.godcomplex.character-creator .background-option .bg-attr-bonus {
+  color: #667eea;
+  font-weight: 600;
+  font-size: 13px;
+  margin: 4px 0;
+}
+
+.godcomplex.character-creator .background-option .bg-free-spec,
+.godcomplex.character-creator .background-option .bg-free-prof {
+  font-size: 12px;
+  color: #888;
+  margin: 2px 0;
+}
+
+/* -------------------------------------------- */
+/*  Selection Sections                          */
+/* -------------------------------------------- */
+
+.godcomplex.character-creator .selection-section {
+  margin-bottom: 20px;
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+}
+
+.godcomplex.character-creator .selection-section h4 {
+  margin: 0 0 10px 0;
+  color: #333;
+  font-size: 15px;
+}
+
+/* -------------------------------------------- */
+/*  Specialty / Proficiency Choices             */
+/* -------------------------------------------- */
+
+.godcomplex.character-creator .choices-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.godcomplex.character-creator .specialty-choice,
+.godcomplex.character-creator .proficiency-choice {
+  padding: 6px 12px;
+  background: white;
+  border: 2px solid #ddd;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  color: #555;
+  transition: all 0.2s;
+}
+
+.godcomplex.character-creator .specialty-choice:hover,
+.godcomplex.character-creator .proficiency-choice:hover {
+  border-color: #667eea;
+  color: #667eea;
+}
+
+.godcomplex.character-creator .specialty-choice.selected,
+.godcomplex.character-creator .proficiency-choice.selected {
+  background: #667eea;
+  border-color: #667eea;
+  color: white;
+}
+
+/* -------------------------------------------- */
+/*  Tag Lists                                   */
+/* -------------------------------------------- */
+
+.godcomplex.character-creator .tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.godcomplex.character-creator .tag {
+  display: inline-block;
+  padding: 4px 10px;
+  background: #667eea;
+  color: white;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* -------------------------------------------- */
+/*  Catalog Tabs                                */
+/* -------------------------------------------- */
+
+.godcomplex.character-creator .catalog-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 5px;
+}
+
+.godcomplex.character-creator .powerset-tab,
+.godcomplex.character-creator .equip-tab {
+  padding: 6px 14px;
+  background: transparent;
+  border: 1px solid #ddd;
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  color: #666;
+  transition: all 0.2s;
+}
+
+.godcomplex.character-creator .powerset-tab:hover,
+.godcomplex.character-creator .equip-tab:hover {
+  background: #f0f4ff;
+  color: #667eea;
+}
+
+.godcomplex.character-creator .powerset-tab.active,
+.godcomplex.character-creator .equip-tab.active {
+  background: #667eea;
+  color: white;
+  border-color: #667eea;
+}
+
+/* -------------------------------------------- */
+/*  Catalog Panels                              */
+/* -------------------------------------------- */
+
+.godcomplex.character-creator .catalog-panels {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.godcomplex.character-creator .catalog-panel {
+  display: none;
+}
+
+.godcomplex.character-creator .catalog-panel.active {
+  display: block;
+}
+
+/* -------------------------------------------- */
+/*  Catalog Items                               */
+/* -------------------------------------------- */
+
+.godcomplex.character-creator .power-catalog-item,
+.godcomplex.character-creator .equipment-catalog-item {
+  padding: 10px;
+  margin-bottom: 8px;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.godcomplex.character-creator .power-catalog-item:hover,
+.godcomplex.character-creator .equipment-catalog-item:hover {
+  border-color: #667eea;
+  box-shadow: 0 2px 4px rgba(102, 126, 234, 0.15);
+}
+
+.godcomplex.character-creator .power-catalog-item.already-selected,
+.godcomplex.character-creator .equipment-catalog-item.already-selected {
+  opacity: 0.5;
+  border-color: #22c55e;
+  background: #f0fdf4;
+}
+
+.godcomplex.character-creator .catalog-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.godcomplex.character-creator .catalog-item-header strong {
+  color: #333;
+  font-size: 14px;
+}
+
+.godcomplex.character-creator .catalog-item-tier,
+.godcomplex.character-creator .catalog-item-type {
+  font-size: 11px;
+  padding: 2px 6px;
+  background: #667eea;
+  color: white;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+.godcomplex.character-creator .catalog-item-meta {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 4px;
+}
+
+.godcomplex.character-creator .catalog-item-desc {
+  font-size: 12px;
+  color: #555;
+  line-height: 1.4;
+  max-height: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* -------------------------------------------- */
+/*  Selected Items List                         */
+/* -------------------------------------------- */
+
+.godcomplex.character-creator .selected-items-list {
+  margin-bottom: 10px;
+}
+
+.godcomplex.character-creator .selected-item-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  margin-bottom: 6px;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+.godcomplex.character-creator .selected-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.godcomplex.character-creator .selected-item-info strong {
+  color: #333;
+  font-size: 14px;
+}
+
+.godcomplex.character-creator .item-meta {
+  font-size: 12px;
+  color: #888;
+}
+
+/* -------------------------------------------- */
+/*  No Data Message                             */
+/* -------------------------------------------- */
+
+.godcomplex.character-creator .no-data {
+  text-align: center;
+  color: #888;
+  font-style: italic;
+  padding: 20px;
+}
