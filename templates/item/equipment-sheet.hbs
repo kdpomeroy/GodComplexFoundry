@@ -1,0 +1,63 @@
+<form class="{{cssClass}} godcomplex sheet item equipment" autocomplete="off">
+  <header class="sheet-header">
+    <img class="item-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+    <div class="header-fields">
+      <h1 class="item-name">
+        <input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'GODCOMPLEX.EquipmentName'}}" />
+      </h1>
+    </div>
+  </header>
+
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="description">{{localize "GODCOMPLEX.Description"}}</a>
+    <a class="item" data-tab="details">{{localize "GODCOMPLEX.Details"}}</a>
+  </nav>
+
+  <section class="sheet-body">
+    <div class="tab description" data-group="primary" data-tab="description">
+      {{editor description target="system.description" button=true owner=owner editable=editable}}
+    </div>
+
+    <div class="tab details" data-group="primary" data-tab="details">
+      <div class="form-group">
+        <label>{{localize "GODCOMPLEX.EquipmentType"}}</label>
+        <select name="system.equipmentType">
+          {{#select system.equipmentType}}
+          {{#each equipmentTypeOptions as |label key|}}
+          <option value="{{key}}">{{localize label}}</option>
+          {{/each}}
+          {{/select}}
+        </select>
+      </div>
+
+      {{#if (eq system.equipmentType "weapon")}}
+      <div class="form-group">
+        <label>{{localize "GODCOMPLEX.Damage"}}</label>
+        <input type="text" name="system.damage" value="{{system.damage}}" placeholder="e.g., 1d6+2" />
+      </div>
+      {{/if}}
+
+      {{#if (eq system.equipmentType "armor")}}
+      <div class="form-group">
+        <label>{{localize "GODCOMPLEX.Armor"}}</label>
+        <input type="number" name="system.armor" value="{{system.armor}}" min="0" />
+      </div>
+      {{/if}}
+
+      <div class="form-group">
+        <label>{{localize "GODCOMPLEX.Bonus"}}</label>
+        <input type="text" name="system.bonus" value="{{system.bonus}}" placeholder="e.g., +1 to attacks" />
+      </div>
+
+      <div class="form-group">
+        <label>{{localize "GODCOMPLEX.Quantity"}}</label>
+        <input type="number" name="system.quantity" value="{{system.quantity}}" min="0" />
+      </div>
+
+      <div class="form-group">
+        <label>{{localize "GODCOMPLEX.Equipped"}}</label>
+        <input type="checkbox" name="system.equipped" {{#if system.equipped}}checked{{/if}} />
+      </div>
+    </div>
+  </section>
+</form>

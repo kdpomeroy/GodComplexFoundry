@@ -1,0 +1,329 @@
+<form class="godcomplex character-creator" autocomplete="off">
+  <div class="creator-header">
+    <h2>{{localize "GODCOMPLEX.CharacterCreator"}}</h2>
+    <div class="step-indicator">
+      {{localize "GODCOMPLEX.Step"}} {{add step 1}} {{localize "GODCOMPLEX.Of"}} {{totalSteps}}
+    </div>
+  </div>
+
+  <div class="creator-content">
+    {{!-- Step 1: Basic Info --}}
+    {{#if (eq stepName "basic-info")}}
+    <div class="creator-step">
+      <h3>{{localize "GODCOMPLEX.BasicInformation"}}</h3>
+      
+      <div class="form-group">
+        <label>{{localize "GODCOMPLEX.CharacterName"}}</label>
+        <input type="text" class="creator-input" data-field="name" value="{{character.name}}" placeholder="Enter character name" />
+      </div>
+
+      <div class="form-group">
+        <label>{{localize "GODCOMPLEX.Concept"}}</label>
+        <input type="text" class="creator-input" data-field="system.concept" value="{{character.system.concept}}" placeholder="e.g., Fire-wielding detective" />
+      </div>
+
+      <div class="form-group">
+        <label>{{localize "GODCOMPLEX.Player"}}</label>
+        <input type="text" class="creator-input" data-field="system.player" value="{{character.system.player}}" />
+      </div>
+
+      <div class="form-group">
+        <label>{{localize "GODCOMPLEX.Portrait"}}</label>
+        <div class="portrait-container">
+          <img src="{{character.img}}" alt="Character portrait" />
+          <button type="button" class="portrait-upload">
+            <i class="fas fa-upload"></i> {{localize "GODCOMPLEX.UploadPortrait"}}
+          </button>
+        </div>
+      </div>
+    </div>
+    {{/if}}
+
+    {{!-- Step 2: Core Stats --}}
+    {{#if (eq stepName "core-stats")}}
+    <div class="creator-step">
+      <h3>{{localize "GODCOMPLEX.CoreStatistics"}}</h3>
+      <p class="step-description">{{localize "GODCOMPLEX.CoreStatsDescription"}}</p>
+
+      <div class="stats-grid">
+        <div class="stat-block">
+          <label>{{localize "GODCOMPLEX.Tier"}}</label>
+          <input type="number" class="creator-input" data-field="system.core.tier.value" value="{{character.system.core.tier.value}}" min="1" max="5" />
+          <span class="stat-hint">{{localize "GODCOMPLEX.TierHint"}}</span>
+        </div>
+
+        <div class="stat-block">
+          <label>{{localize "GODCOMPLEX.Generation"}}</label>
+          <input type="number" class="creator-input" data-field="system.core.generation.value" value="{{character.system.core.generation.value}}" min="1" max="5" />
+          <span class="stat-hint">{{localize "GODCOMPLEX.GenerationHint"}}</span>
+        </div>
+
+        <div class="stat-block">
+          <label>{{localize "GODCOMPLEX.Domain"}}</label>
+          <input type="number" class="creator-input" data-field="system.core.domain.value" value="{{character.system.core.domain.value}}" min="1" max="5" />
+          <span class="stat-hint">{{localize "GODCOMPLEX.DomainHint"}}</span>
+        </div>
+
+        <div class="stat-block">
+          <label>{{localize "GODCOMPLEX.Size"}}</label>
+          <input type="number" class="creator-input" data-field="system.core.size.value" value="{{character.system.core.size.value}}" min="-2" max="2" />
+          <span class="stat-hint">{{localize "GODCOMPLEX.SizeHint"}}</span>
+        </div>
+
+        <div class="stat-block">
+          <label>{{localize "GODCOMPLEX.XP"}}</label>
+          <input type="number" class="creator-input" data-field="system.core.xp.value" value="{{character.system.core.xp.value}}" min="0" />
+          <span class="stat-hint">{{localize "GODCOMPLEX.XPHint"}}</span>
+        </div>
+      </div>
+    </div>
+    {{/if}}
+
+    {{!-- Step 3: Attributes --}}
+    {{#if (eq stepName "attributes")}}
+    <div class="creator-step">
+      <h3>{{localize "GODCOMPLEX.Attributes"}}</h3>
+      <p class="step-description">{{localize "GODCOMPLEX.AttributesDescription"}}</p>
+      
+      <div class="attribute-points">
+        <span class="points-label">{{localize "GODCOMPLEX.PointsRemaining"}}:</span>
+        <span class="points-value {{#if (eq attributePoints 0)}}complete{{else}}incomplete{{/if}}">{{attributePoints}}</span>
+      </div>
+
+      <div class="attributes-grid">
+        {{#each character.system.attributes as |attr key|}}
+        <div class="attribute-block">
+          <label>{{localize (concat "GODCOMPLEX.Attributes." key)}}</label>
+          <div class="attribute-controls">
+            <button type="button" class="attribute-decrease" data-attribute="{{key}}" {{#if (lte attr.value 1)}}disabled{{/if}}>
+              <i class="fas fa-minus"></i>
+            </button>
+            <span class="attribute-value">{{attr.value}}</span>
+            <button type="button" class="attribute-increase" data-attribute="{{key}}" {{#if (gte attr.value 5)}}disabled{{/if}}>
+              <i class="fas fa-plus"></i>
+            </button>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+    {{/if}}
+
+    {{!-- Step 4: Skills --}}
+    {{#if (eq stepName "skills")}}
+    <div class="creator-step">
+      <h3>{{localize "GODCOMPLEX.Skills"}}</h3>
+      <p class="step-description">{{localize "GODCOMPLEX.SkillsDescription"}}</p>
+
+      <div class="skills-list">
+        {{#each skillsList as |skill index|}}
+        <div class="skill-entry">
+          <div class="skill-fields">
+            <input type="text" class="creator-input" data-field="skills.{{index}}.name" value="{{skill.name}}" placeholder="Skill name" />
+            <select class="creator-input" data-field="skills.{{index}}.attribute">
+              {{#select skill.attribute}}
+              <option value="strength">{{localize "GODCOMPLEX.Attributes.strength"}}</option>
+              <option value="dexterity">{{localize "GODCOMPLEX.Attributes.dexterity"}}</option>
+              <option value="awareness">{{localize "GODCOMPLEX.Attributes.awareness"}}</option>
+              <option value="composure">{{localize "GODCOMPLEX.Attributes.composure"}}</option>
+              <option value="presence">{{localize "GODCOMPLEX.Attributes.presence"}}</option>
+              <option value="intelligence">{{localize "GODCOMPLEX.Attributes.intelligence"}}</option>
+              {{/select}}
+            </select>
+            <input type="number" class="creator-input" data-field="skills.{{index}}.bonus" value="{{skill.bonus}}" placeholder="Bonus" />
+          </div>
+          <button type="button" class="remove-skill" data-index="{{index}}">
+            <i class="fas fa-trash"></i>
+          </button>
+        </div>
+        {{/each}}
+      </div>
+
+      <button type="button" class="add-skill">
+        <i class="fas fa-plus"></i> {{localize "GODCOMPLEX.AddSkill"}}
+      </button>
+    </div>
+    {{/if}}
+
+    {{!-- Step 5: Powers --}}
+    {{#if (eq stepName "powers")}}
+    <div class="creator-step">
+      <h3>{{localize "GODCOMPLEX.Powers"}}</h3>
+      <p class="step-description">{{localize "GODCOMPLEX.PowersDescription"}}</p>
+
+      <div class="powers-list">
+        {{#each powersList as |power index|}}
+        <div class="power-entry">
+          <div class="power-fields">
+            <input type="text" class="creator-input" data-field="powers.{{index}}.name" value="{{power.name}}" placeholder="Power name" />
+            <select class="creator-input" data-field="powers.{{index}}.attribute">
+              {{#select power.attribute}}
+              <option value="strength">{{localize "GODCOMPLEX.Attributes.strength"}}</option>
+              <option value="dexterity">{{localize "GODCOMPLEX.Attributes.dexterity"}}</option>
+              <option value="awareness">{{localize "GODCOMPLEX.Attributes.awareness"}}</option>
+              <option value="composure">{{localize "GODCOMPLEX.Attributes.composure"}}</option>
+              <option value="presence">{{localize "GODCOMPLEX.Attributes.presence"}}</option>
+              <option value="intelligence">{{localize "GODCOMPLEX.Attributes.intelligence"}}</option>
+              {{/select}}
+            </select>
+            <input type="number" class="creator-input" data-field="powers.{{index}}.apCost" value="{{power.apCost}}" placeholder="AP" />
+            <input type="number" class="creator-input" data-field="powers.{{index}}.glorieaCost" value="{{power.glorieaCost}}" placeholder="Gloriae" />
+          </div>
+          <textarea class="creator-input" data-field="powers.{{index}}.description" placeholder="Description">{{power.description}}</textarea>
+          <button type="button" class="remove-power" data-index="{{index}}">
+            <i class="fas fa-trash"></i>
+          </button>
+        </div>
+        {{/each}}
+      </div>
+
+      <button type="button" class="add-power">
+        <i class="fas fa-plus"></i> {{localize "GODCOMPLEX.AddPower"}}
+      </button>
+    </div>
+    {{/if}}
+
+    {{!-- Step 6: Equipment --}}
+    {{#if (eq stepName "equipment")}}
+    <div class="creator-step">
+      <h3>{{localize "GODCOMPLEX.Equipment"}}</h3>
+      <p class="step-description">{{localize "GODCOMPLEX.EquipmentDescription"}}</p>
+
+      <div class="equipment-list">
+        {{#each equipmentList as |item index|}}
+        <div class="equipment-entry">
+          <div class="equipment-fields">
+            <input type="text" class="creator-input" data-field="equipment.{{index}}.name" value="{{item.name}}" placeholder="Item name" />
+            <select class="creator-input" data-field="equipment.{{index}}.equipmentType">
+              {{#select item.equipmentType}}
+              <option value="weapon">{{localize "GODCOMPLEX.EquipmentTypes.weapon"}}</option>
+              <option value="armor">{{localize "GODCOMPLEX.EquipmentTypes.armor"}}</option>
+              <option value="gear">{{localize "GODCOMPLEX.EquipmentTypes.gear"}}</option>
+              {{/select}}
+            </select>
+            <input type="text" class="creator-input" data-field="equipment.{{index}}.bonus" value="{{item.bonus}}" placeholder="Bonus" />
+          </div>
+          <button type="button" class="remove-equipment" data-index="{{index}}">
+            <i class="fas fa-trash"></i>
+          </button>
+        </div>
+        {{/each}}
+      </div>
+
+      <button type="button" class="add-equipment">
+        <i class="fas fa-plus"></i> {{localize "GODCOMPLEX.AddEquipment"}}
+      </button>
+    </div>
+    {{/if}}
+
+    {{!-- Step 7: Review --}}
+    {{#if (eq stepName "review")}}
+    <div class="creator-step">
+      <h3>{{localize "GODCOMPLEX.ReviewCharacter"}}</h3>
+      <p class="step-description">{{localize "GODCOMPLEX.ReviewDescription"}}</p>
+
+      <div class="review-section">
+        <h4>{{localize "GODCOMPLEX.BasicInformation"}}</h4>
+        <div class="review-item">
+          <span class="review-label">{{localize "GODCOMPLEX.Name"}}:</span>
+          <span class="review-value">{{character.name}}</span>
+        </div>
+        <div class="review-item">
+          <span class="review-label">{{localize "GODCOMPLEX.Concept"}}:</span>
+          <span class="review-value">{{character.system.concept}}</span>
+        </div>
+      </div>
+
+      <div class="review-section">
+        <h4>{{localize "GODCOMPLEX.CoreStatistics"}}</h4>
+        <div class="review-grid">
+          <div class="review-item">
+            <span class="review-label">{{localize "GODCOMPLEX.Tier"}}:</span>
+            <span class="review-value">{{character.system.core.tier.value}}</span>
+          </div>
+          <div class="review-item">
+            <span class="review-label">{{localize "GODCOMPLEX.Generation"}}:</span>
+            <span class="review-value">{{character.system.core.generation.value}}</span>
+          </div>
+          <div class="review-item">
+            <span class="review-label">{{localize "GODCOMPLEX.Domain"}}:</span>
+            <span class="review-value">{{character.system.core.domain.value}}</span>
+          </div>
+          <div class="review-item">
+            <span class="review-label">{{localize "GODCOMPLEX.Size"}}:</span>
+            <span class="review-value">{{character.system.core.size.value}}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-section">
+        <h4>{{localize "GODCOMPLEX.Attributes"}}</h4>
+        <div class="review-grid">
+          {{#each character.system.attributes as |attr key|}}
+          <div class="review-item">
+            <span class="review-label">{{localize (concat "GODCOMPLEX.Attributes." key)}}:</span>
+            <span class="review-value">{{attr.value}}</span>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+
+      {{#if skillsList.length}}
+      <div class="review-section">
+        <h4>{{localize "GODCOMPLEX.Skills"}} ({{skillsList.length}})</h4>
+        <ul class="review-list">
+          {{#each skillsList as |skill|}}
+          <li>{{skill.name}} ({{localize (concat "GODCOMPLEX.Attributes." skill.attribute)}}{{#if skill.bonus}} +{{skill.bonus}}{{/if}})</li>
+          {{/each}}
+        </ul>
+      </div>
+      {{/if}}
+
+      {{#if powersList.length}}
+      <div class="review-section">
+        <h4>{{localize "GODCOMPLEX.Powers"}} ({{powersList.length}})</h4>
+        <ul class="review-list">
+          {{#each powersList as |power|}}
+          <li>{{power.name}} ({{power.apCost}} AP, {{power.glorieaCost}} Gloriae)</li>
+          {{/each}}
+        </ul>
+      </div>
+      {{/if}}
+
+      {{#if equipmentList.length}}
+      <div class="review-section">
+        <h4>{{localize "GODCOMPLEX.Equipment"}} ({{equipmentList.length}})</h4>
+        <ul class="review-list">
+          {{#each equipmentList as |item|}}
+          <li>{{item.name}} ({{item.equipmentType}})</li>
+          {{/each}}
+        </ul>
+      </div>
+      {{/if}}
+    </div>
+    {{/if}}
+  </div>
+
+  <div class="creator-footer">
+    <button type="button" class="creator-cancel">
+      <i class="fas fa-times"></i> {{localize "GODCOMPLEX.Cancel"}}
+    </button>
+    <div class="creator-navigation">
+      {{#unless isFirstStep}}
+      <button type="button" class="creator-prev">
+        <i class="fas fa-arrow-left"></i> {{localize "GODCOMPLEX.Previous"}}
+      </button>
+      {{/unless}}
+      
+      {{#if isLastStep}}
+      <button type="button" class="creator-finish">
+        <i class="fas fa-check"></i> {{localize "GODCOMPLEX.CreateCharacter"}}
+      </button>
+      {{else}}
+      <button type="button" class="creator-next">
+        {{localize "GODCOMPLEX.Next"}} <i class="fas fa-arrow-right"></i>
+      </button>
+      {{/if}}
+    </div>
+  </div>
+</form>

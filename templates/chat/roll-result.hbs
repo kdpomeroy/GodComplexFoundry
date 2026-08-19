@@ -1,0 +1,76 @@
+<div class="godcomplex roll-result">
+  <div class="roll-header">
+    <img src="{{actor.img}}" class="actor-img" />
+    <div class="roll-info">
+      <h3>{{actor.name}}</h3>
+      <span class="roll-label">{{result.label}}</span>
+      {{#if options.skillName}}<span class="roll-subtitle">{{options.skillName}}</span>{{/if}}
+      {{#if options.powerName}}<span class="roll-subtitle">{{options.powerName}}</span>{{/if}}
+    </div>
+  </div>
+
+  <div class="roll-body">
+    <div class="dice-results">
+      <div class="dice-pool">
+        {{#each result.dice}}
+        <span class="die die-{{this}} {{#if (eq this 6)}}success{{else if (eq this 5)}}partial{{/if}}">
+          {{this}}
+        </span>
+        {{/each}}
+      </div>
+    </div>
+
+    <div class="roll-stats">
+      <div class="stat-row">
+        <span class="stat-label">{{localize "GODCOMPLEX.DicePool"}}:</span>
+        <span class="stat-value">{{result.poolSize}}d6</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">{{localize "GODCOMPLEX.Fives"}}:</span>
+        <span class="stat-value">{{result.fives}}</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">{{localize "GODCOMPLEX.Sixes"}}:</span>
+        <span class="stat-value">{{result.sixes}}</span>
+      </div>
+      <div class="stat-row total">
+        <span class="stat-label">{{localize "GODCOMPLEX.Advances"}}:</span>
+        <span class="stat-value">{{result.advances}}</span>
+      </div>
+    </div>
+
+    {{#if options.glorieaCost}}
+    <div class="resource-cost">
+      <span>{{localize "GODCOMPLEX.GlorieaSpent"}}: {{options.glorieaCost}}</span>
+    </div>
+    {{/if}}
+
+    {{#if options.apCost}}
+    <div class="resource-cost">
+      <span>{{localize "GODCOMPLEX.APSpent"}}: {{options.apCost}}</span>
+    </div>
+    {{/if}}
+
+    {{#if difficulty}}
+    <div class="difficulty-check">
+      <div class="stat-row">
+        <span class="stat-label">{{localize "GODCOMPLEX.Difficulty"}}:</span>
+        <span class="stat-value">{{difficulty}}</span>
+      </div>
+      {{#if success}}
+      <div class="result-success">
+        <i class="fas fa-check-circle"></i> {{localize "GODCOMPLEX.Success"}}
+      </div>
+      {{else if partial}}
+      <div class="result-partial">
+        <i class="fas fa-exclamation-circle"></i> {{localize "GODCOMPLEX.PartialSuccess"}}
+      </div>
+      {{else}}
+      <div class="result-failure">
+        <i class="fas fa-times-circle"></i> {{localize "GODCOMPLEX.Failure"}}
+      </div>
+      {{/if}}
+    </div>
+    {{/if}}
+  </div>
+</div>

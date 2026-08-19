@@ -1,0 +1,1110 @@
+/* God Complex - Foundry VTT System Styles */
+
+/* -------------------------------------------- */
+/*  General Sheet Styles                        */
+/* -------------------------------------------- */
+
+.godcomplex.sheet {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.godcomplex.sheet .window-content {
+  padding: 0;
+  background: #f5f5f5;
+}
+
+.godcomplex.sheet form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* -------------------------------------------- */
+/*  Sheet Header                                */
+/* -------------------------------------------- */
+
+.godcomplex.sheet .sheet-header {
+  display: flex;
+  gap: 15px;
+  padding: 15px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-bottom: 2px solid #5568d3;
+}
+
+.godcomplex.sheet .profile-img,
+.godcomplex.sheet .item-img {
+  flex: 0 0 100px;
+  height: 100px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.godcomplex.sheet .header-fields {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.godcomplex.sheet .charname,
+.godcomplex.sheet .item-name {
+  margin: 0;
+}
+
+.godcomplex.sheet .charname input,
+.godcomplex.sheet .item-name input {
+  width: 100%;
+  font-size: 24px;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.godcomplex.sheet .charname input::placeholder,
+.godcomplex.sheet .item-name input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.godcomplex.sheet .header-row {
+  display: flex;
+  gap: 15px;
+}
+
+.godcomplex.sheet .header-field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.godcomplex.sheet .header-field label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.godcomplex.sheet .header-field input {
+  padding: 5px 10px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  border-radius: 4px;
+}
+
+/* -------------------------------------------- */
+/*  Sheet Tabs                                  */
+/* -------------------------------------------- */
+
+.godcomplex.sheet .sheet-tabs {
+  display: flex;
+  background: #fff;
+  border-bottom: 2px solid #ddd;
+  padding: 0 15px;
+}
+
+.godcomplex.sheet .sheet-tabs .item {
+  padding: 10px 20px;
+  font-weight: 600;
+  color: #666;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.godcomplex.sheet .sheet-tabs .item:hover {
+  color: #667eea;
+}
+
+.godcomplex.sheet .sheet-tabs .item.active {
+  color: #667eea;
+  border-bottom-color: #667eea;
+}
+
+/* -------------------------------------------- */
+/*  Sheet Body                                  */
+/* -------------------------------------------- */
+
+.godcomplex.sheet .sheet-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 15px;
+}
+
+.godcomplex.sheet .tab {
+  display: none;
+}
+
+.godcomplex.sheet .tab.active {
+  display: block;
+}
+
+/* -------------------------------------------- */
+/*  Panels                                      */
+/* -------------------------------------------- */
+
+.godcomplex.sheet .panel {
+  background: white;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.godcomplex.sheet .panel h2 {
+  margin: 0 0 15px 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #667eea;
+  color: #333;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* -------------------------------------------- */
+/*  Stats Grid                                  */
+/* -------------------------------------------- */
+
+.godcomplex.sheet .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+}
+
+.godcomplex.sheet .stat-block {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.godcomplex.sheet .stat-block label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #555;
+}
+
+.godcomplex.sheet .stat-block input,
+.godcomplex.sheet .stat-block .stat-value {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.godcomplex.sheet .stat-block input {
+  background: white;
+}
+
+.godcomplex.sheet .stat-block .stat-value {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.godcomplex.sheet .stat-block button {
+  margin-top: 5px;
+  padding: 5px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.godcomplex.sheet .stat-block button:hover {
+  background: #5568d3;
+}
+
+/* -------------------------------------------- */
+/*  Attributes Grid                             */
+/* -------------------------------------------- */
+
+.godcomplex.sheet .attributes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.godcomplex.sheet .attribute-block {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.godcomplex.sheet .attribute-block label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #555;
+}
+
+.godcomplex.sheet .attribute-block input {
+  padding: 10px;
+  border: 2px solid #667eea;
+  border-radius: 4px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.godcomplex.sheet .attribute-block button {
+  padding: 8px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.2s;
+}
+
+.godcomplex.sheet .attribute-block button:hover {
+  background: #5568d3;
+}
+
+/* -------------------------------------------- */
+/*  Resources                                   */
+/* -------------------------------------------- */
+
+.godcomplex.sheet .resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.godcomplex.sheet .resource-block {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.godcomplex.sheet .resource-block label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #555;
+}
+
+.godcomplex.sheet .resource-input {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.godcomplex.sheet .resource-input input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.godcomplex.sheet .resource-input .resource-max {
+  padding: 8px 12px;
+  background: #f0f0f0;
+  border-radius: 4px;
+  font-weight: 600;
+  color: #666;
+}
+
+.godcomplex.sheet .rest-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.godcomplex.sheet .rest-buttons button {
+  flex: 1;
+  padding: 10px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.godcomplex.sheet .rest-buttons button:hover {
+  background: #5568d3;
+}
+
+/* -------------------------------------------- */
+/*  Conditions                                  */
+/* -------------------------------------------- */
+
+.godcomplex.sheet .conditions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.godcomplex.sheet .condition-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  background: #f5f5f5;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.godcomplex.sheet .condition-toggle:hover {
+  background: #eee;
+}
+
+.godcomplex.sheet .condition-toggle.active {
+  background: #ffe0e0;
+  border-color: #ff6b6b;
+}
+
+.godcomplex.sheet .condition-toggle input[type="checkbox"] {
+  margin: 0;
+}
+
+.godcomplex.sheet .condition-toggle span {
+  font-weight: 600;
+  color: #333;
+}
+
+/* -------------------------------------------- */
+/*  Item Lists                                  */
+/* -------------------------------------------- */
+
+.godcomplex.sheet .item-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.godcomplex.sheet .item-list .item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.godcomplex.sheet .item-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.godcomplex.sheet .item-header button {
+  padding: 5px 10px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.godcomplex.sheet .item-header button:hover {
+  background: #5568d3;
+}
+
+.godcomplex.sheet .item-header input {
+  flex: 1;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.godcomplex.sheet .item-details {
+  display: flex;
+  gap: 10px;
+  font-size: 13px;
+  color: #666;
+}
+
+.godcomplex.sheet .item-controls {
+  display: flex;
+  gap: 5px;
+}
+
+.godcomplex.sheet .item-controls a {
+  padding: 5px 8px;
+  color: #666;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.godcomplex.sheet .item-controls a:hover {
+  color: #667eea;
+}
+
+.godcomplex.sheet .item-create {
+  width: 100%;
+  padding: 10px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.godcomplex.sheet .item-create:hover {
+  background: #5568d3;
+}
+
+/* -------------------------------------------- */
+/*  Item Sheet                                  */
+/* -------------------------------------------- */
+
+.godcomplex.sheet.item .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 15px;
+}
+
+.godcomplex.sheet.item .form-group label {
+  font-weight: 600;
+  color: #555;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+.godcomplex.sheet.item .form-group input,
+.godcomplex.sheet.item .form-group select,
+.godcomplex.sheet.item .form-group textarea {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.godcomplex.sheet.item .raises-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.godcomplex.sheet.item .raises-header h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.godcomplex.sheet.item .raise-add {
+  padding: 8px 15px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.godcomplex.sheet.item .raise-add:hover {
+  background: #5568d3;
+}
+
+.godcomplex.sheet.item .raises-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.godcomplex.sheet.item .raise {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.godcomplex.sheet.item .raise-fields {
+  flex: 1;
+  display: flex;
+  gap: 10px;
+}
+
+.godcomplex.sheet.item .raise-controls {
+  display: flex;
+  align-items: center;
+}
+
+.godcomplex.sheet.item .raise-controls a {
+  padding: 5px 8px;
+  color: #666;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.godcomplex.sheet.item .raise-controls a:hover {
+  color: #ff6b6b;
+}
+
+/* -------------------------------------------- */
+/*  Chat Messages                               */
+/* -------------------------------------------- */
+
+.godcomplex.roll-result {
+  border: 2px solid #667eea;
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 5px 0;
+}
+
+.godcomplex.roll-result .roll-header {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.godcomplex.roll-result .actor-img {
+  width: 50px;
+  height: 50px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.godcomplex.roll-result .roll-info {
+  flex: 1;
+}
+
+.godcomplex.roll-result .roll-info h3 {
+  margin: 0 0 5px 0;
+  font-size: 16px;
+}
+
+.godcomplex.roll-result .roll-label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.godcomplex.roll-result .roll-subtitle {
+  display: block;
+  font-size: 12px;
+  opacity: 0.9;
+  margin-top: 3px;
+}
+
+.godcomplex.roll-result .roll-body {
+  padding: 10px;
+  background: white;
+}
+
+.godcomplex.roll-result .dice-pool {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.godcomplex.roll-result .die {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background: #f0f0f0;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.godcomplex.roll-result .die.success {
+  background: #d4edda;
+  border-color: #28a745;
+  color: #155724;
+}
+
+.godcomplex.roll-result .die.partial {
+  background: #fff3cd;
+  border-color: #ffc107;
+  color: #856404;
+}
+
+.godcomplex.roll-result .roll-stats {
+  margin-top: 10px;
+}
+
+.godcomplex.roll-result .stat-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.godcomplex.roll-result .stat-row.total {
+  border-bottom: none;
+  font-weight: bold;
+  font-size: 16px;
+  color: #667eea;
+}
+
+.godcomplex.roll-result .resource-cost {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+  font-size: 13px;
+  color: #666;
+}
+
+.godcomplex.roll-result .difficulty-check {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 2px solid #667eea;
+}
+
+.godcomplex.roll-result .result-success {
+  margin-top: 10px;
+  padding: 8px;
+  background: #d4edda;
+  border: 1px solid #28a745;
+  border-radius: 4px;
+  color: #155724;
+  font-weight: 600;
+}
+
+.godcomplex.roll-result .result-partial {
+  margin-top: 10px;
+  padding: 8px;
+  background: #fff3cd;
+  border: 1px solid #ffc107;
+  border-radius: 4px;
+  color: #856404;
+  font-weight: 600;
+}
+
+.godcomplex.roll-result .result-failure {
+  margin-top: 10px;
+  padding: 8px;
+  background: #f8d7da;
+  border: 1px solid #dc3545;
+  border-radius: 4px;
+  color: #721c24;
+  font-weight: 600;
+}
+
+/* -------------------------------------------- */
+/*  Character Creator                           */
+/* -------------------------------------------- */
+
+.godcomplex.character-creator {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.godcomplex.character-creator .creator-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 15px 20px;
+  border-bottom: 2px solid #5568d3;
+}
+
+.godcomplex.character-creator .creator-header h2 {
+  margin: 0 0 5px 0;
+  font-size: 20px;
+}
+
+.godcomplex.character-creator .step-indicator {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.godcomplex.character-creator .creator-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.godcomplex.character-creator .creator-step h3 {
+  margin: 0 0 10px 0;
+  color: #333;
+  font-size: 18px;
+  border-bottom: 2px solid #667eea;
+  padding-bottom: 8px;
+}
+
+.godcomplex.character-creator .step-description {
+  color: #666;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.godcomplex.character-creator .form-group {
+  margin-bottom: 15px;
+}
+
+.godcomplex.character-creator .form-group label {
+  display: block;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+.godcomplex.character-creator .creator-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.godcomplex.character-creator .creator-input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1);
+}
+
+.godcomplex.character-creator .portrait-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.godcomplex.character-creator .portrait-container img {
+  width: 100px;
+  height: 100px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.godcomplex.character-creator .portrait-upload {
+  padding: 8px 16px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.godcomplex.character-creator .portrait-upload:hover {
+  background: #5568d3;
+}
+
+.godcomplex.character-creator .stats-grid,
+.godcomplex.character-creator .attributes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.godcomplex.character-creator .stat-block {
+  background: #f9f9f9;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+}
+
+.godcomplex.character-creator .stat-block label {
+  display: block;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.godcomplex.character-creator .stat-block input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.godcomplex.character-creator .stat-hint {
+  display: block;
+  font-size: 11px;
+  color: #888;
+  margin-top: 5px;
+}
+
+.godcomplex.character-creator .attribute-points {
+  background: #f0f0f0;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.godcomplex.character-creator .points-label {
+  font-weight: 600;
+  color: #555;
+  margin-right: 10px;
+}
+
+.godcomplex.character-creator .points-value {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.godcomplex.character-creator .points-value.complete {
+  color: #22c55e;
+}
+
+.godcomplex.character-creator .points-value.incomplete {
+  color: #f59e0b;
+}
+
+.godcomplex.character-creator .attribute-block {
+  background: #f9f9f9;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+}
+
+.godcomplex.character-creator .attribute-block label {
+  display: block;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-size: 12px;
+  text-align: center;
+}
+
+.godcomplex.character-creator .attribute-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.godcomplex.character-creator .attribute-controls button {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 4px;
+  background: #667eea;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.godcomplex.character-creator .attribute-controls button:hover:not(:disabled) {
+  background: #5568d3;
+}
+
+.godcomplex.character-creator .attribute-controls button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.godcomplex.character-creator .attribute-value {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  min-width: 40px;
+  text-align: center;
+}
+
+.godcomplex.character-creator .skills-list,
+.godcomplex.character-creator .powers-list,
+.godcomplex.character-creator .equipment-list {
+  margin-bottom: 15px;
+}
+
+.godcomplex.character-creator .skill-entry,
+.godcomplex.character-creator .power-entry,
+.godcomplex.character-creator .equipment-entry {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background: #f9f9f9;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+}
+
+.godcomplex.character-creator .skill-fields,
+.godcomplex.character-creator .power-fields,
+.godcomplex.character-creator .equipment-fields {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 8px;
+}
+
+.godcomplex.character-creator .power-fields {
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+}
+
+.godcomplex.character-creator .power-entry textarea {
+  grid-column: 1 / -1;
+  min-height: 60px;
+  resize: vertical;
+}
+
+.godcomplex.character-creator .remove-skill,
+.godcomplex.character-creator .remove-power,
+.godcomplex.character-creator .remove-equipment {
+  padding: 8px 12px;
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.godcomplex.character-creator .remove-skill:hover,
+.godcomplex.character-creator .remove-power:hover,
+.godcomplex.character-creator .remove-equipment:hover {
+  background: #dc2626;
+}
+
+.godcomplex.character-creator .add-skill,
+.godcomplex.character-creator .add-power,
+.godcomplex.character-creator .add-equipment {
+  width: 100%;
+  padding: 10px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.godcomplex.character-creator .add-skill:hover,
+.godcomplex.character-creator .add-power:hover,
+.godcomplex.character-creator .add-equipment:hover {
+  background: #5568d3;
+}
+
+.godcomplex.character-creator .review-section {
+  margin-bottom: 20px;
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+}
+
+.godcomplex.character-creator .review-section h4 {
+  margin: 0 0 10px 0;
+  color: #667eea;
+  font-size: 16px;
+}
+
+.godcomplex.character-creator .review-item {
+  margin-bottom: 8px;
+}
+
+.godcomplex.character-creator .review-label {
+  font-weight: 600;
+  color: #555;
+  margin-right: 8px;
+}
+
+.godcomplex.character-creator .review-value {
+  color: #333;
+}
+
+.godcomplex.character-creator .review-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.godcomplex.character-creator .review-list {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.godcomplex.character-creator .review-list li {
+  margin-bottom: 5px;
+}
+
+.godcomplex.character-creator .creator-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: #f5f5f5;
+  border-top: 2px solid #ddd;
+}
+
+.godcomplex.character-creator .creator-cancel {
+  padding: 8px 16px;
+  background: #6b7280;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.godcomplex.character-creator .creator-cancel:hover {
+  background: #4b5563;
+}
+
+.godcomplex.character-creator .creator-navigation {
+  display: flex;
+  gap: 10px;
+}
+
+.godcomplex.character-creator .creator-prev,
+.godcomplex.character-creator .creator-next,
+.godcomplex.character-creator .creator-finish {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.godcomplex.character-creator .creator-prev {
+  background: #6b7280;
+  color: white;
+}
+
+.godcomplex.character-creator .creator-prev:hover {
+  background: #4b5563;
+}
+
+.godcomplex.character-creator .creator-next,
+.godcomplex.character-creator .creator-finish {
+  background: #667eea;
+  color: white;
+}
+
+.godcomplex.character-creator .creator-next:hover,
+.godcomplex.character-creator .creator-finish:hover {
+  background: #5568d3;
+}

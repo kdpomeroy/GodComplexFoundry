@@ -1,0 +1,36 @@
+{
+  "id": "godcomplex",
+  "title": "God Complex",
+  "description": "A modern myth TTRPG of immortal ambition and mortal consequence",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "10",
+    "verified": "11"
+  },
+  "authors": [
+    {
+      "name": "God Complex Community"
+    }
+  ],
+  "esmodules": [
+    "module/godcomplex.js"
+  ],
+  "styles": [
+    "styles/godcomplex.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "languages/en.json"
+    }
+  ],
+  "initiative": "1d6 + @attributes.awareness.value + @attributes.dexterity.value",
+  "gridDistance": 5,
+  "gridUnits": "ft",
+  "primaryTokenAttribute": "health",
+  "secondaryTokenAttribute": "gloriea",
+  "url": "https://github.com/yourusername/godcomplex-foundry",
+  "manifest": "https://github.com/yourusername/godcomplex-foundry/releases/latest/download/system.json",
+  "download": "https://github.com/yourusername/godcomplex-foundry/releases/latest/download/godcomplex.zip"
+}
