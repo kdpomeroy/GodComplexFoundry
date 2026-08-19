@@ -90,37 +90,37 @@ export class GodComplexCharacterCreator extends Application {
   activateListeners(html) {
     super.activateListeners(html);
 
-    // Navigation buttons
-    html.find(".creator-next").click(this._onNext.bind(this));
-    html.find(".creator-prev").click(this._onPrevious.bind(this));
-    html.find(".creator-finish").click(this._onFinish.bind(this));
-    html.find(".creator-cancel").click(this._onCancel.bind(this));
+    // Navigation buttons - use event delegation
+    html.on("click", ".creator-next", this._onNext.bind(this));
+    html.on("click", ".creator-prev", this._onPrevious.bind(this));
+    html.on("click", ".creator-finish", this._onFinish.bind(this));
+    html.on("click", ".creator-cancel", this._onCancel.bind(this));
 
-    // Input changes
-    html.find(".creator-input").on("change", this._onInputChange.bind(this));
-    html.find(".creator-input").on("input", this._onInputField.bind(this));
+    // Input changes - use event delegation
+    html.on("change", ".creator-input", this._onInputChange.bind(this));
+    html.on("input", ".creator-input", this._onInputField.bind(this));
     
     // Attribute controls
-    html.find(".attribute-increase").click(this._onAttributeIncrease.bind(this));
-    html.find(".attribute-decrease").click(this._onAttributeDecrease.bind(this));
+    html.on("click", ".attribute-increase", this._onAttributeIncrease.bind(this));
+    html.on("click", ".attribute-decrease", this._onAttributeDecrease.bind(this));
 
     // Background selection
-    html.find(".background-option").click(this._onBackgroundSelect.bind(this));
+    html.on("click", ".background-option", this._onBackgroundSelect.bind(this));
 
     // Skill management
-    html.find(".add-skill").click(this._onAddSkill.bind(this));
-    html.find(".remove-skill").click(this._onRemoveSkill.bind(this));
+    html.on("click", ".add-skill", this._onAddSkill.bind(this));
+    html.on("click", ".remove-skill", this._onRemoveSkill.bind(this));
 
     // Power management
-    html.find(".add-power").click(this._onAddPower.bind(this));
-    html.find(".remove-power").click(this._onRemovePower.bind(this));
+    html.on("click", ".add-power", this._onAddPower.bind(this));
+    html.on("click", ".remove-power", this._onRemovePower.bind(this));
 
     // Equipment management
-    html.find(".add-equipment").click(this._onAddEquipment.bind(this));
-    html.find(".remove-equipment").click(this._onRemoveEquipment.bind(this));
+    html.on("click", ".add-equipment", this._onAddEquipment.bind(this));
+    html.on("click", ".remove-equipment", this._onRemoveEquipment.bind(this));
 
     // Portrait upload
-    html.find(".portrait-upload").click(this._onPortraitUpload.bind(this));
+    html.on("click", ".portrait-upload", this._onPortraitUpload.bind(this));
   }
 
   _calculateAttributePoints() {
@@ -147,15 +147,35 @@ export class GodComplexCharacterCreator extends Application {
     let target = this.characterData;
     
     for (let i = 0; i < keys.length - 1; i++) {
-      if (target[keys[i]] === undefined) return;
-      target = target[keys[i]];
+      const key = keys[i];
+      // Handle array indices
+      if (Array.isArray(target)) {
+        const index = parseInt(key);
+        if (isNaN(index) || index >= target.length) return;
+        target = target[index];
+      } else {
+        if (target[key] === undefined) return;
+        target = target[key];
+      }
     }
     
     const lastKey = keys[keys.length - 1];
-    if (input.type === "number") {
-      target[lastKey] = parseInt(value) || 0;
+    // Handle array final key
+    if (Array.isArray(target)) {
+      const index = parseInt(lastKey);
+      if (!isNaN(index)) {
+        if (input.type === "number") {
+          target[index] = parseInt(value) || 0;
+        } else {
+          target[index] = value;
+        }
+      }
     } else {
-      target[lastKey] = value;
+      if (input.type === "number") {
+        target[lastKey] = parseInt(value) || 0;
+      } else {
+        target[lastKey] = value;
+      }
     }
   }
 
@@ -223,12 +243,17 @@ export class GodComplexCharacterCreator extends Application {
   _onAddSkill(event) {
     event.preventDefault();
     event.stopPropagation();
+    console.log("Adding skill...");
+    console.log("Current skills:", this.characterData.skills);
+    
     this.characterData.skills.push({
       name: "",
       attribute: "strength",
       bonus: 0,
       specialty: ""
     });
+    
+    console.log("Skills after add:", this.characterData.skills);
     this.render(false);
   }
 
