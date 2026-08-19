@@ -30,7 +30,7 @@
   "gridUnits": "ft",
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "gloriea",
-  "url": "https://github.com/yourusername/godcomplex-foundry",
-  "manifest": "https://github.com/yourusername/godcomplex-foundry/releases/latest/download/system.json",
-  "download": "https://github.com/yourusername/godcomplex-foundry/releases/latest/download/godcomplex.zip"
+  "url": "https://github.com/kdpomeroy/GodComplexFoundry",
+  "manifest": "https://raw.githubusercontent.com/kdpomeroy/GodComplexFoundry/main/system.json",
+  "download": "https://github.com/kdpomeroy/GodComplexFoundry/releases/latest/download/godcomplex.zip"
 }
