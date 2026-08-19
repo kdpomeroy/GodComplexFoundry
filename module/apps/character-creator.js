@@ -15,6 +15,7 @@ export class GodComplexCharacterCreator extends Application {
       system: {
         concept: "",
         player: game.user.name,
+        background: "",
         core: {
           tier: { value: 1 },
           generation: { value: 1 },
@@ -36,8 +37,18 @@ export class GodComplexCharacterCreator extends Application {
       equipment: []
     };
     
+    this.backgrounds = [
+      { id: "street", name: "Street Rat", description: "Grew up on the streets, learned to survive by your wits.", attribute: "dexterity", bonus: 1 },
+      { id: "scholar", name: "Scholar", description: "Spent years in study and research, gaining knowledge.", attribute: "intelligence", bonus: 1 },
+      { id: "socialite", name: "Socialite", description: "Moved in high society, mastering the art of persuasion.", attribute: "presence", bonus: 1 },
+      { id: "athlete", name: "Athlete", description: "Trained your body to peak performance.", attribute: "strength", bonus: 1 },
+      { id: "watchful", name: "Watchful", description: "Always observant, missing nothing around you.", attribute: "awareness", bonus: 1 },
+      { id: "stoic", name: "Stoic", description: "Endured hardship with unshakeable composure.", attribute: "composure", bonus: 1 }
+    ];
+    
     this.steps = [
       "basic-info",
+      "background",
       "core-stats",
       "attributes",
       "skills",
@@ -50,7 +61,7 @@ export class GodComplexCharacterCreator extends Application {
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
       id: "godcomplex-character-creator",
-      title: game.i18n.localize("GODCOMPLEX.CharacterCreator"),
+      title: "Character Creator",
       template: "systems/godcomplex/templates/apps/character-creator.hbs",
       classes: ["godcomplex", "character-creator"],
       width: 800,
@@ -68,9 +79,11 @@ export class GodComplexCharacterCreator extends Application {
       isFirstStep: this.currentStep === 0,
       isLastStep: this.currentStep === this.steps.length - 1,
       attributePoints: this._calculateAttributePoints(),
-      skillsList: this.characterData.skills,
-      powersList: this.characterData.powers,
-      equipmentList: this.characterData.equipment
+      skillsList: [...this.characterData.skills],
+      powersList: [...this.characterData.powers],
+      equipmentList: [...this.characterData.equipment],
+      backgrounds: this.backgrounds,
+      selectedBackground: this.backgrounds.find(b => b.id === this.characterData.system.background)
     };
   }
 
@@ -83,12 +96,16 @@ export class GodComplexCharacterCreator extends Application {
     html.find(".creator-finish").click(this._onFinish.bind(this));
     html.find(".creator-cancel").click(this._onCancel.bind(this));
 
-    // Step-specific listeners
-    html.find(".creator-input").change(this._onInputChange.bind(this));
+    // Input changes
+    html.find(".creator-input").on("change", this._onInputChange.bind(this));
+    html.find(".creator-input").on("input", this._onInputField.bind(this));
     
     // Attribute controls
     html.find(".attribute-increase").click(this._onAttributeIncrease.bind(this));
     html.find(".attribute-decrease").click(this._onAttributeDecrease.bind(this));
+
+    // Background selection
+    html.find(".background-option").click(this._onBackgroundSelect.bind(this));
 
     // Skill management
     html.find(".add-skill").click(this._onAddSkill.bind(this));
@@ -108,34 +125,46 @@ export class GodComplexCharacterCreator extends Application {
 
   _calculateAttributePoints() {
     const baseValue = 1;
-    const totalPoints = 6; // Starting points to distribute
+    const totalPoints = 6;
+    const backgroundBonus = this._getBackgroundBonus();
     const currentTotal = Object.values(this.characterData.system.attributes)
       .reduce((sum, attr) => sum + (attr.value - baseValue), 0);
-    return totalPoints - currentTotal;
+    return totalPoints - currentTotal + backgroundBonus;
   }
 
-  _onInputChange(event) {
+  _getBackgroundBonus() {
+    const background = this.backgrounds.find(b => b.id === this.characterData.system.background);
+    return background ? background.bonus : 0;
+  }
+
+  _onInputField(event) {
     const input = event.currentTarget;
     const field = input.dataset.field;
+    if (!field) return;
+    
     const value = input.value;
-
-    // Handle nested fields (e.g., "system.core.tier.value")
     const keys = field.split(".");
     let target = this.characterData;
     
     for (let i = 0; i < keys.length - 1; i++) {
+      if (target[keys[i]] === undefined) return;
       target = target[keys[i]];
     }
     
     const lastKey = keys[keys.length - 1];
-    
-    // Convert to number if needed
     if (input.type === "number") {
       target[lastKey] = parseInt(value) || 0;
     } else {
       target[lastKey] = value;
     }
+  }
 
+  _onInputChange(event) {
+    const input = event.currentTarget;
+    const field = input.dataset.field;
+    if (!field) return;
+    
+    this._onInputField(event);
     this.render(false);
   }
 
@@ -145,7 +174,7 @@ export class GodComplexCharacterCreator extends Application {
     const attribute = button.dataset.attribute;
     
     if (this._calculateAttributePoints() <= 0) {
-      ui.notifications.warn(game.i18n.localize("GODCOMPLEX.NoAttributePoints"));
+      ui.notifications.warn("No attribute points remaining!");
       return;
     }
     
@@ -160,14 +189,40 @@ export class GodComplexCharacterCreator extends Application {
     const button = event.currentTarget;
     const attribute = button.dataset.attribute;
     
-    if (this.characterData.system.attributes[attribute].value > 1) {
+    const minValue = 1;
+    if (this.characterData.system.attributes[attribute].value > minValue) {
       this.characterData.system.attributes[attribute].value--;
       this.render(false);
     }
   }
 
+  _onBackgroundSelect(event) {
+    event.preventDefault();
+    const button = event.currentTarget;
+    const backgroundId = button.dataset.background;
+    
+    // Remove old background bonus
+    const oldBackground = this.backgrounds.find(b => b.id === this.characterData.system.background);
+    if (oldBackground) {
+      const attr = this.characterData.system.attributes[oldBackground.attribute];
+      attr.value = Math.max(1, attr.value - oldBackground.bonus);
+    }
+    
+    // Set new background
+    this.characterData.system.background = backgroundId;
+    
+    // Apply new background bonus
+    const newBackground = this.backgrounds.find(b => b.id === backgroundId);
+    if (newBackground) {
+      this.characterData.system.attributes[newBackground.attribute].value += newBackground.bonus;
+    }
+    
+    this.render(false);
+  }
+
   _onAddSkill(event) {
     event.preventDefault();
+    event.stopPropagation();
     this.characterData.skills.push({
       name: "",
       attribute: "strength",
@@ -179,6 +234,7 @@ export class GodComplexCharacterCreator extends Application {
 
   _onRemoveSkill(event) {
     event.preventDefault();
+    event.stopPropagation();
     const button = event.currentTarget;
     const index = parseInt(button.dataset.index);
     this.characterData.skills.splice(index, 1);
@@ -187,6 +243,7 @@ export class GodComplexCharacterCreator extends Application {
 
   _onAddPower(event) {
     event.preventDefault();
+    event.stopPropagation();
     this.characterData.powers.push({
       name: "",
       attribute: "presence",
@@ -200,6 +257,7 @@ export class GodComplexCharacterCreator extends Application {
 
   _onRemovePower(event) {
     event.preventDefault();
+    event.stopPropagation();
     const button = event.currentTarget;
     const index = parseInt(button.dataset.index);
     this.characterData.powers.splice(index, 1);
@@ -208,6 +266,7 @@ export class GodComplexCharacterCreator extends Application {
 
   _onAddEquipment(event) {
     event.preventDefault();
+    event.stopPropagation();
     this.characterData.equipment.push({
       name: "",
       equipmentType: "gear",
@@ -220,6 +279,7 @@ export class GodComplexCharacterCreator extends Application {
 
   _onRemoveEquipment(event) {
     event.preventDefault();
+    event.stopPropagation();
     const button = event.currentTarget;
     const index = parseInt(button.dataset.index);
     this.characterData.equipment.splice(index, 1);
@@ -241,7 +301,6 @@ export class GodComplexCharacterCreator extends Application {
   async _onNext(event) {
     event.preventDefault();
     
-    // Validate current step
     if (!this._validateStep()) {
       return;
     }
@@ -268,7 +327,6 @@ export class GodComplexCharacterCreator extends Application {
     }
     
     try {
-      // Create the actor
       const actorData = {
         name: this.characterData.name,
         type: "character",
@@ -278,7 +336,6 @@ export class GodComplexCharacterCreator extends Application {
       
       const actor = await Actor.create(actorData);
       
-      // Create skills
       for (const skill of this.characterData.skills) {
         if (skill.name) {
           await actor.createEmbeddedDocuments("Item", [{
@@ -293,7 +350,6 @@ export class GodComplexCharacterCreator extends Application {
         }
       }
       
-      // Create powers
       for (const power of this.characterData.powers) {
         if (power.name) {
           await actor.createEmbeddedDocuments("Item", [{
@@ -310,7 +366,6 @@ export class GodComplexCharacterCreator extends Application {
         }
       }
       
-      // Create equipment
       for (const equipment of this.characterData.equipment) {
         if (equipment.name) {
           await actor.createEmbeddedDocuments("Item", [{
@@ -326,16 +381,12 @@ export class GodComplexCharacterCreator extends Application {
         }
       }
       
-      ui.notifications.info(game.i18n.format("GODCOMPLEX.CharacterCreated", { name: actor.name }));
-      
-      // Open the character sheet
+      ui.notifications.info(`Character ${actor.name} created successfully!`);
       actor.sheet.render(true);
-      
-      // Close the creator
       this.close();
       
     } catch (error) {
-      ui.notifications.error(game.i18n.localize("GODCOMPLEX.CharacterCreationFailed"));
+      ui.notifications.error("Failed to create character. Check console for details.");
       console.error(error);
     }
   }
@@ -344,8 +395,8 @@ export class GodComplexCharacterCreator extends Application {
     event.preventDefault();
     
     Dialog.confirm({
-      title: game.i18n.localize("GODCOMPLEX.CancelCreation"),
-      content: `<p>${game.i18n.localize("GODCOMPLEX.CancelCreationConfirm")}</p>`,
+      title: "Cancel Character Creation?",
+      content: "<p>Are you sure you want to cancel? All progress will be lost.</p>",
       yes: () => this.close(),
       no: () => {},
       defaultYes: false
@@ -358,14 +409,21 @@ export class GodComplexCharacterCreator extends Application {
     switch (stepName) {
       case "basic-info":
         if (!this.characterData.name || this.characterData.name.trim() === "") {
-          ui.notifications.warn(game.i18n.localize("GODCOMPLEX.NameRequired"));
+          ui.notifications.warn("Character name is required!");
+          return false;
+        }
+        break;
+        
+      case "background":
+        if (!this.characterData.system.background) {
+          ui.notifications.warn("Please select a background!");
           return false;
         }
         break;
         
       case "attributes":
         if (this._calculateAttributePoints() !== 0) {
-          ui.notifications.warn(game.i18n.localize("GODCOMPLEX.AttributePointsRemaining"));
+          ui.notifications.warn("You must distribute all attribute points before continuing.");
           return false;
         }
         break;

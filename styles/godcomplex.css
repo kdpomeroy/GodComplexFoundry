@@ -1108,3 +1108,86 @@
 .godcomplex.character-creator .creator-finish:hover {
   background: #5568d3;
 }
+
+/* -------------------------------------------- */
+/*  Background Selection                        */
+/* -------------------------------------------- */
+
+.godcomplex.character-creator .selected-background {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.godcomplex.character-creator .selected-background h4 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+}
+
+.godcomplex.character-creator .selected-background p {
+  margin: 5px 0;
+  opacity: 0.95;
+}
+
+.godcomplex.character-creator .background-bonus {
+  font-weight: 600;
+  color: #ffd700;
+  margin-top: 8px;
+}
+
+.godcomplex.character-creator .selected-background .background-bonus {
+  color: #ffd700;
+}
+
+.godcomplex.character-creator .backgrounds-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+}
+
+.godcomplex.character-creator .background-option {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 6px;
+  border: 2px solid #e0e0e0;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.godcomplex.character-creator .background-option:hover {
+  border-color: #667eea;
+  background: #f0f4ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.godcomplex.character-creator .background-option.selected {
+  border-color: #667eea;
+  background: #e8eeff;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+}
+
+.godcomplex.character-creator .background-option h4 {
+  margin: 0 0 8px 0;
+  color: #333;
+  font-size: 16px;
+}
+
+.godcomplex.character-creator .background-option p {
+  margin: 0 0 10px 0;
+  color: #666;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.godcomplex.character-creator .background-option .background-bonus {
+  display: inline-block;
+  padding: 4px 8px;
+  background: #667eea;
+  color: white;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
