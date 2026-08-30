@@ -270,10 +270,10 @@
             <div class="power-catalog-item {{#if (includes power.name (map ../powersList "name"))}}already-selected{{/if}}" data-power="{{power.name}}">
               <div class="catalog-item-header">
                 <strong>{{power.name}}</strong>
-                <span class="catalog-item-tier">Tier {{power.flags.godcomplex.tier}}</span>
+                <span class="catalog-item-tier">Tier {{power.flags.tier}}</span>
               </div>
               <div class="catalog-item-meta">
-                {{power.system.apCost}} AP | {{power.system.glorieaCost}} Gloriae | {{power.system.range}} | {{power.flags.godcomplex.duration}}
+                {{power.system.apCost}} AP | {{power.system.glorieaCost}} Gloriae | {{power.system.range}} | {{power.flags.duration}}
               </div>
               <div class="catalog-item-desc">{{power.system.description}}</div>
             </div>
@@ -328,15 +328,15 @@
             <div class="equipment-catalog-item {{#if (includes item.name (map ../equipmentList "name"))}}already-selected{{/if}}" data-item="{{item.name}}">
               <div class="catalog-item-header">
                 <strong>{{item.name}}</strong>
-                {{#if item.flags.godcomplex.armor_type}}<span class="catalog-item-type">{{item.flags.godcomplex.armor_type}}</span>{{/if}}
-                {{#if item.flags.godcomplex.weapon_tag}}<span class="catalog-item-type">{{item.flags.godcomplex.weapon_tag}}</span>{{/if}}
+                {{#if item.flags.armor_type}}<span class="catalog-item-type">{{item.flags.armor_type}}</span>{{/if}}
+                {{#if item.flags.weapon_tag}}<span class="catalog-item-type">{{item.flags.weapon_tag}}</span>{{/if}}
               </div>
               <div class="catalog-item-meta">
                 {{#if item.system.armor}}Armor: +{{item.system.armor}}{{/if}}
                 {{#if item.system.damage}}Damage: {{item.system.damage}}{{/if}}
                 {{#if item.system.bonus}}Bonus: +{{item.system.bonus}}{{/if}}
-                {{#if item.flags.godcomplex.weapon_range}} | Range: {{item.flags.godcomplex.weapon_range}}{{/if}}
-                {{#if item.flags.godcomplex.item_value}} | Value: {{item.flags.godcomplex.item_value}}{{/if}}
+                {{#if item.flags.weapon_range}} | Range: {{item.flags.weapon_range}}{{/if}}
+                {{#if item.flags.item_value}} | Value: {{item.flags.item_value}}{{/if}}
               </div>
               {{#if item.system.description}}<div class="catalog-item-desc">{{item.system.description}}</div>{{/if}}
             </div>

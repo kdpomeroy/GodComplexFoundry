@@ -4,15 +4,15 @@
     <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
     <div class="header-fields">
       <h1 class="charname">
-        <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'GODCOMPLEX.CharacterName'}}" />
+        <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'CharacterName'}}" />
       </h1>
       <div class="header-row">
         <div class="header-field">
-          <label>{{localize "GODCOMPLEX.Concept"}}</label>
+          <label>{{localize "Concept"}}</label>
           <input type="text" name="system.concept" value="{{system.concept}}" />
         </div>
         <div class="header-field">
-          <label>{{localize "GODCOMPLEX.Player"}}</label>
+          <label>{{localize "Player"}}</label>
           <input type="text" name="system.player" value="{{system.player}}" />
         </div>
       </div>
@@ -21,11 +21,11 @@
 
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
-    <a class="item" data-tab="attributes">{{localize "GODCOMPLEX.Attributes"}}</a>
-    <a class="item" data-tab="skills">{{localize "GODCOMPLEX.Skills"}}</a>
-    <a class="item" data-tab="powers">{{localize "GODCOMPLEX.Powers"}}</a>
-    <a class="item" data-tab="equipment">{{localize "GODCOMPLEX.Equipment"}}</a>
-    <a class="item" data-tab="biography">{{localize "GODCOMPLEX.Biography"}}</a>
+    <a class="item" data-tab="attributes">{{localize "Attributes"}}</a>
+    <a class="item" data-tab="skills">{{localize "Skills"}}</a>
+    <a class="item" data-tab="powers">{{localize "Powers"}}</a>
+    <a class="item" data-tab="equipment">{{localize "Equipment"}}</a>
+    <a class="item" data-tab="biography">{{localize "Biography"}}</a>
   </nav>
 
   {{!-- Sheet Body --}}
@@ -34,26 +34,26 @@
     <div class="tab attributes" data-group="primary" data-tab="attributes">
       {{!-- Core Stats --}}
       <div class="panel core-stats">
-        <h2>{{localize "GODCOMPLEX.CoreStats"}}</h2>
+        <h2>{{localize "CoreStats"}}</h2>
         <div class="stats-grid">
           <div class="stat-block">
-            <label>{{localize "GODCOMPLEX.Tier"}}</label>
+            <label>{{localize "Tier"}}</label>
             <input type="number" name="system.core.tier.value" value="{{system.core.tier.value}}" min="{{system.core.tier.min}}" max="{{system.core.tier.max}}" />
           </div>
           <div class="stat-block">
-            <label>{{localize "GODCOMPLEX.Generation"}}</label>
+            <label>{{localize "Generation"}}</label>
             <input type="number" name="system.core.generation.value" value="{{system.core.generation.value}}" min="{{system.core.generation.min}}" max="{{system.core.generation.max}}" />
           </div>
           <div class="stat-block">
-            <label>{{localize "GODCOMPLEX.Domain"}}</label>
+            <label>{{localize "Domain"}}</label>
             <input type="number" name="system.core.domain.value" value="{{system.core.domain.value}}" min="{{system.core.domain.min}}" max="{{system.core.domain.max}}" />
           </div>
           <div class="stat-block">
-            <label>{{localize "GODCOMPLEX.Size"}}</label>
+            <label>{{localize "Size"}}</label>
             <input type="number" name="system.core.size.value" value="{{system.core.size.value}}" min="{{system.core.size.min}}" max="{{system.core.size.max}}" />
           </div>
           <div class="stat-block">
-            <label>{{localize "GODCOMPLEX.XP"}}</label>
+            <label>{{localize "XP"}}</label>
             <input type="number" name="system.core.xp.value" value="{{system.core.xp.value}}" />
           </div>
         </div>
@@ -61,13 +61,13 @@
 
       {{!-- Attributes --}}
       <div class="panel attributes-panel">
-        <h2>{{localize "GODCOMPLEX.Attributes"}}</h2>
+        <h2>{{localize "Attributes"}}</h2>
         <div class="attributes-grid">
           {{#each attributes as |attr key|}}
           <div class="attribute-block">
-            <label>{{localize (concat "GODCOMPLEX.Attributes." key)}}</label>
+            <label>{{localize (concat "Attributes." key)}}</label>
             <input type="number" name="system.attributes.{{key}}.value" value="{{attr.value}}" min="{{attr.min}}" max="{{attr.max}}" />
-            <button type="button" class="attribute-roll" data-attribute="{{key}}" title="{{localize 'GODCOMPLEX.RollAttribute'}}">
+            <button type="button" class="attribute-roll" data-attribute="{{key}}" title="{{localize 'RollAttribute'}}">
               <i class="fas fa-dice"></i>
             </button>
           </div>
@@ -77,33 +77,33 @@
 
       {{!-- Characteristics --}}
       <div class="panel derived-stats">
-        <h2>{{localize "GODCOMPLEX.Characteristics"}}</h2>
+        <h2>{{localize "Characteristics"}}</h2>
         <div class="stats-grid">
           <div class="stat-block">
-            <label>{{localize "GODCOMPLEX.Fortitude"}}</label>
+            <label>{{localize "Fortitude"}}</label>
             <span class="stat-value">{{system.derived.fortitude.value}}</span>
           </div>
           <div class="stat-block">
-            <label>{{localize "GODCOMPLEX.Evasion"}}</label>
+            <label>{{localize "Evasion"}}</label>
             <span class="stat-value">{{system.derived.evasion.value}}</span>
           </div>
           <div class="stat-block">
-            <label>{{localize "GODCOMPLEX.Conviction"}}</label>
+            <label>{{localize "Conviction"}}</label>
             <span class="stat-value">{{system.derived.conviction.value}}</span>
           </div>
           <div class="stat-block">
-            <label>{{localize "GODCOMPLEX.Willpower"}}</label>
+            <label>{{localize "Willpower"}}</label>
             <span class="stat-value">{{system.derived.willpower.value}}</span>
           </div>
           <div class="stat-block">
-            <label>{{localize "GODCOMPLEX.Initiative"}}</label>
+            <label>{{localize "Initiative"}}</label>
             <span class="stat-value">{{system.derived.initiative.value}}</span>
-            <button type="button" class="derived-roll" data-stat="initiative" title="{{localize 'GODCOMPLEX.RollInitiative'}}">
+            <button type="button" class="derived-roll" data-stat="initiative" title="{{localize 'RollInitiative'}}">
               <i class="fas fa-dice"></i>
             </button>
           </div>
           <div class="stat-block">
-            <label>{{localize "GODCOMPLEX.Speed"}}</label>
+            <label>{{localize "Speed"}}</label>
             <span class="stat-value">{{system.derived.speed.value}} ft</span>
           </div>
         </div>
@@ -111,10 +111,10 @@
 
       {{!-- Resources --}}
       <div class="panel resources-panel">
-        <h2>{{localize "GODCOMPLEX.Resources"}}</h2>
+        <h2>{{localize "Resources"}}</h2>
         <div class="resources-grid">
           <div class="resource-block">
-            <label>{{localize "GODCOMPLEX.Health"}}</label>
+            <label>{{localize "Health"}}</label>
             <div class="resource-input">
               <input type="number" class="resource-value" data-resource="health" value="{{system.resources.health.value}}" />
               <span>/</span>
@@ -122,7 +122,7 @@
             </div>
           </div>
           <div class="resource-block">
-            <label>{{localize "GODCOMPLEX.Gloriae"}}</label>
+            <label>{{localize "Gloriae"}}</label>
             <div class="resource-input">
               <input type="number" class="resource-value" data-resource="gloriea" value="{{system.resources.gloriea.value}}" />
               <span>/</span>
@@ -130,7 +130,7 @@
             </div>
           </div>
           <div class="resource-block">
-            <label>{{localize "GODCOMPLEX.Willpower"}}</label>
+            <label>{{localize "Willpower"}}</label>
             <div class="resource-input">
               <input type="number" class="resource-value" data-resource="willpower" value="{{system.resources.willpower.value}}" />
               <span>/</span>
@@ -138,7 +138,7 @@
             </div>
           </div>
           <div class="resource-block">
-            <label>{{localize "GODCOMPLEX.AP"}}</label>
+            <label>{{localize "AP"}}</label>
             <div class="resource-input">
               <input type="number" class="resource-value" data-resource="ap" value="{{system.resources.ap.value}}" />
               <span>/</span>
@@ -147,19 +147,19 @@
           </div>
         </div>
         <div class="rest-buttons">
-          <button type="button" class="rest-button" data-rest-type="short">{{localize "GODCOMPLEX.ShortRest"}}</button>
-          <button type="button" class="rest-button" data-rest-type="long">{{localize "GODCOMPLEX.LongRest"}}</button>
+          <button type="button" class="rest-button" data-rest-type="short">{{localize "ShortRest"}}</button>
+          <button type="button" class="rest-button" data-rest-type="long">{{localize "LongRest"}}</button>
         </div>
       </div>
 
       {{!-- Conditions --}}
       <div class="panel conditions-panel">
-        <h2>{{localize "GODCOMPLEX.Conditions"}}</h2>
+        <h2>{{localize "Conditions"}}</h2>
         <div class="conditions-grid">
           {{#each conditions as |active key|}}
           <label class="condition-toggle {{#if active}}active{{/if}}" data-condition="{{key}}">
             <input type="checkbox" name="system.conditions.{{key}}" {{#if active}}checked{{/if}} />
-            <span>{{localize (concat "GODCOMPLEX.Conditions." key)}}</span>
+            <span>{{localize (concat "Conditions." key)}}</span>
           </label>
           {{/each}}
         </div>
@@ -169,7 +169,7 @@
     {{!-- Skills Tab --}}
     <div class="tab skills" data-group="primary" data-tab="skills">
       <div class="panel">
-        <h2>{{localize "GODCOMPLEX.Skills"}}</h2>
+        <h2>{{localize "Skills"}}</h2>
         <ol class="item-list">
           {{#each skills as |skill id|}}
           <li class="item" data-item-id="{{skill._id}}">
@@ -182,12 +182,12 @@
             <div class="item-details">
               <select class="inline-edit" data-field="system.attribute">
                 {{#select skill.system.attribute}}
-                <option value="strength">{{localize "GODCOMPLEX.Attributes.strength"}}</option>
-                <option value="dexterity">{{localize "GODCOMPLEX.Attributes.dexterity"}}</option>
-                <option value="awareness">{{localize "GODCOMPLEX.Attributes.awareness"}}</option>
-                <option value="composure">{{localize "GODCOMPLEX.Attributes.composure"}}</option>
-                <option value="presence">{{localize "GODCOMPLEX.Attributes.presence"}}</option>
-                <option value="intelligence">{{localize "GODCOMPLEX.Attributes.intelligence"}}</option>
+                <option value="strength">{{localize "Attributes.strength"}}</option>
+                <option value="dexterity">{{localize "Attributes.dexterity"}}</option>
+                <option value="awareness">{{localize "Attributes.awareness"}}</option>
+                <option value="composure">{{localize "Attributes.composure"}}</option>
+                <option value="presence">{{localize "Attributes.presence"}}</option>
+                <option value="intelligence">{{localize "Attributes.intelligence"}}</option>
                 {{/select}}
               </select>
               <input type="number" class="inline-edit" data-field="system.bonus" value="{{skill.system.bonus}}" />
@@ -200,7 +200,7 @@
           {{/each}}
         </ol>
         <button type="button" class="item-create" data-type="skill">
-          <i class="fas fa-plus"></i> {{localize "GODCOMPLEX.AddSkill"}}
+          <i class="fas fa-plus"></i> {{localize "AddSkill"}}
         </button>
       </div>
     </div>
@@ -208,7 +208,7 @@
     {{!-- Powers Tab --}}
     <div class="tab powers" data-group="primary" data-tab="powers">
       <div class="panel">
-        <h2>{{localize "GODCOMPLEX.Powers"}}</h2>
+        <h2>{{localize "Powers"}}</h2>
         <ol class="item-list">
           {{#each powers as |power id|}}
           <li class="item" data-item-id="{{power._id}}">
@@ -230,7 +230,7 @@
           {{/each}}
         </ol>
         <button type="button" class="item-create" data-type="power">
-          <i class="fas fa-plus"></i> {{localize "GODCOMPLEX.AddPower"}}
+          <i class="fas fa-plus"></i> {{localize "AddPower"}}
         </button>
       </div>
     </div>
@@ -238,7 +238,7 @@
     {{!-- Equipment Tab --}}
     <div class="tab equipment" data-group="primary" data-tab="equipment">
       <div class="panel">
-        <h2>{{localize "GODCOMPLEX.Equipment"}}</h2>
+        <h2>{{localize "Equipment"}}</h2>
         <ol class="item-list">
           {{#each equipment as |item id|}}
           <li class="item" data-item-id="{{item._id}}">
@@ -261,7 +261,7 @@
           {{/each}}
         </ol>
         <button type="button" class="item-create" data-type="equipment">
-          <i class="fas fa-plus"></i> {{localize "GODCOMPLEX.AddEquipment"}}
+          <i class="fas fa-plus"></i> {{localize "AddEquipment"}}
         </button>
       </div>
     </div>
@@ -269,11 +269,11 @@
     {{!-- Biography Tab --}}
     <div class="tab biography" data-group="primary" data-tab="biography">
       <div class="panel">
-        <h2>{{localize "GODCOMPLEX.Biography"}}</h2>
+        <h2>{{localize "Biography"}}</h2>
         {{editor biography target="system.biography" button=true owner=owner editable=editable}}
       </div>
       <div class="panel">
-        <h2>{{localize "GODCOMPLEX.Notes"}}</h2>
+        <h2>{{localize "Notes"}}</h2>
         <textarea name="system.notes">{{system.notes}}</textarea>
       </div>
     </div>

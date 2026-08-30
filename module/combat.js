@@ -69,7 +69,7 @@ export class GodComplexCombat {
 
     const current = actor.system.resources.ap.value;
     if (current < amount) {
-      ui.notifications.warn(game.i18n.localize("GODCOMPLEX.NotEnoughAP"));
+      ui.notifications.warn(game.i18n.localize("NotEnoughAP"));
       return false;
     }
 
@@ -95,7 +95,7 @@ export class GodComplexCombat {
     ChatMessage.create({
       user: game.user.id,
       speaker: ChatMessage.getSpeaker({ actor }),
-      content: game.i18n.format("GODCOMPLEX.DefendAction", { name: actor.name })
+      content: game.i18n.format("DefendAction", { name: actor.name })
     });
   }
 
@@ -117,7 +117,7 @@ export class GodComplexCombat {
     ChatMessage.create({
       user: game.user.id,
       speaker: ChatMessage.getSpeaker({ actor }),
-      content: game.i18n.format("GODCOMPLEX.AllOutAttackAction", { name: actor.name })
+      content: game.i18n.format("AllOutAttackAction", { name: actor.name })
     });
   }
 
@@ -139,7 +139,7 @@ export class GodComplexCombat {
     ChatMessage.create({
       user: game.user.id,
       speaker: ChatMessage.getSpeaker({ actor }),
-      content: game.i18n.format("GODCOMPLEX.RecoverAction", { name: actor.name })
+      content: game.i18n.format("RecoverAction", { name: actor.name })
     });
   }
 
@@ -159,7 +159,7 @@ export class GodComplexCombat {
     ChatMessage.create({
       user: game.user.id,
       speaker: ChatMessage.getSpeaker({ actor }),
-      content: game.i18n.format("GODCOMPLEX.AidAction", {
+      content: game.i18n.format("AidAction", {
         name: actor.name,
         target: target.actor.name
       })

@@ -56,7 +56,7 @@ export class GodComplexDice {
 
     const poolSize = attribute.value + (options.modifier || 0);
     const result = this.rollDicePool(poolSize, {
-      label: options.label || game.i18n.localize(`GODCOMPLEX.Attributes.${attributeName}`),
+      label: options.label || game.i18n.localize(`Attributes.${attributeName}`),
       actorId: actor.id,
       attributeName
     });
@@ -100,13 +100,13 @@ export class GodComplexDice {
   static async rollPower(actor, power, options = {}) {
     // Check if actor has enough Gloriae
     if (actor.system.resources.gloriea.value < power.system.glorieaCost) {
-      ui.notifications.warn(game.i18n.localize("GODCOMPLEX.NotEnoughGloriae"));
+      ui.notifications.warn(game.i18n.localize("NotEnoughGloriae"));
       return;
     }
 
     // Check if actor has enough AP
     if (actor.system.resources.ap.value < power.system.apCost) {
-      ui.notifications.warn(game.i18n.localize("GODCOMPLEX.NotEnoughAP"));
+      ui.notifications.warn(game.i18n.localize("NotEnoughAP"));
       return;
     }
 
@@ -145,7 +145,7 @@ export class GodComplexDice {
   static async rollInitiative(actor) {
     const poolSize = actor.system.attributes.awareness.value + actor.system.attributes.dexterity.value;
     const result = this.rollDicePool(poolSize, {
-      label: game.i18n.localize("GODCOMPLEX.Initiative"),
+      label: game.i18n.localize("Initiative"),
       actorId: actor.id,
       isInitiative: true
     });

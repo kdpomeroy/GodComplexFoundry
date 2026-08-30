@@ -114,14 +114,14 @@ export class GodComplexActor extends Actor {
    * @param {object} options - Roll options
    */
   async rollAttribute(attributeName, options = {}) {
-    return game.godcomplex.GodComplexDice.rollAttribute(this, attributeName, options);
+    return game.GodComplexDice.rollAttribute(this, attributeName, options);
   }
 
   /**
    * Roll initiative
    */
   async rollInitiative(options = {}) {
-    return game.godcomplex.GodComplexDice.rollInitiative(this);
+    return game.GodComplexDice.rollInitiative(this);
   }
 
   /**
@@ -131,7 +131,7 @@ export class GodComplexActor extends Actor {
   async spendGloriae(amount) {
     const current = this.system.resources.gloriea.value;
     if (current < amount) {
-      ui.notifications.warn(game.i18n.localize("GODCOMPLEX.NotEnoughGloriae"));
+      ui.notifications.warn(game.i18n.localize("NotEnoughGloriae"));
       return false;
     }
     await this.update({ "system.resources.gloriea.value": current - amount });
@@ -145,7 +145,7 @@ export class GodComplexActor extends Actor {
   async spendWillpower(amount) {
     const current = this.system.resources.willpower.value;
     if (current < amount) {
-      ui.notifications.warn(game.i18n.localize("GODCOMPLEX.NotEnoughWillpower"));
+      ui.notifications.warn(game.i18n.localize("NotEnoughWillpower"));
       return false;
     }
     await this.update({ "system.resources.willpower.value": current - amount });
@@ -166,7 +166,7 @@ export class GodComplexActor extends Actor {
     await this.update({ "system.resources.health.value": newHealth });
     
     if (newHealth === 0) {
-      ui.notifications.error(game.i18n.format("GODCOMPLEX.CharacterUnconscious", { name: this.name }));
+      ui.notifications.error(game.i18n.format("CharacterUnconscious", { name: this.name }));
     }
     
     return effectiveDamage;
@@ -217,8 +217,8 @@ export class GodComplexActor extends Actor {
     await this.update(updates);
     
     const message = restType === "long" 
-      ? game.i18n.format("GODCOMPLEX.LongRest", { name: this.name })
-      : game.i18n.format("GODCOMPLEX.ShortRest", { name: this.name });
+      ? game.i18n.format("LongRestAction", { name: this.name })
+      : game.i18n.format("ShortRestAction", { name: this.name });
     
     ChatMessage.create({
       user: game.user.id,
@@ -241,12 +241,12 @@ export class GodComplexActor extends Actor {
     await this.update({ [`system.conditions.${conditionName}`]: !current });
     
     const status = !current ? "gained" : "lost";
-    const conditionLabel = game.i18n.localize(`GODCOMPLEX.Conditions.${conditionName}`);
+    const conditionLabel = game.i18n.localize(`Conditions.${conditionName}`);
     
     ChatMessage.create({
       user: game.user.id,
       speaker: ChatMessage.getSpeaker({ actor: this }),
-      content: game.i18n.format("GODCOMPLEX.ConditionChanged", {
+      content: game.i18n.format("ConditionChanged", {
         name: this.name,
         condition: conditionLabel,
         status: status

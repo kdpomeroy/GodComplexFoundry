@@ -38,30 +38,30 @@ export class GodComplexItemSheet extends ItemSheet {
 
     // Prepare attribute options
     context.attributeOptions = {
-      strength: "GODCOMPLEX.Attributes.strength",
-      dexterity: "GODCOMPLEX.Attributes.dexterity",
-      awareness: "GODCOMPLEX.Attributes.awareness",
-      composure: "GODCOMPLEX.Attributes.composure",
-      presence: "GODCOMPLEX.Attributes.presence",
-      intelligence: "GODCOMPLEX.Attributes.intelligence"
+      strength: "Attributes.strength",
+      dexterity: "Attributes.dexterity",
+      awareness: "Attributes.awareness",
+      composure: "Attributes.composure",
+      presence: "Attributes.presence",
+      intelligence: "Attributes.intelligence"
     };
 
     // Prepare equipment type options
     context.equipmentTypeOptions = {
-      weapon: "GODCOMPLEX.EquipmentTypes.weapon",
-      armor: "GODCOMPLEX.EquipmentTypes.armor",
-      gear: "GODCOMPLEX.EquipmentTypes.gear"
+      weapon: "EquipmentTypes.weapon",
+      armor: "EquipmentTypes.armor",
+      gear: "EquipmentTypes.gear"
     };
 
     // Prepare range options for powers
     context.rangeOptions = {
-      self: "GODCOMPLEX.Ranges.self",
-      touch: "GODCOMPLEX.Ranges.touch",
-      close: "GODCOMPLEX.Ranges.close",
-      short: "GODCOMPLEX.Ranges.short",
-      medium: "GODCOMPLEX.Ranges.medium",
-      long: "GODCOMPLEX.Ranges.long",
-      extreme: "GODCOMPLEX.Ranges.extreme"
+      self: "Ranges.self",
+      touch: "Ranges.touch",
+      close: "Ranges.close",
+      short: "Ranges.short",
+      medium: "Ranges.medium",
+      long: "Ranges.long",
+      extreme: "Ranges.extreme"
     };
 
     return context;

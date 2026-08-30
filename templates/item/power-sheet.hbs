@@ -3,15 +3,15 @@
     <img class="item-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
     <div class="header-fields">
       <h1 class="item-name">
-        <input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'GODCOMPLEX.PowerName'}}" />
+        <input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'PowerName'}}" />
       </h1>
     </div>
   </header>
 
   <nav class="sheet-tabs tabs" data-group="primary">
-    <a class="item" data-tab="description">{{localize "GODCOMPLEX.Description"}}</a>
-    <a class="item" data-tab="details">{{localize "GODCOMPLEX.Details"}}</a>
-    <a class="item" data-tab="raises">{{localize "GODCOMPLEX.Raises"}}</a>
+    <a class="item" data-tab="description">{{localize "Description"}}</a>
+    <a class="item" data-tab="details">{{localize "Details"}}</a>
+    <a class="item" data-tab="raises">{{localize "Raises"}}</a>
   </nav>
 
   <section class="sheet-body">
@@ -21,7 +21,7 @@
 
     <div class="tab details" data-group="primary" data-tab="details">
       <div class="form-group">
-        <label>{{localize "GODCOMPLEX.Attribute"}}</label>
+        <label>{{localize "Attribute"}}</label>
         <select name="system.attribute">
           {{#select system.attribute}}
           {{#each attributeOptions as |label key|}}
@@ -32,17 +32,17 @@
       </div>
 
       <div class="form-group">
-        <label>{{localize "GODCOMPLEX.APCost"}}</label>
+        <label>{{localize "APCost"}}</label>
         <input type="number" name="system.apCost" value="{{system.apCost}}" min="0" />
       </div>
 
       <div class="form-group">
-        <label>{{localize "GODCOMPLEX.GlorieaCost"}}</label>
+        <label>{{localize "GlorieaCost"}}</label>
         <input type="number" name="system.glorieaCost" value="{{system.glorieaCost}}" min="0" />
       </div>
 
       <div class="form-group">
-        <label>{{localize "GODCOMPLEX.Range"}}</label>
+        <label>{{localize "Range"}}</label>
         <select name="system.range">
           {{#select system.range}}
           {{#each rangeOptions as |label key|}}
@@ -53,16 +53,16 @@
       </div>
 
       <div class="form-group">
-        <label>{{localize "GODCOMPLEX.Target"}}</label>
+        <label>{{localize "Target"}}</label>
         <input type="text" name="system.target" value="{{system.target}}" />
       </div>
     </div>
 
     <div class="tab raises" data-group="primary" data-tab="raises">
       <div class="raises-header">
-        <h3>{{localize "GODCOMPLEX.RaiseEffects"}}</h3>
+        <h3>{{localize "RaiseEffects"}}</h3>
         <button type="button" class="raise-add">
-          <i class="fas fa-plus"></i> {{localize "GODCOMPLEX.AddRaise"}}
+          <i class="fas fa-plus"></i> {{localize "AddRaise"}}
         </button>
       </div>
       <ol class="raises-list">
@@ -70,15 +70,15 @@
         <li class="raise" data-index="{{index}}">
           <div class="raise-fields">
             <div class="form-group">
-              <label>{{localize "GODCOMPLEX.RaiseLevel"}}</label>
+              <label>{{localize "RaiseLevel"}}</label>
               <input type="number" class="raise-edit" data-field="level" data-index="{{index}}" value="{{raise.level}}" min="1" />
             </div>
             <div class="form-group">
-              <label>{{localize "GODCOMPLEX.Effect"}}</label>
+              <label>{{localize "Effect"}}</label>
               <input type="text" class="raise-edit" data-field="effect" data-index="{{index}}" value="{{raise.effect}}" />
             </div>
             <div class="form-group">
-              <label>{{localize "GODCOMPLEX.Cost"}}</label>
+              <label>{{localize "Cost"}}</label>
               <input type="number" class="raise-edit" data-field="cost" data-index="{{index}}" value="{{raise.cost}}" min="0" />
             </div>
           </div>

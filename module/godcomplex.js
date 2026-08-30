@@ -171,7 +171,7 @@ async function createGodComplexMacro(data, slot) {
   const item = fromUuidSync(data.uuid);
   if (!item) return;
 
-  const command = `game.godcomplex.macros.rollItem("${item.uuid}");`;
+  const command = `game.macros.rollItem("${item.uuid}");`;
   let macro = game.macros.find(m => (m.name === item.name) && (m.command === command));
   
   if (!macro) {
@@ -180,7 +180,7 @@ async function createGodComplexMacro(data, slot) {
       type: "script",
       img: item.img,
       command: command,
-      flags: { "godcomplex.itemMacro": true }
+      flags: { "itemMacro": true }
     });
   }
   

@@ -70,19 +70,19 @@ export class GodComplexItem extends Item {
    */
   async roll(options = {}) {
     if (!this.actor) {
-      ui.notifications.warn(game.i18n.localize("GODCOMPLEX.ItemNotOwned"));
+      ui.notifications.warn(game.i18n.localize("ItemNotOwned"));
       return;
     }
 
     switch (this.type) {
       case "skill":
-        await game.godcomplex.GodComplexDice.rollSkill(this.actor, this, options);
+        await game.GodComplexDice.rollSkill(this.actor, this, options);
         break;
       case "power":
-        await game.godcomplex.GodComplexDice.rollPower(this.actor, this, options);
+        await game.GodComplexDice.rollPower(this.actor, this, options);
         break;
       default:
-        ui.notifications.warn(game.i18n.localize("GODCOMPLEX.ItemNotRollable"));
+        ui.notifications.warn(game.i18n.localize("ItemNotRollable"));
     }
   }
 }

@@ -1,0 +1,66 @@
+name: Release on Tag
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    name: Build and Release
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Get version from tag
+        id: get_version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+      
+      - name: Verify version in system.json
+        run: |
+          VERSION=$(jq -r '.version' system.json)
+          if [ "$VERSION" != "${{ steps.get_version.outputs.VERSION }}" ]; then
+            echo "Error: Version in system.json ($VERSION) doesn't match tag (${{ steps.get_version.outputs.VERSION }})"
+            exit 1
+          fi
+          echo "Version verified: $VERSION"
+      
+      - name: Build system
+        run: |
+          # Create build directory
+          mkdir -p build
+          
+          # Copy system files
+          cp system.json template.json build/
+          cp -r module templates styles languages macros data build/
+          
+          # Create zip
+          cd build
+          zip -r "../godcomplex-${{ steps.get_version.outputs.VERSION }}.zip" .
+          cd ..
+      
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: God Complex v${{ steps.get_version.outputs.VERSION }}
+          body: |
+            ## God Complex System v${{ steps.get_version.outputs.VERSION }}
+            
+            ### Installation
+            1. Download the zip file below
+            2. In Foundry VTT, go to Game Systems
+            3. Click "Install System"
+            4. Select "Manifest URL" and paste: `https://github.com/${{ github.repository }}/releases/download/v${{ steps.get_version.outputs.VERSION }}/godcomplex-${{ steps.get_version.outputs.VERSION }}.zip`
+            5. Click Install
+            
+            Or update existing installation through the package manager.
+            
+            ### Changes
+            See commit history for details.
+          files: godcomplex-*.zip
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
