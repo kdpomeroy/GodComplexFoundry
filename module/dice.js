@@ -10,11 +10,11 @@ export class GodComplexDice {
    * @param {object} options - Additional options
    * @returns {object} Roll result with dice and advances
    */
-  static rollDicePool(poolSize, options = {}) {
+  static async rollDicePool(poolSize, options = {}) {
     console.log("God Complex Dice | rollDicePool called with pool size:", poolSize);
     const effectivePool = Math.max(1, Math.floor(poolSize));
     const roll = new Roll(`${effectivePool}d6`);
-    roll.evaluateSync();
+    await roll.evaluate();
     
     const dice = roll.dice[0].results.map(r => r.result);
     console.log("God Complex Dice | Rolled dice:", dice);
@@ -61,7 +61,7 @@ export class GodComplexDice {
 
     const poolSize = attribute.value + (options.modifier || 0);
     console.log("God Complex Dice | Pool size:", poolSize);
-    const result = this.rollDicePool(poolSize, {
+    const result = await this.rollDicePool(poolSize, {
       label: options.label || attributeName.charAt(0).toUpperCase() + attributeName.slice(1),
       actorId: actor.id,
       attributeName
@@ -81,7 +81,7 @@ export class GodComplexDice {
     const attribute = actor.system.attributes[skill.system.attribute];
     const poolSize = attribute.value + skill.system.bonus + (options.modifier || 0);
     
-    const result = this.rollDicePool(poolSize, {
+    const result = await this.rollDicePool(poolSize, {
       label: skill.name,
       actorId: actor.id,
       skillId: skill.id,
@@ -119,7 +119,7 @@ export class GodComplexDice {
     const attribute = actor.system.attributes[power.system.attribute];
     const poolSize = attribute.value + (options.modifier || 0);
     
-    const result = this.rollDicePool(poolSize, {
+    const result = await this.rollDicePool(poolSize, {
       label: power.name,
       actorId: actor.id,
       powerId: power.id,
@@ -150,7 +150,7 @@ export class GodComplexDice {
    */
   static async rollInitiative(actor) {
     const poolSize = actor.system.attributes.awareness.value + actor.system.attributes.dexterity.value;
-    const result = this.rollDicePool(poolSize, {
+    const result = await this.rollDicePool(poolSize, {
       label: game.i18n.localize("Initiative"),
       actorId: actor.id,
       isInitiative: true
