@@ -14,7 +14,7 @@ export class GodComplexDice {
     console.log("God Complex Dice | rollDicePool called with pool size:", poolSize);
     const effectivePool = Math.max(1, Math.floor(poolSize));
     const roll = new Roll(`${effectivePool}d6`);
-    roll.evaluate({ async: false });
+    roll.evaluateSync();
     
     const dice = roll.dice[0].results.map(r => r.result);
     console.log("God Complex Dice | Rolled dice:", dice);
