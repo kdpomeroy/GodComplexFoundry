@@ -112,7 +112,7 @@ export class GodComplexActorSheet extends ActorSheet {
     const itemId = button.dataset.itemId;
     const skill = this.actor.items.get(itemId);
     if (skill) {
-      await game.GodComplexDice.rollSkill(this.actor, skill);
+      await game.godcomplex.GodComplexDice.rollSkill(this.actor, skill);
     }
   }
 
@@ -126,7 +126,7 @@ export class GodComplexActorSheet extends ActorSheet {
     const itemId = button.dataset.itemId;
     const power = this.actor.items.get(itemId);
     if (power) {
-      await game.GodComplexDice.rollPower(this.actor, power);
+      await game.godcomplex.GodComplexDice.rollPower(this.actor, power);
     }
   }
 
@@ -231,10 +231,10 @@ export class GodComplexActorSheet extends ActorSheet {
 
     switch (item.type) {
       case "skill":
-        await game.GodComplexDice.rollSkill(this.actor, item);
+        await game.godcomplex.GodComplexDice.rollSkill(this.actor, item);
         break;
       case "power":
-        await game.GodComplexDice.rollPower(this.actor, item);
+        await game.godcomplex.GodComplexDice.rollPower(this.actor, item);
         break;
     }
   }

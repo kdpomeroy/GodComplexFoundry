@@ -114,14 +114,14 @@ export class GodComplexActor extends Actor {
    * @param {object} options - Roll options
    */
   async rollAttribute(attributeName, options = {}) {
-    return game.GodComplexDice.rollAttribute(this, attributeName, options);
+    return game.godcomplex.GodComplexDice.rollAttribute(this, attributeName, options);
   }
 
   /**
    * Roll initiative
    */
   async rollInitiative(options = {}) {
-    return game.GodComplexDice.rollInitiative(this);
+    return game.godcomplex.GodComplexDice.rollInitiative(this);
   }
 
   /**

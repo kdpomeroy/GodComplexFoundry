@@ -76,10 +76,10 @@ export class GodComplexItem extends Item {
 
     switch (this.type) {
       case "skill":
-        await game.GodComplexDice.rollSkill(this.actor, this, options);
+        await game.godcomplex.GodComplexDice.rollSkill(this.actor, this, options);
         break;
       case "power":
-        await game.GodComplexDice.rollPower(this.actor, this, options);
+        await game.godcomplex.GodComplexDice.rollPower(this.actor, this, options);
         break;
       default:
         ui.notifications.warn(game.i18n.localize("ItemNotRollable"));
