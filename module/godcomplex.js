@@ -102,6 +102,11 @@ Hooks.once("init", async function() {
       return item;
     });
   });
+
+  Handlebars.registerHelper("capitalize", function(str) {
+    if (typeof str !== "string") return "";
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  });
 });
 
 /* -------------------------------------------- */

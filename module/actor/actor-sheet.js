@@ -99,7 +99,13 @@ export class GodComplexActorSheet extends ActorSheet {
     event.preventDefault();
     const button = event.currentTarget;
     const attributeName = button.dataset.attribute;
-    await this.actor.rollAttribute(attributeName);
+    console.log("God Complex | Rolling attribute:", attributeName);
+    try {
+      await this.actor.rollAttribute(attributeName);
+    } catch (error) {
+      console.error("God Complex | Error rolling attribute:", error);
+      ui.notifications.error("Failed to roll attribute. Check console for details.");
+    }
   }
 
   /**

@@ -11,11 +11,13 @@ export class GodComplexDice {
    * @returns {object} Roll result with dice and advances
    */
   static rollDicePool(poolSize, options = {}) {
+    console.log("God Complex Dice | rollDicePool called with pool size:", poolSize);
     const effectivePool = Math.max(1, Math.floor(poolSize));
     const roll = new Roll(`${effectivePool}d6`);
     roll.evaluate({ async: false });
     
     const dice = roll.dice[0].results.map(r => r.result);
+    console.log("God Complex Dice | Rolled dice:", dice);
     let advances = 0;
     let fives = 0;
     let sixes = 0;
@@ -29,6 +31,8 @@ export class GodComplexDice {
         advances += 1;
       }
     }
+    
+    console.log("God Complex Dice | Advances:", advances, "Fives:", fives, "Sixes:", sixes);
     
     return {
       roll,
@@ -48,6 +52,7 @@ export class GodComplexDice {
    * @param {object} options - Additional options
    */
   static async rollAttribute(actor, attributeName, options = {}) {
+    console.log("God Complex Dice | rollAttribute called for:", attributeName);
     const attribute = actor.system.attributes[attributeName];
     if (!attribute) {
       ui.notifications.error(`Invalid attribute: ${attributeName}`);
@@ -55,8 +60,9 @@ export class GodComplexDice {
     }
 
     const poolSize = attribute.value + (options.modifier || 0);
+    console.log("God Complex Dice | Pool size:", poolSize);
     const result = this.rollDicePool(poolSize, {
-      label: options.label || game.i18n.localize(`Attributes.${attributeName}`),
+      label: options.label || attributeName.charAt(0).toUpperCase() + attributeName.slice(1),
       actorId: actor.id,
       attributeName
     });
@@ -164,6 +170,7 @@ export class GodComplexDice {
    * @param {object} options - Display options
    */
   static async _displayRollResult(actor, result, options = {}) {
+    console.log("God Complex Dice | Displaying roll result for:", actor.name);
     const templateData = {
       actor,
       result,
@@ -174,6 +181,7 @@ export class GodComplexDice {
     };
 
     const content = await renderTemplate("systems/godcomplex/templates/chat/roll-result.hbs", templateData);
+    console.log("God Complex Dice | Template rendered, creating chat message");
     
     const messageData = {
       user: game.user.id,
@@ -191,6 +199,7 @@ export class GodComplexDice {
     };
 
     await ChatMessage.create(messageData);
+    console.log("God Complex Dice | Chat message created");
   }
 
   /**
