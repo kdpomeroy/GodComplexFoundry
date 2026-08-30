@@ -59,7 +59,7 @@ jobs:
             
             ### Changes
             See commit history for details.
-          files: godcomplex-*.zip
+          files: godcomplex.zip
           draft: false
           prerelease: false
         env:
