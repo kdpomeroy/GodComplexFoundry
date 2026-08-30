@@ -2,7 +2,7 @@
   "id": "godcomplex",
   "title": "God Complex",
   "description": "A modern myth TTRPG of immortal ambition and mortal consequence",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "compatibility": {
     "minimum": "10",
     "verified": "11"
@@ -32,5 +32,5 @@
   "secondaryTokenAttribute": "gloriea",
   "url": "https://github.com/kdpomeroy/GodComplexFoundry",
   "manifest": "https://raw.githubusercontent.com/kdpomeroy/GodComplexFoundry/main/system.json",
-  "download": "https://github.com/kdpomeroy/GodComplexFoundry/releases/latest/download/godcomplex-1.1.0.zip"
+  "download": "https://github.com/kdpomeroy/GodComplexFoundry/releases/latest/download/godcomplex.zip"
 }
