@@ -64,7 +64,7 @@ foreach ($item in $includeFiles) {
 
 if (-not $SkipZip) {
     # Create zip file
-    $zipName = "godcomplex-$Version.zip"
+    $zipName = "godcomplex.zip"
     $zipPath = Join-Path $PWD $zipName
     
     if (Test-Path $zipPath) {
@@ -82,9 +82,9 @@ Write-Host ""
 Write-Host "Build complete!" -ForegroundColor Green
 Write-Host ""
 Write-Host "Next steps:" -ForegroundColor Cyan
-Write-Host "  1. Test the build locally by installing the zip in Foundry" -ForegroundColor White
+Write-Host "  1. Test the build locally by installing godcomplex.zip in Foundry" -ForegroundColor White
 Write-Host "  2. Commit changes: git add -A && git commit -m 'release: v$Version'" -ForegroundColor White
 Write-Host "  3. Tag the release: git tag -a v$Version -m 'Version $Version'" -ForegroundColor White
 Write-Host "  4. Push to GitHub: git push origin main --tags" -ForegroundColor White
-Write-Host "  5. Create GitHub release with the zip file attached" -ForegroundColor White
+Write-Host "  5. Create GitHub release and upload godcomplex.zip" -ForegroundColor White
 Write-Host ""
