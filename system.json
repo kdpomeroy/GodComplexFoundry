@@ -16,7 +16,8 @@
     "module/godcomplex.js"
   ],
   "styles": [
-    "styles/godcomplex.css"
+    "styles/godcomplex.css",
+    "styles/cards.css"
   ],
   "languages": [
     {

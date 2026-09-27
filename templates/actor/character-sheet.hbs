@@ -82,18 +82,30 @@
           <div class="stat-block">
             <label>{{localize "Fortitude"}}</label>
             <span class="stat-value">{{system.derived.fortitude.value}}</span>
+            <button type="button" class="derived-roll" data-stat="fortitude" title="Roll Fortitude">
+              <i class="fas fa-dice"></i>
+            </button>
           </div>
           <div class="stat-block">
             <label>{{localize "Evasion"}}</label>
             <span class="stat-value">{{system.derived.evasion.value}}</span>
+            <button type="button" class="derived-roll" data-stat="evasion" title="Roll Evasion">
+              <i class="fas fa-dice"></i>
+            </button>
           </div>
           <div class="stat-block">
             <label>{{localize "Conviction"}}</label>
             <span class="stat-value">{{system.derived.conviction.value}}</span>
+            <button type="button" class="derived-roll" data-stat="conviction" title="Roll Conviction">
+              <i class="fas fa-dice"></i>
+            </button>
           </div>
           <div class="stat-block">
             <label>{{localize "Willpower"}}</label>
             <span class="stat-value">{{system.derived.willpower.value}}</span>
+            <button type="button" class="derived-roll" data-stat="willpower" title="Roll Willpower">
+              <i class="fas fa-dice"></i>
+            </button>
           </div>
           <div class="stat-block">
             <label>{{localize "Initiative"}}</label>
@@ -115,33 +127,41 @@
         <div class="resources-grid">
           <div class="resource-block">
             <label>{{localize "Health"}}</label>
-            <div class="resource-input">
+            <div class="resource-controls">
+              <button type="button" class="resource-btn resource-dec" data-resource="health" data-delta="-1">−</button>
               <input type="number" class="resource-value" data-resource="health" value="{{system.resources.health.value}}" />
-              <span>/</span>
+              <button type="button" class="resource-btn resource-inc" data-resource="health" data-delta="1">+</button>
+              <span class="resource-separator">/</span>
               <span class="resource-max">{{system.resources.health.max}}</span>
             </div>
           </div>
           <div class="resource-block">
             <label>{{localize "Gloriae"}}</label>
-            <div class="resource-input">
+            <div class="resource-controls">
+              <button type="button" class="resource-btn resource-dec" data-resource="gloriea" data-delta="-1">−</button>
               <input type="number" class="resource-value" data-resource="gloriea" value="{{system.resources.gloriea.value}}" />
-              <span>/</span>
+              <button type="button" class="resource-btn resource-inc" data-resource="gloriea" data-delta="1">+</button>
+              <span class="resource-separator">/</span>
               <span class="resource-max">{{system.resources.gloriea.max}}</span>
             </div>
           </div>
           <div class="resource-block">
             <label>{{localize "Willpower"}}</label>
-            <div class="resource-input">
+            <div class="resource-controls">
+              <button type="button" class="resource-btn resource-dec" data-resource="willpower" data-delta="-1">−</button>
               <input type="number" class="resource-value" data-resource="willpower" value="{{system.resources.willpower.value}}" />
-              <span>/</span>
+              <button type="button" class="resource-btn resource-inc" data-resource="willpower" data-delta="1">+</button>
+              <span class="resource-separator">/</span>
               <span class="resource-max">{{system.resources.willpower.max}}</span>
             </div>
           </div>
           <div class="resource-block">
             <label>{{localize "AP"}}</label>
-            <div class="resource-input">
+            <div class="resource-controls">
+              <button type="button" class="resource-btn resource-dec" data-resource="ap" data-delta="-1">−</button>
               <input type="number" class="resource-value" data-resource="ap" value="{{system.resources.ap.value}}" />
-              <span>/</span>
+              <button type="button" class="resource-btn resource-inc" data-resource="ap" data-delta="1">+</button>
+              <span class="resource-separator">/</span>
               <span class="resource-max">{{system.resources.ap.max}}</span>
             </div>
           </div>
@@ -162,6 +182,38 @@
             <span>{{localize (concat "Conditions." key)}}</span>
           </label>
           {{/each}}
+        </div>
+      </div>
+
+      {{!-- Combat Actions --}}
+      <div class="panel combat-actions-panel">
+        <h2>Combat Actions</h2>
+        <div class="actions-grid">
+          <button type="button" class="action-button" data-action="attack" title="Make an attack (1 AP)">
+            <i class="fas fa-fist-raised"></i>
+            <span>Attack</span>
+            <span class="action-cost">1 AP</span>
+          </button>
+          <button type="button" class="action-button" data-action="defend" title="Add Awareness to Evasion this round (1 AP)">
+            <i class="fas fa-shield-alt"></i>
+            <span>Defend</span>
+            <span class="action-cost">1 AP</span>
+          </button>
+          <button type="button" class="action-button" data-action="recover" title="Regain 1 Health (1 AP)">
+            <i class="fas fa-heart"></i>
+            <span>Recover</span>
+            <span class="action-cost">1 AP</span>
+          </button>
+          <button type="button" class="action-button" data-action="aid" title="Grant +1 to ally's next roll (1 AP)">
+            <i class="fas fa-hands-helping"></i>
+            <span>Aid</span>
+            <span class="action-cost">1 AP</span>
+          </button>
+          <button type="button" class="action-button" data-action="allOutAttack" title="Add half Evasion to attack, halve Evasion (1 AP)">
+            <i class="fas fa-skull-crossbones"></i>
+            <span>All-Out Attack</span>
+            <span class="action-cost">1 AP</span>
+          </button>
         </div>
       </div>
     </div>
@@ -208,7 +260,7 @@
     {{!-- Powers Tab --}}
     <div class="tab powers" data-group="primary" data-tab="powers">
       <div class="panel">
-        <h2>{{localize "Powers"}}</h2>
+        <h2>{{localize "Powers"}} - {{system.powerset}}</h2>
         <ol class="item-list">
           {{#each powers as |power id|}}
           <li class="item" data-item-id="{{power._id}}">
@@ -217,11 +269,24 @@
                 <i class="fas fa-dice"></i>
               </button>
               <input type="text" class="inline-edit" data-field="name" value="{{power.name}}" />
+              {{#if power.flags.godcomplex.tier}}
+              <span class="power-tier">Tier {{power.flags.godcomplex.tier}}</span>
+              {{/if}}
             </div>
             <div class="item-details">
               <span class="item-cost">{{power.system.apCost}} AP</span>
               <span class="item-cost">{{power.system.glorieaCost}} Gloriae</span>
+              {{#if power.flags.godcomplex.duration}}
+              <span class="item-detail">{{power.flags.godcomplex.duration}}</span>
+              {{/if}}
             </div>
+            {{#if power.flags.godcomplex.powerset}}
+            <div class="item-powerset">
+              <span class="powerset-badge" style="background-color: {{getPowersetColor power.flags.godcomplex.powerset}}">
+                {{power.flags.godcomplex.powerset}}
+              </span>
+            </div>
+            {{/if}}
             <div class="item-controls">
               <a class="item-edit" data-item-id="{{power._id}}"><i class="fas fa-edit"></i></a>
               <a class="item-delete" data-item-id="{{power._id}}"><i class="fas fa-trash"></i></a>

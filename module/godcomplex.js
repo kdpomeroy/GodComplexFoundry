@@ -9,7 +9,10 @@ import { GodComplexItem } from "./item/item.js";
 import { GodComplexItemSheet } from "./item/item-sheet.js";
 import { GodComplexDice } from "./dice.js";
 import { GodComplexCombat } from "./combat.js";
+import { GodComplexCombatDocument } from "./combat-document.js";
 import { GodComplexCharacterCreator } from "./apps/character-creator.js";
+import { GodComplexPowersets } from "./powersets.js";
+import { GodComplexCardSystem } from "./cards/card-system.js";
 import { registerSystemSettings } from "./settings.js";
 
 /* -------------------------------------------- */
@@ -23,7 +26,11 @@ Hooks.once("init", async function() {
     GodComplexActor,
     GodComplexItem,
     GodComplexDice,
+    GodComplexCombat,
+    GodComplexCombatDocument,
     GodComplexCharacterCreator,
+    GodComplexPowersets,
+    GodComplexCardSystem,
     rollDicePool: GodComplexDice.rollDicePool,
     openCharacterCreator: () => new GodComplexCharacterCreator().render(true),
     macros: {
@@ -44,6 +51,7 @@ Hooks.once("init", async function() {
    */
   CONFIG.Actor.documentClass = GodComplexActor;
   CONFIG.Item.documentClass = GodComplexItem;
+  CONFIG.Combat.documentClass = GodComplexCombatDocument;
 
   /**
    * Register sheet application classes
@@ -107,6 +115,23 @@ Hooks.once("init", async function() {
     if (typeof str !== "string") return "";
     return str.charAt(0).toUpperCase() + str.slice(1);
   });
+
+  Handlebars.registerHelper("getPowersetColor", function(powersetName) {
+    if (!powersetName) return "#666";
+    const colors = {
+      "Darkness": "#2c3e50",
+      "Fire": "#e74c3c",
+      "Healing": "#27ae60",
+      "Heightened Senses": "#f39c12",
+      "Illusion": "#9b59b6",
+      "Invisibility": "#3498db",
+      "Light": "#f1c40f",
+      "Lightning": "#e67e22",
+      "Magnetism": "#34495e",
+      "Supernatural Strength": "#c0392b"
+    };
+    return colors[powersetName] || "#666";
+  });
 });
 
 /* -------------------------------------------- */
@@ -115,6 +140,9 @@ Hooks.once("init", async function() {
 
 Hooks.once("ready", async function() {
   console.log("God Complex | System Ready");
+
+  // Initialize powerset data
+  await GodComplexPowersets.initialize();
 
   /**
    * Wait for the combat encounter to be ready
@@ -134,7 +162,7 @@ Hooks.on("createCombat", (combat) => {
 
 Hooks.on("updateCombat", (combat, data, options, userId) => {
   if (data.round !== undefined || data.turn !== undefined) {
-    GodComplexCombat.onCombatUpdate(combat, data);
+    GodComplexCombat.onCombatUpdate(combat, data, options, userId);
   }
 });
 

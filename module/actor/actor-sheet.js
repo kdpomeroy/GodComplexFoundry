@@ -74,8 +74,12 @@ export class GodComplexActorSheet extends ActorSheet {
     // Condition toggles
     html.find(".condition-toggle").click(this._onConditionToggle.bind(this));
 
+    // Combat actions
+    html.find(".action-button").click(this._onCombatAction.bind(this));
+
     // Resource controls
     html.find(".resource-value").change(this._onResourceChange.bind(this));
+    html.find(".resource-btn").click(this._onResourceButtonClick.bind(this));
 
     // Item management
     html.find(".item-create").click(this._onItemCreate.bind(this));
@@ -168,6 +172,23 @@ export class GodComplexActorSheet extends ActorSheet {
   }
 
   /**
+   * Handle combat action button clicks
+   * @param {Event} event - The click event
+   */
+  async _onCombatAction(event) {
+    event.preventDefault();
+    const button = event.currentTarget;
+    const action = button.dataset.action;
+    
+    try {
+      await this.actor.performCombatAction(action);
+    } catch (error) {
+      console.error("God Complex | Error performing combat action:", error);
+      ui.notifications.error(error.message || "Failed to perform action.");
+    }
+  }
+
+  /**
    * Handle resource value changes
    * @param {Event} event - The change event
    */
@@ -176,6 +197,23 @@ export class GodComplexActorSheet extends ActorSheet {
     const resource = input.dataset.resource;
     const value = parseInt(input.value) || 0;
     await this.actor.update({ [`system.resources.${resource}.value`]: value });
+  }
+
+  /**
+   * Handle resource button clicks (+/-)
+   * @param {Event} event - The click event
+   */
+  async _onResourceButtonClick(event) {
+    event.preventDefault();
+    const button = event.currentTarget;
+    const resource = button.dataset.resource;
+    const delta = parseInt(button.dataset.delta) || 0;
+    
+    const current = this.actor.system.resources[resource].value;
+    const max = this.actor.system.resources[resource].max;
+    const newValue = Math.max(0, Math.min(max, current + delta));
+    
+    await this.actor.update({ [`system.resources.${resource}.value`]: newValue });
   }
 
   /**
@@ -242,6 +280,11 @@ export class GodComplexActorSheet extends ActorSheet {
       case "power":
         await game.godcomplex.GodComplexDice.rollPower(this.actor, item);
         break;
+      case "equipment":
+        if (item.system.equipmentType === "weapon") {
+          await this.actor.attackWithWeapon(item);
+        }
+        break;
     }
   }
 
@@ -285,7 +328,9 @@ export class GodComplexActorSheet extends ActorSheet {
     const stat = button.dataset.stat;
     
     if (stat === "initiative") {
-      await this.actor.rollInitiative();
+      await game.godcomplex.GodComplexDice.rollInitiative(this.actor);
+    } else if (["fortitude", "evasion", "conviction", "willpower"].includes(stat)) {
+      await game.godcomplex.GodComplexDice.rollDefensiveStat(this.actor, stat);
     }
   }
 }

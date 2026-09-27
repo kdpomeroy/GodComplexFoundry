@@ -25,17 +25,42 @@ export class GodComplexCombat {
    * @param {Combat} combat - The combat encounter
    * @param {object} data - The update data
    */
-  static async onCombatUpdate(combat, data) {
-    // Reset AP at the start of each turn
+  static async onCombatUpdate(combat, data, options, userId) {
+    // Only process if this is the GM or the user who made the change
+    if (userId && userId !== game.user.id) return;
+
+    // Reset AP and clear temporary conditions at the start of each turn
     if (data.turn !== undefined) {
       const combatant = combat.combatant;
       if (combatant && combatant.actor) {
-        await combatant.actor.update({ 
-          "system.resources.ap.value": combatant.actor.system.resources.ap.max,
+        const actor = combatant.actor;
+        const updates = {
+          "system.resources.ap.value": actor.system.resources.ap.max,
           "system.conditions.defending": false,
           "system.conditions.allOutAttack": false
+        };
+        
+        await actor.update(updates);
+        
+        // Post a chat message about turn start
+        ChatMessage.create({
+          user: game.user.id,
+          speaker: ChatMessage.getSpeaker({ actor }),
+          content: `<div class="godcomplex turn-message">
+            <strong>${actor.name}</strong>'s turn begins. AP restored to ${actor.system.resources.ap.max}.
+          </div>`
         });
       }
+    }
+
+    // New round notification
+    if (data.round !== undefined && data.round > 1) {
+      ChatMessage.create({
+        user: game.user.id,
+        content: `<div class="godcomplex round-message">
+          <strong>Round ${data.round}</strong> begins!
+        </div>`
+      });
     }
   }
 

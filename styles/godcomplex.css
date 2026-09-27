@@ -297,13 +297,38 @@
   color: #555;
 }
 
-.godcomplex.sheet .resource-input {
+.godcomplex.sheet .resource-controls {
   display: flex;
   align-items: center;
   gap: 5px;
 }
 
-.godcomplex.sheet .resource-input input {
+.godcomplex.sheet .resource-btn {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.godcomplex.sheet .resource-btn:hover {
+  background: #5568d3;
+}
+
+.godcomplex.sheet .resource-btn:active {
+  background: #4a5bc7;
+}
+
+.godcomplex.sheet .resource-controls input {
   flex: 1;
   padding: 8px;
   border: 1px solid #ddd;
@@ -311,9 +336,16 @@
   font-size: 16px;
   font-weight: 600;
   text-align: center;
+  min-width: 0;
 }
 
-.godcomplex.sheet .resource-input .resource-max {
+.godcomplex.sheet .resource-controls .resource-separator {
+  padding: 0 5px;
+  font-weight: 600;
+  color: #666;
+}
+
+.godcomplex.sheet .resource-controls .resource-max {
   padding: 8px 12px;
   background: #f0f0f0;
   border-radius: 4px;
@@ -1469,4 +1501,236 @@
   color: #888;
   font-style: italic;
   padding: 20px;
+}
+
+/* -------------------------------------------- */
+/*  Roll Dialog                                 */
+/* -------------------------------------------- */
+
+.godcomplex.roll-dialog {
+  padding: 10px;
+}
+
+.godcomplex.roll-dialog .dialog-header {
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.godcomplex.roll-dialog .dialog-header h3 {
+  margin: 0 0 5px 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.godcomplex.roll-dialog .pool-info {
+  margin: 0;
+  font-size: 13px;
+  color: #666;
+}
+
+.godcomplex.roll-dialog .dialog-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.godcomplex.roll-dialog .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.godcomplex.roll-dialog .form-group label {
+  font-weight: 600;
+  font-size: 13px;
+  color: #333;
+}
+
+.godcomplex.roll-dialog .form-group select,
+.godcomplex.roll-dialog .form-group input {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.godcomplex.roll-dialog .form-group .hint {
+  font-size: 11px;
+  color: #888;
+  font-style: italic;
+}
+
+.godcomplex.roll-dialog .dialog-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #ddd;
+}
+
+.godcomplex.roll-dialog .dialog-button {
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.godcomplex.roll-dialog .dialog-button.cancel {
+  background: #f5f5f5;
+  color: #666;
+}
+
+.godcomplex.roll-dialog .dialog-button.cancel:hover {
+  background: #e0e0e0;
+}
+
+.godcomplex.roll-dialog .dialog-button.roll {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: #5568d3;
+}
+
+.godcomplex.roll-dialog .dialog-button.roll:hover {
+  background: linear-gradient(135deg, #5568d3 0%, #6a3f8f 100%);
+}
+
+/* -------------------------------------------- */
+/*  Combat Actions Panel                        */
+/* -------------------------------------------- */
+
+.godcomplex.sheet .combat-actions-panel {
+  margin-top: 15px;
+}
+
+.godcomplex.sheet .combat-actions-panel h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+  border-bottom: 2px solid #667eea;
+  padding-bottom: 5px;
+}
+
+.godcomplex.sheet .actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+}
+
+.godcomplex.sheet .action-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 8px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.godcomplex.sheet .action-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, #5568d3 0%, #6a3f8f 100%);
+}
+
+.godcomplex.sheet .action-button:active {
+  transform: translateY(0);
+}
+
+.godcomplex.sheet .action-button i {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.godcomplex.sheet .action-button span {
+  display: block;
+}
+
+.godcomplex.sheet .action-button .action-cost {
+  font-size: 10px;
+  opacity: 0.8;
+  margin-top: 4px;
+  font-weight: normal;
+}
+
+/* -------------------------------------------- */
+/*  Combat Tracker Messages                     */
+/* -------------------------------------------- */
+
+.godcomplex.turn-message {
+  padding: 8px 12px;
+  background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);
+  border-left: 3px solid #667eea;
+  border-radius: 4px;
+  margin: 4px 0;
+  font-size: 13px;
+}
+
+.godcomplex.round-message {
+  padding: 10px 15px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 6px;
+  margin: 6px 0;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.godcomplex.round-message strong {
+  font-size: 16px;
+}
+
+/* -------------------------------------------- */
+/*  Powerset Display                            */
+/* -------------------------------------------- */
+
+.godcomplex.sheet .item-powerset {
+  margin-top: 5px;
+}
+
+.godcomplex.sheet .powerset-badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 12px;
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.godcomplex.sheet .power-tier {
+  display: inline-block;
+  padding: 2px 8px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: 600;
+  margin-left: 5px;
+}
+
+.godcomplex.sheet .item-detail {
+  font-size: 11px;
+  color: #666;
+  font-style: italic;
+  padding: 2px 6px;
+  background: #f0f0f0;
+  border-radius: 3px;
 }

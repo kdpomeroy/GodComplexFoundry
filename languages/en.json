@@ -116,6 +116,11 @@
   "Difficulties.VeryHard": "Very Hard (5)",
   "Difficulties.Legendary": "Legendary (6)",
   
+  "Roll": "Roll",
+  "Modifier": "Modifier",
+  "ModifierHint": "Add or subtract dice from the pool",
+  "NoDifficulty": "No Difficulty",
+  
   "NotEnoughGloriae": "Not enough Gloriae!",
   "NotEnoughWillpower": "Not enough Willpower!",
   "NotEnoughAP": "Not enough Action Points!",

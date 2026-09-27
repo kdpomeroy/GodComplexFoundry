@@ -5,6 +5,48 @@
 
 export class GodComplexDice {
   /**
+   * Show a roll dialog and return the selected options
+   * @param {string} label - The label for the roll
+   * @param {number} poolSize - The dice pool size
+   * @returns {Promise<object|null>} Selected options or null if cancelled
+   */
+  static async showRollDialog(label, poolSize) {
+    const templateData = {
+      label,
+      poolSize
+    };
+
+    const content = await renderTemplate("systems/godcomplex/templates/chat/roll-dialog.hbs", templateData);
+    
+    return new Promise((resolve) => {
+      const dialog = new Dialog({
+        title: `${game.i18n.localize("Roll")} ${label}`,
+        content,
+        buttons: {
+          roll: {
+            icon: '<i class="fas fa-dice"></i>',
+            label: game.i18n.localize("Roll"),
+            callback: (html) => {
+              const form = html[0].querySelector("form");
+              const difficulty = parseInt(form.querySelector("[name=difficulty]").value) || 0;
+              const modifier = parseInt(form.querySelector("[name=modifier]").value) || 0;
+              resolve({ difficulty, modifier });
+            }
+          },
+          cancel: {
+            icon: '<i class="fas fa-times"></i>',
+            label: game.i18n.localize("Cancel"),
+            callback: () => resolve(null)
+          }
+        },
+        default: "roll",
+        close: () => resolve(null)
+      });
+      dialog.render(true);
+    });
+  }
+
+  /**
    * Roll a d6 dice pool and count advances
    * @param {number} poolSize - Number of d6 to roll
    * @param {object} options - Additional options
@@ -59,15 +101,29 @@ export class GodComplexDice {
       return;
     }
 
-    const poolSize = attribute.value + (options.modifier || 0);
+    const basePoolSize = attribute.value;
+    const label = options.label || attributeName.charAt(0).toUpperCase() + attributeName.slice(1);
+
+    // Show roll dialog unless skipDialog is true
+    let dialogOptions = {};
+    if (!options.skipDialog) {
+      const dialogResult = await this.showRollDialog(label, basePoolSize);
+      if (!dialogResult) return; // User cancelled
+      dialogOptions = dialogResult;
+    }
+
+    const poolSize = basePoolSize + (dialogOptions.modifier || options.modifier || 0);
     console.log("God Complex Dice | Pool size:", poolSize);
     const result = await this.rollDicePool(poolSize, {
-      label: options.label || attributeName.charAt(0).toUpperCase() + attributeName.slice(1),
+      label,
       actorId: actor.id,
       attributeName
     });
 
-    await this._displayRollResult(actor, result, options);
+    await this._displayRollResult(actor, result, {
+      ...options,
+      difficulty: dialogOptions.difficulty || options.difficulty
+    });
     return result;
   }
 
@@ -79,7 +135,18 @@ export class GodComplexDice {
    */
   static async rollSkill(actor, skill, options = {}) {
     const attribute = actor.system.attributes[skill.system.attribute];
-    const poolSize = attribute.value + skill.system.bonus + (options.modifier || 0);
+    const basePoolSize = attribute.value + skill.system.bonus;
+    const label = skill.name;
+
+    // Show roll dialog unless skipDialog is true
+    let dialogOptions = {};
+    if (!options.skipDialog) {
+      const dialogResult = await this.showRollDialog(label, basePoolSize);
+      if (!dialogResult) return; // User cancelled
+      dialogOptions = dialogResult;
+    }
+
+    const poolSize = basePoolSize + (dialogOptions.modifier || options.modifier || 0);
     
     const result = await this.rollDicePool(poolSize, {
       label: skill.name,
@@ -91,7 +158,8 @@ export class GodComplexDice {
     await this._displayRollResult(actor, result, {
       ...options,
       skillName: skill.name,
-      specialty: skill.system.specialty
+      specialty: skill.system.specialty,
+      difficulty: dialogOptions.difficulty || options.difficulty
     });
     
     return result;
@@ -117,7 +185,18 @@ export class GodComplexDice {
     }
 
     const attribute = actor.system.attributes[power.system.attribute];
-    const poolSize = attribute.value + (options.modifier || 0);
+    const basePoolSize = attribute.value;
+    const label = power.name;
+
+    // Show roll dialog unless skipDialog is true
+    let dialogOptions = {};
+    if (!options.skipDialog) {
+      const dialogResult = await this.showRollDialog(label, basePoolSize);
+      if (!dialogResult) return; // User cancelled
+      dialogOptions = dialogResult;
+    }
+
+    const poolSize = basePoolSize + (dialogOptions.modifier || options.modifier || 0);
     
     const result = await this.rollDicePool(poolSize, {
       label: power.name,
@@ -138,7 +217,48 @@ export class GodComplexDice {
       ...options,
       powerName: power.name,
       glorieaCost: power.system.glorieaCost,
-      apCost: power.system.apCost
+      apCost: power.system.apCost,
+      difficulty: dialogOptions.difficulty || options.difficulty
+    });
+    
+    return result;
+  }
+
+  /**
+   * Roll a defensive stat (Fortitude, Evasion, Conviction, Willpower)
+   * @param {Actor} actor - The actor making the roll
+   * @param {string} statName - Name of the stat to roll
+   * @param {object} options - Additional options
+   */
+  static async rollDefensiveStat(actor, statName, options = {}) {
+    const statValue = actor.system.derived[statName]?.value;
+    if (statValue === undefined) {
+      ui.notifications.error(`Invalid defensive stat: ${statName}`);
+      return;
+    }
+
+    const label = statName.charAt(0).toUpperCase() + statName.slice(1);
+    
+    // Show roll dialog unless skipDialog is true
+    let dialogOptions = {};
+    if (!options.skipDialog) {
+      const dialogResult = await this.showRollDialog(label, statValue);
+      if (!dialogResult) return; // User cancelled
+      dialogOptions = dialogResult;
+    }
+
+    const poolSize = statValue + (dialogOptions.modifier || options.modifier || 0);
+    console.log("God Complex Dice | Defensive roll pool size:", poolSize);
+    
+    const result = await this.rollDicePool(poolSize, {
+      label,
+      actorId: actor.id,
+      statName
+    });
+
+    await this._displayRollResult(actor, result, {
+      ...options,
+      difficulty: dialogOptions.difficulty || options.difficulty
     });
     
     return result;
@@ -224,6 +344,9 @@ export class GodComplexDice {
         break;
       case "initiative":
         await this.rollInitiative(actor);
+        break;
+      case "defensive":
+        await this.rollDefensiveStat(actor, params[0]);
         break;
     }
   }

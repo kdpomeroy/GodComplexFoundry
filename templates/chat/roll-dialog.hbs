@@ -1,0 +1,32 @@
+<form class="godcomplex roll-dialog">
+  <div class="dialog-header">
+    <h3>{{localize "Roll"}} {{label}}</h3>
+    <p class="pool-info">{{localize "DicePool"}}: {{poolSize}}d6</p>
+  </div>
+
+  <div class="dialog-content">
+    <div class="form-group">
+      <label for="difficulty">{{localize "Difficulty"}} (CL)</label>
+      <select name="difficulty" id="difficulty">
+        <option value="0">{{localize "NoDifficulty"}}</option>
+        <option value="1">CL 1 - {{localize "Difficulties.Trivial"}}</option>
+        <option value="2">CL 2 - {{localize "Difficulties.Easy"}}</option>
+        <option value="3" selected>CL 3 - {{localize "Difficulties.Standard"}}</option>
+        <option value="4">CL 4 - {{localize "Difficulties.Hard"}}</option>
+        <option value="5">CL 5 - {{localize "Difficulties.VeryHard"}}</option>
+        <option value="6">CL 6 - {{localize "Difficulties.Legendary"}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="modifier">{{localize "Modifier"}}</label>
+      <input type="number" name="modifier" id="modifier" value="0" min="-10" max="10" />
+      <span class="hint">{{localize "ModifierHint"}}</span>
+    </div>
+  </div>
+
+  <div class="dialog-buttons">
+    <button type="button" class="dialog-button cancel">{{localize "Cancel"}}</button>
+    <button type="button" class="dialog-button roll">{{localize "Roll"}}</button>
+  </div>
+</form>
